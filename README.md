@@ -144,8 +144,11 @@ retailplay/prices.py    Yahoo chart API (1d / 1h / 15m), ET timestamps, ATR10
 retailplay/strategy.py  Params (all fixed a priori), build_signal(), position_size()
 retailplay/backtest.py  event-level simulation with stop/target/time exits and loss caps
 retailplay/weekly.py    weekly Retail #1 Fade pair (short #1 theme / long SPY or #2), ATR stop, 5-session hold
+retailplay/sentiment.py tone / warning-intensity / fear-vs-greed / imminence features from play text
+retailplay/book.py      multi-leg hedged book (S1 fade, LP persisting long, DR dropout short)
 scripts/run_backtest.py all variants -> results/*.json, results/summary.json
 scripts/run_weekly.py   weekly fade variants, all rolling phases -> results/weekly_summary.json
+scripts/run_book.py     book leg combinations -> results/book_summary.json
 scripts/make_plan.py    next-session plan from the newest available report
 data/retail_plays.json  parsed retail sections for all 98 reports (committed)
 ```
@@ -201,6 +204,72 @@ python scripts/run_weekly.py            # all variants, trade list for the SPY-h
 python scripts/make_plan.py --weekly    # this week's pair from the newest report
 ```
 
+## 9. Sentiment, momentum, dropouts: a combined book (and why most of it dissolves)
+
+`retailplay/sentiment.py` extracts, from the play text only: a lexicon tone score, the
+author's crowding-language intensity (`warn`: bubble / parabolic / fragile / euphoric per
+100 words), a fear-vs-greed theme class from the play name (gold, oil, defence, bonds,
+"short …" = fear; AI, crypto, squeezes, rotation = greed), kill-switch imminence, and the
+4-week move the report quotes. Facts first:
+
+- **The #1 play is never a retail-short theme** in this archive (83 of 83 are retail long).
+  Bearish themes ("Short Gold", "AI Short / Nvidia Put", "Short Bitcoin") only ever appear at
+  ranks 2–4 (7 cases) and retail lost on those too (−198 bp next week).
+- The "smart money view" field is formulaic ("institutional money is genuinely split")
+  and carries no signal. The author's **warning intensity does**: #1 plays in the top
+  `warn` tercile lost −218 bp the next week (25% hit) vs −10 bp in the bottom tercile.
+- **Theme class is the big splitter** (overlapping counts): #1 greed themes −247 bp next week
+  (18% hit, t = −4.1, both halves of the sample, every ticker but PLTR and MSFT); #1 fear
+  themes flat (+1 bp), with gold positive in August and negative in September.
+- Raw dropout stats (theme leaves the list → −92 bp next week; was #1 → −430 bp) and the
+  raw "#1 greed" numbers are **inflated by overlap**: the same collapsing name is counted on
+  every day it drops in and out (RKLB 9 times, MU 11, IBIT 13). Counting each event once
+  changes the answer, see below.
+
+`retailplay/book.py` trades the ideas as one hedged book: entries at the next open, one
+position per symbol, 10% notional each, 1.5 ATR stop, 5-session hold, 10 bp costs, SPY hedge
+sized daily to the net exposure. Legs: **S1** short the #1 theme when it is a greed theme;
+**LP** long the #2–#4 themes that were already listed the day before (persisting
+narratives), in retail's direction; **DR** short a greed theme that just dropped off the
+list. `scripts/run_book.py` runs the combinations:
+
+| Book | trades | total | max DD | Sharpe | H1 / H2 | S1 (n, bp/trade) | LP | DR |
+|---|---|---|---|---|---|---|---|---|
+| all three legs, hedged | 78 | −0.8% | −3.4% | −0.6 | −1.6% / +0.8% | 11, +15 | 28, +64 | 39, **−89** |
+| S1 only | 13 | −0.2% | −1.4% | −0.3 | −0.1% / −0.1% | 13, +35 | | |
+| S1 only, strong warning language | 5 | +0.2% | −0.5% | 0.7 | | 5, +111 | | |
+| LP only | 33 | +1.6% | −1.0% | 1.6 | +0.6% / +1.0% | | 33, +50 | |
+| LP only, 10-session hold | 21 | +4.6% | −1.3% | 3.4 | +0.5% / +4.1% | | 21, +200 | |
+| LP + S1, 10-session hold | 17 | +4.6% | −1.0% | 3.8 | +1.7% / +2.8% | 4 | 13 | |
+| DR only | 53 | −3.9% | −5.1% | −3.1 | −3.4% / −0.5% | | | 53, −92 |
+
+What survives and what does not:
+- **Dropout short: dead.** Once each dropout is traded once, the dropped names go *up*
+  (−60 bp for the short on the matched events, 17 of 53 trades stopped). The raw effect was
+  a handful of collapsing micro-caps counted many times.
+- **#1 greed fade: much smaller than it looked.** 13 non-overlapping trades, +35 bp each, no
+  stops hit, zero total. The −247 bp raw figure was one Bitcoin episode and one small-cap
+  episode counted a dozen times. Restricting to strong warning language gives +111 bp on 5
+  trades, which is not evidence.
+- **Persisting lower-rank long: the one leg left standing**, +50 bp per trade on 33 trades,
+  positive in both halves, drawdown −1%. But: it is almost entirely XLE (+194 bp × 7) and
+  GLD (+88 × 6), i.e. fear themes in a quarter when oil and gold trended; greed themes in the
+  same leg made −4 bp; rank 2 alone is negative (−43 bp) and ranks 3–4 carry it; requiring
+  2 or 3 days of persistence instead of 1 makes it *worse* (+19 / +22 bp), which is not what
+  a real persistence effect would do. The 10-session hold is the best cell and the smallest.
+- Stops help every leg (no-stop versions are worse); the hedge barely matters because the
+  book is small (average gross 15–30% of equity).
+
+Bottom line: the sentiment features are real descriptors of the text (and the greed/fear
+split plus warning intensity are the two worth keeping as filters), but the only thing in this
+section that would survive a sceptical reviewer is "do not own the #1 greed theme", and that
+is already the weekly fade from section 8. The momentum-continuation legs built on
+persistence and dropouts do not survive de-duplication on 98 reports.
+
+```bash
+python scripts/run_book.py      # all leg combinations -> results/book_*.json, results/book_summary.json
+```
+
 ## 7. What to do with this (summary)
 
 1. The briefing is a clean daily crowding signal available at 13:17 ET; trade it for the next
@@ -213,6 +282,9 @@ python scripts/make_plan.py --weekly    # this week's pair from the newest repor
    trades**, then re-evaluate with `run_backtest.py`.
 4. Gold-type trending names were the failure mode; a trend filter is the first thing to test
    out-of-sample.
-5. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
+5. Sentiment: the #1 is never a bearish theme; what matters is greed vs fear and how loudly
+   the author warns. Fade only greed #1s with strong warning language; never fade fear #1s.
+   Dropout shorts and persistence longs do not survive de-duplication.
+6. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
    this archive. The weekly trade is the fade (short #1 / long SPY, or long #2), with the same
    small-sample caveat (11 independent weeks).
