@@ -24,12 +24,46 @@ def next_session(d: dt.date, spy_daily) -> dt.date:
     return n
 
 
+def weekly_plan(a):
+    from retailplay.weekly import WeeklyParams
+    p = WeeklyParams()
+    rdate = dt.date.fromisoformat(a.date) if a.date else reports.latest_available_report()
+    sec = reports.parse_retail_section(reports.html_to_text(reports.fetch_report_html(rdate)), rdate)
+    today = dt.date.today()
+    spy_d = prices.daily_map(prices._fetch("SPY", "1d", rdate - dt.timedelta(days=45), today))
+    sess = next_session(rdate, spy_d)
+    p1 = sec.plays[0]
+    sym, rdir = map_play(p1.name)
+    print(f"Report used : {rdate}   #1 theme: {p1.name!r} -> {sym} (retail is {'LONG' if rdir>0 else 'SHORT'})")
+    print(f"Entry       : {sess} open.  Hold {p.hold} sessions, flat at the close of the {p.hold}th session.  Hedge: long SPY, equal notional.")
+    if sym is None or rdir == 0:
+        print("Untradeable theme this week: no trade."); return
+    d = prices.daily_map(prices._fetch(sym, "1d", rdate - dt.timedelta(days=45), today))
+    last = max(k for k in d if k <= rdate); pc = d[last][3]
+    atr = prices.atr_pct(d, last + dt.timedelta(days=1))
+    if atr is None or atr > p.max_atr:
+        print(f"ATR10 {atr} unavailable or > {p.max_atr:.0%}: no trade."); return
+    side = -rdir
+    notional = min(a.equity * p.risk_per_trade / (p.stop_atr * atr), a.equity * p.max_notional)
+    print(f"Prev close  : {pc:.2f} ({last})   ATR10 {atr:.2%}")
+    print(f"Short leg   : {'SHORT' if side<0 else 'LONG'} {sym} ~{int(notional/pc)} sh (~{notional:,.0f} notional, {notional/a.equity:.0%} of equity) at {sess} open")
+    print(f"Stop        : {p.stop_atr} x ATR = {p.stop_atr*atr:.2%} {'above' if side<0 else 'below'} entry, on daily high/low")
+    print(f"Hedge leg   : {'LONG' if side<0 else 'SHORT'} SPY, same notional, no stop, closed with the short leg")
+    print(f"Alternative : hedge with #2 theme {sec.plays[1].name!r} -> {map_play(sec.plays[1].name)[0]} (higher backtest return, less robust across phases)")
+    if p1.breaks:
+        print(f"Kill switch : {p1.breaks[:300].strip()}...")
+    print("Rules: one pair per week; never add to a loser; if the short leg stops out, close the hedge the same day; no re-entry that week.")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--equity", type=float, default=100_000)
     ap.add_argument("--date", type=str, default=None, help="report date to use (default: newest available)")
     ap.add_argument("--legs", type=str, default=None)
+    ap.add_argument("--weekly", action="store_true", help="print the weekly Retail #1 Fade pair instead of the intraday plan")
     a = ap.parse_args()
+    if a.weekly:
+        return weekly_plan(a)
     p = Params(legs=a.legs) if a.legs else Params()
     rdate = dt.date.fromisoformat(a.date) if a.date else reports.latest_available_report()
     html = reports.fetch_report_html(rdate)

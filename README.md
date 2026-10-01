@@ -143,9 +143,62 @@ retailplay/mapping.py   play name -> (ticker, retail direction), ordered regex r
 retailplay/prices.py    Yahoo chart API (1d / 1h / 15m), ET timestamps, ATR10
 retailplay/strategy.py  Params (all fixed a priori), build_signal(), position_size()
 retailplay/backtest.py  event-level simulation with stop/target/time exits and loss caps
+retailplay/weekly.py    weekly Retail #1 Fade pair (short #1 theme / long SPY or #2), ATR stop, 5-session hold
 scripts/run_backtest.py all variants -> results/*.json, results/summary.json
+scripts/run_weekly.py   weekly fade variants, all rolling phases -> results/weekly_summary.json
 scripts/make_plan.py    next-session plan from the newest available report
 data/retail_plays.json  parsed retail sections for all 98 reports (committed)
+```
+
+## 8. Weekly horizon: continuation does not exist, the fade does
+
+Tested after the intraday work (so treat it as a second, in-sample study on the same
+98 reports). Entry at the open of the first session after the report, signed in retail's
+direction, held 5 / 10 sessions, daily bars.
+
+| Long the theme in retail's direction | n | 5-session mean | hit | t |
+|---|---|---|---|---|
+| #1 play (all reports, overlapping) | 83 | **−112 bp** | 39% | −2.6 |
+| #1 play, excess vs SPY | 83 | **−139 bp** | 29% | −3.1 |
+| #1 play, ex-gold | 56 | −196 bp | 30% | −4.1 |
+| #2 play | 82 | +86 bp | 56% | +1.3 |
+| #3/#4 plays | 163 | +24 bp | 53% | +0.5 |
+| SPY over the same windows | 83 | +27 bp | 55% | |
+| long #2 minus long #1 (same report) | 82 | **+202 bp** | 65% | +2.4 |
+
+Conditioning that was supposed to find continuation found the opposite:
+- Prior week **and** month up in the theme → next week −97 bp (t = −2.2). A pullback inside
+  an uptrend (5d down, 20d up) → +70 bp / +136 bp over 5 / 10 sessions, i.e. the only
+  "buy" shape is a dip, not strength.
+- A **new** #1 theme (first day at #1) → −109 bp next week, −187 bp over two weeks. A #1 that
+  has held the slot 5+ days → every one of 12 cases negative (but those are one gold episode).
+- Themes that **drop out** of the list keep falling: −96 bp over the next week (n = 175).
+- Gold is the exception that proves the mechanism: it was #1 for weeks while trending up in
+  August (+61 bp/week as #1), then became the loser in September.
+
+Non-overlapping event-level backtest (`retailplay/weekly.py`, `scripts/run_weekly.py`):
+short the #1 theme at the first open after the newest report, one trade per week, 1.5 ATR
+stop on daily high/low, flat at the close of the 5th session, 10 bp round trip per leg,
+1% of equity at risk, hedge leg equal notional.
+
+| Variant | n | avg/week | hit | t | total | max DD |
+|---|---|---|---|---|---|---|
+| short #1, long SPY | 11 | +0.37% | 64% | 1.6 | +4.1% | −0.8% |
+| short #1, long #2 theme | 11 | +1.27% | 73% | 2.6 | +14.7% | −1.2% |
+| short #1, no hedge | 11 | +0.29% | 64% | 1.5 | +3.2% | −0.7% |
+| short #1, long SPY, ex-gold | 8 | +0.29% | 62% | 1.2 | +2.3% | −0.8% |
+| rolling 5-session schedule, SPY hedge, phases 0–4 | 10–13 each | +0.07% … +0.41% | 54–75% | 0.2–1.7 | all positive | ≤ −3.3% |
+| rolling, #2 hedge, phases 0–4 | 10–13 each | −0.32% … +1.04% | 45–58% | −0.6 … 2.2 | 2 of 5 negative | ≤ −8.5% |
+
+Reading: the sign is stable across every phase for the SPY-hedged fade, the ex-gold check
+holds, and no trade hit the stop on the weekly schedule. But 11 independent weeks is 11
+weeks; t ≈ 1.6 is not proof. The #2-hedged pair looks best on the Monday schedule and worst
+on two other phases, so its extra return is fragile. Going long the #1 theme for a week
+("continuation") is simply the negative of the short leg: about −0.85% per week.
+
+```bash
+python scripts/run_weekly.py            # all variants, trade list for the SPY-hedged version
+python scripts/make_plan.py --weekly    # this week's pair from the newest report
 ```
 
 ## 7. What to do with this (summary)
@@ -160,3 +213,6 @@ data/retail_plays.json  parsed retail sections for all 98 reports (committed)
    trades**, then re-evaluate with `run_backtest.py`.
 4. Gold-type trending names were the failure mode; a trend filter is the first thing to test
    out-of-sample.
+5. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
+   this archive. The weekly trade is the fade (short #1 / long SPY, or long #2), with the same
+   small-sample caveat (11 independent weeks).
