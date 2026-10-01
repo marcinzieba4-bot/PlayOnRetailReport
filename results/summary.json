@@ -1,0 +1,191 @@
+{
+ "default_extension_1h_rank12": {
+  "n": 37,
+  "hit": 0.5945945945945946,
+  "avg_ret_bp": 11.758130657434933,
+  "median_ret_bp": 8.662021937054787,
+  "avg_win_bp": 77.302511491038,
+  "avg_loss_bp": -84.37362789851625,
+  "t_stat": 0.706037757329081,
+  "profit_factor": 1.3437494591306558,
+  "total_return": 0.009146218273155649,
+  "max_drawdown": -0.024127545760687985,
+  "sharpe_daily": 1.1933842882807568,
+  "trading_days": 31,
+  "exits": {
+   "time": 19,
+   "target": 11,
+   "stop": 7
+  }
+ },
+ "default_extension_15m_rank12": {
+  "n": 35,
+  "hit": 0.6,
+  "avg_ret_bp": 11.92895901831749,
+  "median_ret_bp": 8.662021937054787,
+  "avg_win_bp": 77.89179811181631,
+  "avg_loss_bp": -87.01529962193074,
+  "t_stat": 0.6832933936884027,
+  "profit_factor": 1.3427259076894278,
+  "total_return": 0.010053241776537547,
+  "max_drawdown": -0.024099559729840014,
+  "sharpe_daily": 1.362078047139711,
+  "trading_days": 29,
+  "exits": {
+   "target": 11,
+   "time": 17,
+   "stop": 7
+  }
+ },
+ "both_legs_1h_rank12": {
+  "n": 72,
+  "hit": 0.5833333333333334,
+  "avg_ret_bp": 5.178893055204051,
+  "median_ret_bp": 8.627447678929979,
+  "avg_win_bp": 70.47482787953027,
+  "avg_loss_bp": -86.23541569885266,
+  "t_stat": 0.4642239518685375,
+  "profit_factor": 1.1441327003733002,
+  "total_return": 0.004175894062814489,
+  "max_drawdown": -0.025721289668016456,
+  "sharpe_daily": 0.3384753783731971,
+  "trading_days": 49,
+  "exits": {
+   "stop": 13,
+   "time": 37,
+   "target": 22
+  }
+ },
+ "crack_only_1h_rank12": {
+  "n": 35,
+  "hit": 0.5714285714285714,
+  "avg_ret_bp": -1.776300981440025,
+  "median_ret_bp": 8.59287342080517,
+  "avg_win_bp": 62.964375906871766,
+  "avg_loss_bp": -88.09720349918908,
+  "t_stat": -0.12141294031959463,
+  "profit_factor": 0.95295307767556,
+  "total_return": -0.004940074268973138,
+  "max_drawdown": -0.015612607644663212,
+  "sharpe_daily": -0.7725173705288886,
+  "trading_days": 28,
+  "exits": {
+   "stop": 6,
+   "time": 18,
+   "target": 11
+  }
+ },
+ "both_legs_1h_rank1": {
+  "n": 35,
+  "hit": 0.5714285714285714,
+  "avg_ret_bp": -6.69232143940901,
+  "median_ret_bp": 8.59287342080517,
+  "avg_win_bp": 64.97255000115088,
+  "avg_loss_bp": -102.24548336015552,
+  "t_stat": -0.41085577763369097,
+  "profit_factor": 0.8472752421058083,
+  "total_return": -0.011079319750541328,
+  "max_drawdown": -0.020702049084526775,
+  "sharpe_daily": -1.4725508775888496,
+  "trading_days": 35,
+  "exits": {
+   "stop": 8,
+   "target": 11,
+   "time": 16
+  }
+ },
+ "both_legs_1h_rank1234": {
+  "n": 134,
+  "hit": 0.5671641791044776,
+  "avg_ret_bp": 1.3874034688066055,
+  "median_ret_bp": 9.820520043412607,
+  "avg_win_bp": 69.89176544843546,
+  "avg_loss_bp": -88.37693291829329,
+  "t_stat": 0.15886951311765019,
+  "profit_factor": 1.0362694237295602,
+  "total_return": 0.008575166705115933,
+  "max_drawdown": -0.04378654873279486,
+  "sharpe_daily": 0.44384967278052534,
+  "trading_days": 59,
+  "exits": {
+   "stop": 22,
+   "time": 71,
+   "target": 41
+  }
+ },
+ "both_legs_nostop_1h": {
+  "n": 71,
+  "hit": 0.5915492957746479,
+  "avg_ret_bp": -2.654061495477405,
+  "median_ret_bp": 11.672455292659478,
+  "avg_win_bp": 70.88997842152334,
+  "avg_loss_bp": -109.16611930630607,
+  "t_stat": -0.19004999846341278,
+  "profit_factor": 0.9404771852556947,
+  "total_return": -0.007048801150833728,
+  "max_drawdown": -0.04336689257497628,
+  "sharpe_daily": -0.44677729331278193,
+  "trading_days": 49,
+  "exits": {
+   "time": 49,
+   "target": 22
+  }
+ },
+ "both_legs_tight_1h": {
+  "n": 72,
+  "hit": 0.5416666666666666,
+  "avg_ret_bp": 5.964112419397973,
+  "median_ret_bp": 6.051847088888729,
+  "avg_win_bp": 71.7614757639507,
+  "avg_loss_bp": -71.79640789689161,
+  "t_stat": 0.5868778901547043,
+  "profit_factor": 1.1812431749195282,
+  "total_return": 0.006000038937128416,
+  "max_drawdown": -0.031331362953102904,
+  "sharpe_daily": 0.3529502317468016,
+  "trading_days": 49,
+  "exits": {
+   "stop": 21,
+   "time": 29,
+   "target": 22
+  }
+ },
+ "both_legs_gap0.5_1h": {
+  "n": 42,
+  "hit": 0.5714285714285714,
+  "avg_ret_bp": 13.01657177783543,
+  "median_ret_bp": 5.259734982519526,
+  "avg_win_bp": 71.97462693813893,
+  "avg_loss_bp": -65.59416843590256,
+  "t_stat": 0.9331060346645197,
+  "profit_factor": 1.4630289786298352,
+  "total_return": 0.012022700538320885,
+  "max_drawdown": -0.013936550360618583,
+  "sharpe_daily": 1.5779024022208656,
+  "trading_days": 33,
+  "exits": {
+   "time": 28,
+   "stop": 6,
+   "target": 8
+  }
+ },
+ "extension_gap0.5_1h": {
+  "n": 25,
+  "hit": 0.64,
+  "avg_ret_bp": 33.92405718690705,
+  "median_ret_bp": 17.17444133519819,
+  "avg_win_bp": 86.17740996745907,
+  "avg_loss_bp": -58.97079220074097,
+  "t_stat": 1.7819923357463598,
+  "profit_factor": 2.5979689040817884,
+  "total_return": 0.02367294279642662,
+  "max_drawdown": -0.012542999076203265,
+  "sharpe_daily": 4.769910091569864,
+  "trading_days": 21,
+  "exits": {
+   "time": 15,
+   "target": 7,
+   "stop": 3
+  }
+ }
+}

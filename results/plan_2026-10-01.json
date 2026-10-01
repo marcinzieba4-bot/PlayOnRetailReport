@@ -1,0 +1,32 @@
+{
+ "report_date": "2026-09-30",
+ "session": "2026-10-01",
+ "generated_utc": "2026-10-01T14:39:25.674949+00:00",
+ "params": "Params(legs='extension', gap_atr=0.25, stop_atr=0.6, target_atr=1.0, risk_per_trade=0.005, max_trades_per_day=2, daily_loss_cap=0.01, weekly_loss_cap=0.025, max_atr=0.06, min_price=5.0, spy_panic_gap=-0.01, slippage_bps=5.0, notional_frac=0.0, entry_time=datetime.time(9, 30), exit_time=datetime.time(15, 55))",
+ "plan": [
+  {
+   "rank": 1,
+   "play": "Bitcoin (BTC)",
+   "symbol": "IBIT",
+   "retail_dir": 1,
+   "prev_close": 47.34000015258789,
+   "atr10": 0.030093263787165724,
+   "short_if_open_ge": 47.69615393065696,
+   "long_if_open_le": 46.98384637451882,
+   "stop_pct": 0.018055958272299433,
+   "target_pct_cap": 0.030093263787165724
+  },
+  {
+   "rank": 2,
+   "play": "Mega-Cap Tech / Nasdaq 100",
+   "symbol": "QQQ",
+   "retail_dir": 1,
+   "prev_close": 739.77001953125,
+   "atr10": 0.013419979414301859,
+   "short_if_open_ge": 742.2519441396067,
+   "long_if_open_le": 737.2880949228933,
+   "stop_pct": 0.008051987648581114,
+   "target_pct_cap": 0.013419979414301859
+  }
+ ]
+}

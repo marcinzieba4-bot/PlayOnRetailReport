@@ -1,0 +1,5 @@
+# raw caches (re-created by the scripts)
+data/reports/
+data/prices/
+__pycache__/
+*.pyc

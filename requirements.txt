@@ -1,0 +1,1 @@
+# Standard library only (Python >= 3.9 for zoneinfo). `curl` must be on PATH.
