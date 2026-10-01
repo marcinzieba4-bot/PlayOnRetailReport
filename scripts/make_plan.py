@@ -55,15 +55,67 @@ def weekly_plan(a):
     print("Rules: one pair per week; never add to a loser; if the short leg stops out, close the hedge the same day; no re-entry that week.")
 
 
+def ls_plan(a):
+    import dataclasses
+    from retailplay.book import BookParams
+    from retailplay.sentiment import features
+    p = BookParams(leg_s1=True, leg_lp=True, leg_dr=False, hedge=True, size_mode="vol", risk_per_atr=0.004, max_notional=0.25,
+                   stop_atr=1.5, hold=5, gross_cap=1.0, daily_loss_halt=0.015, dd_halve=0.06, dd_stop=0.10, s1_fear_scale=0.5)
+    rdate = dt.date.fromisoformat(a.date) if a.date else reports.latest_available_report()
+    sec = reports.parse_retail_section(reports.html_to_text(reports.fetch_report_html(rdate)), rdate)
+    try:
+        prev = reports.parse_retail_section(reports.html_to_text(reports.fetch_report_html(rdate - dt.timedelta(days=1))), rdate - dt.timedelta(days=1))
+        prev_syms = {map_play(q.name)[0] for q in prev.plays}
+    except Exception:
+        prev_syms = set()
+    today = dt.date.today()
+    spy_d = prices.daily_map(prices._fetch("SPY", "1d", rdate - dt.timedelta(days=45), today))
+    sess = next_session(rdate, spy_d)
+    print(f"Report used : {rdate}   orders for the {sess} open   equity {a.equity:,.0f}")
+    print(f"Risk rules  : 1 ATR move = {p.risk_per_atr:.1%} of equity (cap {p.max_notional:.0%}/name) | stop {p.stop_atr} ATR | hold {p.hold} sessions | gross cap {p.gross_cap:.0%} | "
+          f"daily halt {p.daily_loss_halt:.1%} | size halved beyond {p.dd_halve:.0%} DD, no entries beyond {p.dd_stop:.0%} DD | SPY hedge to net zero")
+    orders = []
+    for q in sec.plays:
+        sym, rdir = map_play(q.name)
+        if not sym or not rdir:
+            print(f"  #{q.rank} {q.name!r}: untradeable, skip"); continue
+        f = features(dataclasses.asdict(q))
+        leg, side, scale = None, 0, 1.0
+        if q.rank == 1:
+            leg, side, scale = "S1 short #1", -rdir, (1.0 if f["fear_theme"] == 0 else p.s1_fear_scale)
+        elif q.rank in p.lp_ranks and sym in prev_syms:
+            leg, side = "LP long persisting", rdir
+        if leg is None:
+            print(f"  #{q.rank} {q.name!r} -> {sym}: new theme at rank {q.rank}, no order"); continue
+        d = prices.daily_map(prices._fetch(sym, "1d", rdate - dt.timedelta(days=45), today))
+        last = max(k for k in d if k <= rdate); pc = d[last][3]
+        atr = prices.atr_pct(d, last + dt.timedelta(days=1))
+        if atr is None or atr > p.max_atr or pc < p.min_price:
+            print(f"  #{q.rank} {q.name!r} -> {sym}: ATR {atr} out of bounds, skip"); continue
+        notional = min(a.equity * p.risk_per_atr / atr, a.equity * p.max_notional) * scale
+        qty = int(notional / pc)
+        theme = "greed" if f["fear_theme"] == 0 else "fear"
+        print(f"  #{q.rank} {leg:20s} {sym:5s} {'SELL' if side<0 else 'BUY'} ~{qty} sh (~{notional:,.0f}, {notional/a.equity:.0%} eq) at open | ref close {pc:.2f} | ATR10 {atr:.2%} | "
+              f"stop {p.stop_atr*atr:.2%} {'above' if side<0 else 'below'} entry | exit close of session 5 | theme={theme} warn={f['warn']:.2f}")
+        orders.append(dict(rank=q.rank, leg=leg, symbol=sym, side=side, qty=qty, notional=notional, ref_close=pc, atr=atr, stop_pct=p.stop_atr * atr))
+    net = sum(o["side"] * o["notional"] for o in orders)
+    print(f"  HEDGE: {'BUY' if net<0 else 'SELL'} SPY ~{abs(net):,.0f} notional (book net {net/a.equity:+.0%} before hedge); re-size at every close.")
+    os.makedirs("results", exist_ok=True)
+    json.dump({"report_date": rdate.isoformat(), "session": sess.isoformat(), "orders": orders, "hedge_notional": -net}, open(f"results/ls_plan_{sess.isoformat()}.json", "w"), indent=1)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--equity", type=float, default=100_000)
     ap.add_argument("--date", type=str, default=None, help="report date to use (default: newest available)")
     ap.add_argument("--legs", type=str, default=None)
     ap.add_argument("--weekly", action="store_true", help="print the weekly Retail #1 Fade pair instead of the intraday plan")
+    ap.add_argument("--ls", action="store_true", help="print the Narrative Long/Short orders (section 10 of the README)")
     a = ap.parse_args()
     if a.weekly:
         return weekly_plan(a)
+    if a.ls:
+        return ls_plan(a)
     p = Params(legs=a.legs) if a.legs else Params()
     rdate = dt.date.fromisoformat(a.date) if a.date else reports.latest_available_report()
     html = reports.fetch_report_html(rdate)

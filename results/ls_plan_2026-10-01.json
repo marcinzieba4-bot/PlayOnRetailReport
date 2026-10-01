@@ -1,0 +1,29 @@
+{
+ "report_date": "2026-09-30",
+ "session": "2026-10-01",
+ "orders": [
+  {
+   "rank": 1,
+   "leg": "S1 short #1",
+   "symbol": "IBIT",
+   "side": -1,
+   "qty": 280,
+   "notional": 13292.011223142681,
+   "ref_close": 47.34000015258789,
+   "atr": 0.030093263787165724,
+   "stop_pct": 0.04513989568074858
+  },
+  {
+   "rank": 3,
+   "leg": "LP long persisting",
+   "symbol": "XLE",
+   "side": 1,
+   "qty": 376,
+   "notional": 23125.1727792297,
+   "ref_close": 61.5,
+   "atr": 0.017297168060913578,
+   "stop_pct": 0.025945752091370365
+  }
+ ],
+ "hedge_notional": -9833.161556087018
+}

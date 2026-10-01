@@ -149,6 +149,7 @@ retailplay/book.py      multi-leg hedged book (S1 fade, LP persisting long, DR d
 scripts/run_backtest.py all variants -> results/*.json, results/summary.json
 scripts/run_weekly.py   weekly fade variants, all rolling phases -> results/weekly_summary.json
 scripts/run_book.py     book leg combinations -> results/book_summary.json
+scripts/run_ls.py       long/short with risk rules -> results/ls_risk_report.json
 scripts/make_plan.py    next-session plan from the newest available report
 data/retail_plays.json  parsed retail sections for all 98 reports (committed)
 ```
@@ -270,6 +271,73 @@ persistence and dropouts do not survive de-duplication on 98 reports.
 python scripts/run_book.py      # all leg combinations -> results/book_*.json, results/book_summary.json
 ```
 
+## 10. Narrative Long/Short with portfolio risk management
+
+The book that puts the surviving pieces together (`scripts/run_ls.py`, engine in
+`retailplay/book.py`, config `LS_base`):
+
+**Positions**
+- Short the #1 theme at the next open after the newest report, opposite to retail. Full size
+  if it is a greed theme, half size if it is a fear theme (gold, oil, defence, bonds).
+- Long the #2–#4 themes that were already listed the day before, in retail's direction.
+- SPY hedge resized every close to the book's net dollar exposure.
+- One position per symbol, 5-session hold, entries only when a slot is free.
+
+**Risk rules (all enforced in the simulation)**
+| Rule | Setting |
+|---|---|
+| Position sizing | volatility-targeted: one ATR10 move = 0.4% of equity, cap 25% of equity per name |
+| Stop | 1.5 × ATR10 on daily high/low, gap-through filled at the open |
+| Time exit | close of the 5th session |
+| Gross cap | 100% of equity in theme positions (hedge excluded) |
+| Daily loss halt | −1.5% day → liquidate at the close, no new entries for the rest of the ISO week |
+| Drawdown de-risk | size halved beyond −6% from peak, no new entries beyond −10% |
+| Costs | 10 bp round trip per position, 2 bp on hedge changes |
+| Skips | ATR10 > 6%, price < $5, untradeable themes |
+
+**Risk statistics, 2026-06-26 → 2026-09-30 (67 sessions, $100k)**
+
+| metric | LS_base | greed-only short | 10-day hold | short leg only | long leg only | no hedge | no risk rules | 2× risk |
+|---|---|---|---|---|---|---|---|---|
+| total return | +2.70% | +3.67% | +5.20% | +0.45% | +3.59% | +2.39% | +2.00% | +2.00% |
+| annualised vol | 5.7% | 6.5% | 6.3% | 3.7% | 6.4% | 6.3% | 5.8% | 9.5% |
+| Sharpe | 1.77 | 2.11 | 3.06 | 0.48 | 2.09 | 1.45 | 1.32 | 0.83 |
+| Sortino | 2.92 | 3.14 | 5.59 | 0.65 | 3.17 | 2.42 | 2.03 | 1.29 |
+| max drawdown | −1.49% | −2.04% | −1.33% | −1.37% | −2.17% | −1.52% | −1.54% | −2.69% |
+| longest drawdown | 19 d | 13 d | 14 d | 56 d | 12 d | 28 d | 19 d | 20 d |
+| worst day / week | −0.78% / −0.68% | −1.36% / −0.97% | −0.70% / −0.72% | −0.58% / −0.56% | −1.15% / −0.69% | −0.85% / −0.93% | −0.89% / −1.10% | −1.30% / −0.87% |
+| daily VaR 95 / CVaR 95 | −0.57% / −0.68% | −0.70% / −1.02% | −0.57% / −0.65% | −0.39% / −0.52% | −0.62% / −0.96% | −0.61% / −0.73% | −0.57% / −0.77% | −0.89% / −1.22% |
+| skew | +0.51 | −0.36 | +0.67 | −0.36 | −0.14 | +0.74 | +0.25 | +0.53 |
+| beta / corr to SPY | 0.00 / 0.00 | −0.18 / −0.31 | 0.00 / −0.01 | 0.00 / 0.00 | −0.15 / −0.25 | 0.04 / 0.08 | −0.04 / −0.07 | 0.08 / 0.10 |
+| avg / max gross | 45% / 90% | 44% / 79% | 62% / 101% | 18% / 55% | 35% / 78% | 45% / 90% | 46% / 89% | 64% / 102% |
+| avg / max abs net | 5% / 55% | 15% / 78% | 10% / 69% | −18% / 55% | 29% / 78% | 5% / 55% | 7% / 67% | −1% / 88% |
+| trades / stops / halts | 51 / 10 / 0 | 43 / 7 / 0 | 30 / 10 / 0 | 26 / 5 / 0 | 33 / 7 / 0 | 51 / 10 / 0 | 47 / 0 / 0 | 47 / 10 / 0 |
+| H1 / H2 return | +1.2% / +1.5% | +0.7% / +3.0% | +1.1% / +4.0% | −0.1% / +0.6% | +0.6% / +3.0% | +0.4% / +2.0% | +1.1% / +0.9% | +1.7% / +0.3% |
+
+SPY returned +4.6% over the same window. Leg attribution for `LS_base`: short leg 24
+trades, −18 bp average but +0.70% of equity (the vol sizing gave the winners more weight);
+long leg 27 trades, +33 bp average, +2.27% of equity; hedge +0.30%.
+
+**How to read this**
+- The book does what a risk framework should: zero beta, zero correlation to SPY, positive
+  skew, worst day under 1%, maximum drawdown 1.5% with 45% average gross. The daily halt and
+  drawdown rules never triggered, so they are untested insurance, not a source of return.
+- The return itself is small and the sample is tiny: +2.7% in 67 sessions. A Sharpe measured
+  over a quarter of a year has a standard error of about ±2, so "1.8" and "0.5" are not
+  distinguishable from each other or from zero. Both halves are positive, which is the best
+  that can be said.
+- Removing the stops costs little here (no stops → Sharpe 1.3) because no big adverse move
+  hit the book; doubling risk halves the Sharpe (0.8) because the bigger positions sit in the
+  noisiest names. Keep the size as is.
+- The long leg carries the P&L and it is mostly XLE and GLD trending in Q3 (section 9). The
+  short leg is flat on average: it earns its place as the hedge against the long leg's theme
+  exposure, not as alpha.
+
+```bash
+python scripts/run_ls.py            # all configurations + full risk table + weekly equity path
+python scripts/make_plan.py --ls    # today's L/S orders from the newest report
+```
+
 ## 7. What to do with this (summary)
 
 1. The briefing is a clean daily crowding signal available at 13:17 ET; trade it for the next
@@ -285,6 +353,9 @@ python scripts/run_book.py      # all leg combinations -> results/book_*.json, r
 5. Sentiment: the #1 is never a bearish theme; what matters is greed vs fear and how loudly
    the author warns. Fade only greed #1s with strong warning language; never fade fear #1s.
    Dropout shorts and persistence longs do not survive de-duplication.
-6. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
+6. The assembled long/short (short #1, long persisting #2–#4, SPY-hedged, vol-sized, 1.5 ATR
+   stops, daily halt, drawdown de-risk) ran at Sharpe 1.8, max drawdown 1.5%, zero beta over
+   67 sessions. Those risk numbers are the deliverable; the return is not yet evidence.
+7. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
    this archive. The weekly trade is the fade (short #1 / long SPY, or long #2), with the same
    small-sample caveat (11 independent weeks).
