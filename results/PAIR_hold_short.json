@@ -1,0 +1,7490 @@
+{
+ "equity0": 100000.0,
+ "equity": 118403.90015082661,
+ "trades": [
+  {
+   "leg": "P_M1",
+   "sym": "SLV/XLK/XLC/XLE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9839156378464083,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.016084362153591616,
+   "entry_day": "2025-12-02",
+   "exit_day": "2025-12-08",
+   "play": "long SLV (#1) / short XLK+XLC+XLE",
+   "pnl": -182.63538360595703,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLF/XLK/XLC/XLE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.000538657047125,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.0005386570471251877,
+   "entry_day": "2025-12-02",
+   "exit_day": "2025-12-08",
+   "play": "long XLF (Bullish) / short XLK+XLC+XLE",
+   "pnl": 30.05445098876953,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLV/XLK/XLC/XLE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9666596318590852,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.03334036814091478,
+   "entry_day": "2025-12-02",
+   "exit_day": "2025-12-08",
+   "play": "long XLV (Bullish) / short XLK+XLC+XLE",
+   "pnl": -643.6356811523438,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLB/XLK/XLC/XLE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9644498860028201,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.03555011399717984,
+   "entry_day": "2025-12-02",
+   "exit_day": "2025-12-08",
+   "play": "long XLB (Bullish) / short XLK+XLC+XLE",
+   "pnl": -691.0750846862793,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M1",
+   "sym": "SLV/XLP",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0528264907144902,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.05282649071449027,
+   "entry_day": "2025-12-09",
+   "exit_day": "2025-12-15",
+   "play": "long SLV (#1) / short XLP",
+   "pnl": 662.561279296875,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLF/XLP",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0055201971286296,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.005520197128629681,
+   "entry_day": "2025-12-09",
+   "exit_day": "2025-12-15",
+   "play": "long XLF (Bullish) / short XLP",
+   "pnl": 128.51161575317383,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLV/XLP",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0046143766214097,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.004614376621409758,
+   "entry_day": "2025-12-09",
+   "exit_day": "2025-12-15",
+   "play": "long XLV (Bullish) / short XLP",
+   "pnl": 110.581787109375,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "SOXX/XLP",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9284669870593837,
+   "stop": 0.0,
+   "exit_reason": "stop",
+   "ret": -0.07153301294061634,
+   "entry_day": "2025-12-09",
+   "exit_day": "2025-12-15",
+   "play": "long SOXX (Bullish) / short XLP",
+   "pnl": -1005.7384948730469,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M1",
+   "sym": "SLV/XLE/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.1113029873543998,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.1113029873543999,
+   "entry_day": "2025-12-16",
+   "exit_day": "2025-12-22",
+   "play": "long SLV (#1) / short XLE+XLRE",
+   "pnl": 1259.641227722168,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLF/XLE/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0202616745256785,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.0202616745256786,
+   "entry_day": "2025-12-16",
+   "exit_day": "2025-12-22",
+   "play": "long XLF (Bullish) / short XLE+XLRE",
+   "pnl": 416.48067474365234,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLI/XLE/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0164418741663117,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.016441874166311744,
+   "entry_day": "2025-12-16",
+   "exit_day": "2025-12-22",
+   "play": "long XLI (Bullish) / short XLE+XLRE",
+   "pnl": 341.8007278442383,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M3",
+   "sym": "MU/XLE/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.2426958436660618,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.24269584366606176,
+   "entry_day": "2025-12-16",
+   "exit_day": "2025-12-30",
+   "play": "long MU (\u2191 catalyst) / short XLE+XLRE",
+   "pnl": 1788.3605461120605,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M1",
+   "sym": "SLV/XLE/XLP/XLU",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0626185517507338,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.06261855175073373,
+   "entry_day": "2025-12-23",
+   "exit_day": "2025-12-30",
+   "play": "long SLV (#1) / short XLE+XLP+XLU",
+   "pnl": 698.0005416870117,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLF/XLE/XLP/XLU",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9863850026242995,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.013614997375700471,
+   "entry_day": "2025-12-23",
+   "exit_day": "2025-12-30",
+   "play": "long XLF (Bullish) / short XLE+XLP+XLU",
+   "pnl": -256.01037216186523,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLI/XLE/XLP/XLU",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9848919826538538,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.01510801734614623,
+   "entry_day": "2025-12-23",
+   "exit_day": "2025-12-30",
+   "play": "long XLI (Bullish) / short XLE+XLP+XLU",
+   "pnl": -285.70076751708984,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M1",
+   "sym": "SLV/XLE/XLP/XLU",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.112761754949844,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.11276175494984407,
+   "entry_day": "2025-12-31",
+   "exit_day": "2026-01-07",
+   "play": "long SLV (#1) / short XLE+XLP+XLU",
+   "pnl": 945.7095909118652,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLK/XLE/XLP/XLU",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0176035503782503,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.01760355037825035,
+   "entry_day": "2025-12-31",
+   "exit_day": "2026-01-07",
+   "play": "long XLK (Bullish) / short XLE+XLP+XLU",
+   "pnl": 376.7687187194824,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLF/XLE/XLP/XLU",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0189629031366547,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.018962903136654753,
+   "entry_day": "2025-12-31",
+   "exit_day": "2026-01-07",
+   "play": "long XLF (Bullish) / short XLE+XLP+XLU",
+   "pnl": 406.6995964050293,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLB/XLE/XLP/XLU",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0353448275543113,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.035344827554311425,
+   "entry_day": "2025-12-31",
+   "exit_day": "2026-01-07",
+   "play": "long XLB (Bullish) / short XLE+XLP+XLU",
+   "pnl": 741.0796852111816,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M1",
+   "sym": "SLV/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0955893288271568,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.09558932882715682,
+   "entry_day": "2026-01-15",
+   "exit_day": "2026-01-22",
+   "play": "long SLV (#1) / short XLY+XLRE",
+   "pnl": 638.9903335571289,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLK/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9908791729185302,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.009120827081469786,
+   "entry_day": "2026-01-15",
+   "exit_day": "2026-01-22",
+   "play": "long XLK (Bullish) / short XLY+XLRE",
+   "pnl": -169.69788360595703,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLC/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9985123765807413,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.0014876234192587176,
+   "entry_day": "2026-01-15",
+   "exit_day": "2026-01-22",
+   "play": "long XLC (Bullish) / short XLY+XLRE",
+   "pnl": -10.319236755371094,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLI/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0074446455729211,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.007444645572921101,
+   "entry_day": "2026-01-15",
+   "exit_day": "2026-01-22",
+   "play": "long XLI (Bullish) / short XLY+XLRE",
+   "pnl": 175.57946014404297,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M1",
+   "sym": "MU/XLC/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0428603582201716,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.042860358220171556,
+   "entry_day": "2026-01-23",
+   "exit_day": "2026-01-29",
+   "play": "long MU (#1) / short XLC+XLRE",
+   "pnl": 338.2105255126953,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLE/XLC/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9998950860540379,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.00010491394596214776,
+   "entry_day": "2026-01-23",
+   "exit_day": "2026-01-29",
+   "play": "long XLE (Bullish) / short XLC+XLRE",
+   "pnl": 19.049537658691406,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLV/XLC/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9547799455837482,
+   "stop": 0.0,
+   "exit_reason": "stop",
+   "ret": -0.045220054416251806,
+   "entry_day": "2026-01-23",
+   "exit_day": "2026-01-29",
+   "play": "long XLV (Bullish) / short XLC+XLRE",
+   "pnl": -921.1190032958984,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "SOXX/XLC/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0165263232048543,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.016526323204854147,
+   "entry_day": "2026-01-23",
+   "exit_day": "2026-01-29",
+   "play": "long SOXX (Bullish) / short XLC+XLRE",
+   "pnl": 282.2799835205078,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLI/XLY",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0214948895965692,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.021494889596569262,
+   "entry_day": "2026-02-10",
+   "exit_day": "2026-02-17",
+   "play": "long XLI (Bullish) / short XLY",
+   "pnl": 468.8396301269531,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLP/XLY",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0235512965081404,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.023551296508140352,
+   "entry_day": "2026-02-10",
+   "exit_day": "2026-02-17",
+   "play": "long XLP (Bullish) / short XLY",
+   "pnl": 512.3690490722656,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLB/XLY",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0252456773044665,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.025245677304466512,
+   "entry_day": "2026-02-10",
+   "exit_day": "2026-02-17",
+   "play": "long XLB (Bullish) / short XLY",
+   "pnl": 508.489933013916,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M3",
+   "sym": "GOOGL/XLY",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9824743531914684,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.017525646808531633,
+   "entry_day": "2026-02-10",
+   "exit_day": "2026-02-24",
+   "play": "long GOOGL (\u2191 catalyst) / short XLY",
+   "pnl": -192.0495147705078,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLI/XLC/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0014695036763896,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.001469503676389555,
+   "entry_day": "2026-02-18",
+   "exit_day": "2026-02-24",
+   "play": "long XLI (Bullish) / short XLC+XLY+XLRE",
+   "pnl": 52.0888671875,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLB/XLC/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9979886425270434,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.002011357472956503,
+   "entry_day": "2026-02-18",
+   "exit_day": "2026-02-24",
+   "play": "long XLB (Bullish) / short XLC+XLY+XLRE",
+   "pnl": -16.789825439453125,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "SOXX/XLC/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0028774775326466,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.0028774775326464545,
+   "entry_day": "2026-02-18",
+   "exit_day": "2026-02-24",
+   "play": "long SOXX (Bullish) / short XLC+XLY+XLRE",
+   "pnl": 46.69000244140625,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M1",
+   "sym": "TSLA/XLC/XLF/XLY",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.955828052654875,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.04417194734512496,
+   "entry_day": "2026-02-25",
+   "exit_day": "2026-03-03",
+   "play": "long TSLA (#1) / short XLC+XLF+XLY",
+   "pnl": -547.8093528747559,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLE/XLC/XLF/XLY",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0240741824878004,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.024074182487800366,
+   "entry_day": "2026-02-25",
+   "exit_day": "2026-03-03",
+   "play": "long XLE (Bullish) / short XLC+XLF+XLY",
+   "pnl": 527.1111488342285,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLI/XLC/XLF/XLY",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9900975374862058,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.009902462513794251,
+   "entry_day": "2026-02-25",
+   "exit_day": "2026-03-03",
+   "play": "long XLI (Bullish) / short XLC+XLF+XLY",
+   "pnl": -186.64873886108398,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "SOXX/XLC/XLF/XLY",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9169609861904862,
+   "stop": 0.0,
+   "exit_reason": "stop",
+   "ret": -0.08303901380951383,
+   "entry_day": "2026-02-25",
+   "exit_day": "2026-03-03",
+   "play": "long SOXX (Bullish) / short XLC+XLF+XLY",
+   "pnl": -1350.3899192810059,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLC/XLY",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.001367248947829,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.0013672489478290125,
+   "entry_day": "2026-03-04",
+   "exit_day": "2026-03-10",
+   "play": "long XLC (Bullish) / short XLY",
+   "pnl": 48.74900817871094,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLE/XLY",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9971013173916259,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.002898682608374101,
+   "entry_day": "2026-03-04",
+   "exit_day": "2026-03-10",
+   "play": "long XLE (Bullish) / short XLY",
+   "pnl": -33.882049560546875,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLI/XLY",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9689046239158087,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.031095376084191342,
+   "entry_day": "2026-03-04",
+   "exit_day": "2026-03-10",
+   "play": "long XLI (Bullish) / short XLY",
+   "pnl": -621.2708129882812,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M3",
+   "sym": "DELL/XLY",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.101894919318929,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.10189491931892888,
+   "entry_day": "2026-03-04",
+   "exit_day": "2026-03-17",
+   "play": "long DELL (\u2191 catalyst) / short XLY",
+   "pnl": 638.2190551757812,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M1",
+   "sym": "RSP/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0016522600439801,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.0016522600439800815,
+   "entry_day": "2026-03-11",
+   "exit_day": "2026-03-17",
+   "play": "long RSP (#1) / short XLY+XLRE",
+   "pnl": 54.210731506347656,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLK/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0008537793444499,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.0008537793444497803,
+   "entry_day": "2026-03-11",
+   "exit_day": "2026-03-17",
+   "play": "long XLK (Bullish) / short XLY+XLRE",
+   "pnl": 32.36884307861328,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLP/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9965771220876611,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.00342287791233881,
+   "entry_day": "2026-03-11",
+   "exit_day": "2026-03-17",
+   "play": "long XLP (Bullish) / short XLY+XLRE",
+   "pnl": -49.951622009277344,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M1",
+   "sym": "MU/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9819779522911741,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.0180220477088259,
+   "entry_day": "2026-03-18",
+   "exit_day": "2026-03-24",
+   "play": "long MU (#1) / short XLY+XLRE",
+   "pnl": -96.45057678222656,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLK/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0181119985283373,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.018111998528337416,
+   "entry_day": "2026-03-18",
+   "exit_day": "2026-03-24",
+   "play": "long XLK (Bullish) / short XLY+XLRE",
+   "pnl": 367.4590606689453,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLE/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0738375630358572,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.07383756303585731,
+   "entry_day": "2026-03-18",
+   "exit_day": "2026-03-24",
+   "play": "long XLE (Bullish) / short XLY+XLRE",
+   "pnl": 1538.5390319824219,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_M2",
+   "sym": "XLI/XLY/XLRE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0252791497603573,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.025279149760357306,
+   "entry_day": "2026-03-18",
+   "exit_day": "2026-03-24",
+   "play": "long XLI (Bullish) / short XLY+XLRE",
+   "pnl": 536.6297912597656,
+   "mode": "MOMENTUM"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "META/NVDA",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.8912550344594282,
+   "stop": 0.0,
+   "exit_reason": "stop",
+   "ret": -0.10874496554057178,
+   "entry_day": "2026-05-05",
+   "exit_day": "2026-05-11",
+   "play": "long META (\u2193 catalyst) / short NVDA (#1)",
+   "pnl": -1520.6102447509766,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "GME/QQQ",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.8562513254967394,
+   "stop": 0.0,
+   "exit_reason": "stop",
+   "ret": -0.14374867450326054,
+   "entry_day": "2026-05-06",
+   "exit_day": "2026-05-11",
+   "play": "long GME (persisting #3/#4) / short QQQ (#1)",
+   "pnl": -1138.198184967041,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "IBIT/QQQ",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.955262376513979,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.044737623486020964,
+   "entry_day": "2026-05-07",
+   "exit_day": "2026-05-13",
+   "play": "long IBIT (persisting #3/#4) / short QQQ (#1)",
+   "pnl": -840.0201416015625,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "PLTR/QQQ",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9046256307801486,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.09537436921985143,
+   "entry_day": "2026-05-07",
+   "exit_day": "2026-05-13",
+   "play": "long PLTR (persisting #3/#4) / short QQQ (#1)",
+   "pnl": -874.2203521728516,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "ON/QQQ",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9753621634157977,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.024637836584202245,
+   "entry_day": "2026-05-06",
+   "exit_day": "2026-05-19",
+   "play": "long ON (\u2193 catalyst) / short QQQ (#1)",
+   "pnl": -167.700439453125,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "XLE/QQQ",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0799943859897396,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.07999438598973968,
+   "entry_day": "2026-05-13",
+   "exit_day": "2026-05-19",
+   "play": "long XLE (persisting #3/#4) / short QQQ (#1)",
+   "pnl": 1305.6397094726562,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "QQQ/QQQ",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9990020569963242,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.000997943003675843,
+   "entry_day": "2026-05-14",
+   "exit_day": "2026-05-20",
+   "play": "long QQQ (persisting #3/#4) / short QQQ (#1)",
+   "pnl": 0.0,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "COIN/QQQ",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.8196927217964505,
+   "stop": 0.0,
+   "exit_reason": "stop",
+   "ret": -0.18030727820354958,
+   "entry_day": "2026-05-14",
+   "exit_day": "2026-05-26",
+   "play": "long COIN (\u2193 catalyst) / short QQQ (#1)",
+   "pnl": -1075.6811218261719,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "WMT/NVDA",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9203859319131764,
+   "stop": 0.0,
+   "exit_reason": "stop",
+   "ret": -0.07961406808682357,
+   "entry_day": "2026-05-26",
+   "exit_day": "2026-06-01",
+   "play": "long WMT (\u2193 catalyst) / short NVDA (#1)",
+   "pnl": -1045.2607879638672,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "QQQ/NVDA",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0098963319087793,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.009896331908779208,
+   "entry_day": "2026-06-02",
+   "exit_day": "2026-06-08",
+   "play": "long QQQ (persisting #3/#4) / short NVDA (#1)",
+   "pnl": 102.66961669921875,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "GME/IWM",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9844352003124482,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.015564799687551742,
+   "entry_day": "2026-07-02",
+   "exit_day": "2026-07-16",
+   "play": "long GME (\u2193 catalyst) / short IWM (#1)",
+   "pnl": -213.6291446685791,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "OXY/IWM",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.1274491199991652,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.12744911999916525,
+   "entry_day": "2026-07-02",
+   "exit_day": "2026-07-16",
+   "play": "long OXY (\u2193 catalyst) / short IWM (#1)",
+   "pnl": 1993.9017333984375,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "XLE/IBIT",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.019777272101889,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.019777272101889065,
+   "entry_day": "2026-07-21",
+   "exit_day": "2026-07-27",
+   "play": "long XLE (persisting #3/#4) / short IBIT (#1)",
+   "pnl": 394.04030990600586,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "NFLX/IWM",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0717482475509534,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.07174824755095337,
+   "entry_day": "2026-07-20",
+   "exit_day": "2026-07-31",
+   "play": "long NFLX (\u2193 catalyst) / short IWM (#1)",
+   "pnl": 804.8697357177734,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "TSM/IWM",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0164831459072006,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.01648314590720054,
+   "entry_day": "2026-07-20",
+   "exit_day": "2026-07-31",
+   "play": "long TSM (\u2193 catalyst) / short IWM (#1)",
+   "pnl": 176.0400390625,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "GOOGL/IBIT",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.1067910143808783,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.10679101438087835,
+   "entry_day": "2026-07-22",
+   "exit_day": "2026-08-04",
+   "play": "long GOOGL (\u2193 catalyst) / short IBIT (#1)",
+   "pnl": 1389.8104782104492,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "ASML/IBIT",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0009561203492827,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.0009561203492827536,
+   "entry_day": "2026-07-22",
+   "exit_day": "2026-08-04",
+   "play": "long ASML (\u2193 catalyst) / short IBIT (#1)",
+   "pnl": 19.88079071044922,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "GLD/XLE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0953347943077338,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.09533479430773378,
+   "entry_day": "2026-08-03",
+   "exit_day": "2026-08-07",
+   "play": "long GLD (persisting #3/#4) / short XLE (#1)",
+   "pnl": 1996.8892555236816,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "NVDA/XLE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0559349493137224,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.05593494931372256,
+   "entry_day": "2026-07-28",
+   "exit_day": "2026-08-10",
+   "play": "long NVDA (\u2193 catalyst) / short XLE (#1)",
+   "pnl": 605.2800064086914,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "AAPL/XLE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9564302460349638,
+   "stop": 0.0,
+   "exit_reason": "halt",
+   "ret": -0.04356975396503612,
+   "entry_day": "2026-08-03",
+   "exit_day": "2026-08-10",
+   "play": "long AAPL (\u2193 catalyst) / short XLE (#1)",
+   "pnl": -566.5096015930176,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "GILD/GLD",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9410917309506949,
+   "stop": 0.0,
+   "exit_reason": "halt",
+   "ret": -0.05890826904930511,
+   "entry_day": "2026-08-06",
+   "exit_day": "2026-08-10",
+   "play": "long GILD (\u2193 catalyst) / short GLD (#1)",
+   "pnl": -812.9912872314453,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "TSLA/GLD",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9769569126961126,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.023043087303887412,
+   "entry_day": "2026-08-17",
+   "exit_day": "2026-08-21",
+   "play": "long TSLA (persisting #3/#4) / short GLD (#1)",
+   "pnl": -272.75006103515625,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "LOW/GLD",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.938669599611514,
+   "stop": 0.0,
+   "exit_reason": "stop",
+   "ret": -0.061330400388486014,
+   "entry_day": "2026-08-17",
+   "exit_day": "2026-08-21",
+   "play": "long LOW (\u2193 catalyst) / short GLD (#1)",
+   "pnl": -1065.1597290039062,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "NVDA/GLD",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.085279979640231,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.08527997964023101,
+   "entry_day": "2026-08-25",
+   "exit_day": "2026-08-31",
+   "play": "long NVDA (persisting #3/#4) / short GLD (#1)",
+   "pnl": 1512.8892822265625,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "XLE/GLD",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0609710961403667,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.06097109614036663,
+   "entry_day": "2026-08-25",
+   "exit_day": "2026-08-31",
+   "play": "long XLE (persisting #3/#4) / short GLD (#1)",
+   "pnl": 1294.9987182617188,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "GH/GLD",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0913372152412069,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.09133721524120693,
+   "entry_day": "2026-08-25",
+   "exit_day": "2026-09-08",
+   "play": "long GH (\u2193 catalyst) / short GLD (#1)",
+   "pnl": 916.3400268554688,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "DKS/GLD",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.241272162483701,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.2412721624837011,
+   "entry_day": "2026-08-26",
+   "exit_day": "2026-09-09",
+   "play": "long DKS (\u2193 catalyst) / short GLD (#1)",
+   "pnl": 1571.8195877075195,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "AAPL/GLD",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0554132506423761,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.055413250642376205,
+   "entry_day": "2026-09-01",
+   "exit_day": "2026-09-15",
+   "play": "long AAPL (\u2193 catalyst) / short GLD (#1)",
+   "pnl": 1109.7398681640625,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "PCG/GLD",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0170048111265064,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.01700481112650635,
+   "entry_day": "2026-09-01",
+   "exit_day": "2026-09-15",
+   "play": "long PCG (\u2193 catalyst) / short GLD (#1)",
+   "pnl": 137.52046394348145,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "GLD/IBIT",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9988805797983805,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.0011194202016195241,
+   "entry_day": "2026-09-09",
+   "exit_day": "2026-09-15",
+   "play": "long GLD (persisting #3/#4) / short IBIT (#1)",
+   "pnl": -6.8798370361328125,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "NVDA/GLD",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0095208329607548,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.009520832960754833,
+   "entry_day": "2026-09-02",
+   "exit_day": "2026-09-16",
+   "play": "long NVDA (\u2193 catalyst) / short GLD (#1)",
+   "pnl": 132.63009643554688,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "GLD/XLE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0001387186020674,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.00013871860206735023,
+   "entry_day": "2026-09-18",
+   "exit_day": "2026-09-24",
+   "play": "long GLD (persisting #3/#4) / short XLE (#1)",
+   "pnl": 23.749046325683594,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "ZUMZ/XLE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.1581164663443058,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.15811646634430568,
+   "entry_day": "2026-09-16",
+   "exit_day": "2026-09-29",
+   "play": "long ZUMZ (\u2193 catalyst) / short XLE (#1)",
+   "pnl": 1241.8899745941162,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "COST/XLE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.082817960284308,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.08281796028430798,
+   "entry_day": "2026-09-16",
+   "exit_day": "2026-09-29",
+   "play": "long COST (\u2193 catalyst) / short XLE (#1)",
+   "pnl": 1812.4810409545898,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "CRM/XLE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.993630063777216,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.0063699362227840756,
+   "entry_day": "2026-09-17",
+   "exit_day": "2026-09-30",
+   "play": "long CRM (\u2193 catalyst) / short XLE (#1)",
+   "pnl": -59.279296875,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "XLE/QQQ",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0127092015149446,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.012709201514944613,
+   "entry_day": "2026-09-25",
+   "exit_day": "2026-10-01",
+   "play": "long XLE (persisting #3/#4) / short QQQ (#1)",
+   "pnl": 286.08050537109375,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "NKE/LITE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9115595149486362,
+   "stop": 0.0,
+   "exit_reason": "stop",
+   "ret": -0.08844048505136376,
+   "entry_day": "2026-09-30",
+   "exit_day": "2026-10-02",
+   "play": "long NKE (\u2193 catalyst) / short LITE (#1)",
+   "pnl": -1483.8217239379883,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "IBIT/LITE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9475419465329327,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.05245805346706734,
+   "entry_day": "2026-09-30",
+   "exit_day": "2026-10-06",
+   "play": "long IBIT (persisting #3/#4) / short LITE (#1)",
+   "pnl": -803.4696197509766,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "SHOP/PLTR",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.1408238504005241,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.1408238504005242,
+   "entry_day": "2026-09-24",
+   "exit_day": "2026-10-07",
+   "play": "long SHOP (\u2193 catalyst) / short PLTR (#1)",
+   "pnl": 1219.1101989746094,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "XLE/IBIT",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.090531571444636,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.09053157144463593,
+   "entry_day": "2026-10-02",
+   "exit_day": "2026-10-08",
+   "play": "long XLE (persisting #3/#4) / short IBIT (#1)",
+   "pnl": 2057.2694549560547,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F1",
+   "sym": "QQQ/IBIT",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0334817036370159,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.03348170363701586,
+   "entry_day": "2026-10-05",
+   "exit_day": "2026-10-09",
+   "play": "long QQQ (persisting #3/#4) / short IBIT (#1)",
+   "pnl": 771.5421142578125,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "PANW/LITE",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0121722600834493,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.012172260083449234,
+   "entry_day": "2026-09-30",
+   "exit_day": "2026-10-13",
+   "play": "long PANW (\u2193 catalyst) / short LITE (#1)",
+   "pnl": 127.02023315429688,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "YPF/IBIT",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.0650400232610233,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.06504002326102334,
+   "entry_day": "2026-10-01",
+   "exit_day": "2026-10-14",
+   "play": "long YPF (\u2193 catalyst) / short IBIT (#1)",
+   "pnl": 1007.25,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "STZ/QQQ",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.175721596251167,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.1757215962511669,
+   "entry_day": "2026-10-08",
+   "exit_day": "2026-10-21",
+   "play": "long STZ (\u2193 catalyst) / short QQQ (#1)",
+   "pnl": 3264.699478149414,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "CMG/QQQ",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9959256793373678,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.004074320662632224,
+   "entry_day": "2026-10-09",
+   "exit_day": "2026-10-22",
+   "play": "long CMG (\u2193 catalyst) / short QQQ (#1)",
+   "pnl": -30.279098510742188,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "MARA/QQQ",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 0.9229614108677543,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": -0.07703858913224575,
+   "entry_day": "2026-10-12",
+   "exit_day": "2026-10-23",
+   "play": "long MARA (\u2193 catalyst) / short QQQ (#1)",
+   "pnl": -563.5110564231873,
+   "mode": "FADE"
+  },
+  {
+   "leg": "P_F2",
+   "sym": "INTC/NVDA",
+   "side": 1,
+   "qty": 1,
+   "entry": 1.0,
+   "exit": 1.008390684328626,
+   "stop": 0.0,
+   "exit_reason": "time",
+   "ret": 0.008390684328626068,
+   "entry_day": "2026-10-14",
+   "exit_day": "2026-10-27",
+   "play": "long INTC (\u2193 catalyst) / short NVDA (#1)",
+   "pnl": 100.87934875488281,
+   "mode": "FADE"
+  }
+ ],
+ "pairs": [
+  {
+   "kind": "P_M1",
+   "entry_day": "2025-12-02",
+   "exit_idx": 37,
+   "report": "2025-12-01",
+   "label": "long SLV (#1) / short XLK+XLC+XLE",
+   "risk_unit": 399.97157373487283,
+   "mode": "MOMENTUM",
+   "pnl": -182.63538360595703,
+   "legs": [
+    {
+     "sym": "SLV",
+     "side": 1,
+     "entry": 52.83000183105469,
+     "qty": 233,
+     "atr": 0.032493207207839644,
+     "mark": 52.709999084472656
+    },
+    {
+     "sym": "XLK",
+     "side": -1,
+     "entry": 144.06500244140625,
+     "qty": 35,
+     "atr": 0.02632727984352145,
+     "mark": 147.6300048828125
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 115.30000305175781,
+     "qty": 57,
+     "atr": 0.015693957985120747,
+     "mark": 116.26000213623047
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 45.59000015258789,
+     "qty": 146,
+     "atr": 0.01974494237802315,
+     "mark": 45.41999816894531
+    }
+   ],
+   "exit_day": "2025-12-08",
+   "exit_reason": "time",
+   "ret": -0.016084362153591616
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-02",
+   "exit_idx": 37,
+   "report": "2025-12-01",
+   "label": "long XLF (Bullish) / short XLK+XLC+XLE",
+   "risk_unit": 293.9838666600366,
+   "mode": "MOMENTUM",
+   "pnl": 30.05445098876953,
+   "legs": [
+    {
+     "sym": "XLF",
+     "side": 1,
+     "entry": 52.9900016784668,
+     "qty": 377,
+     "atr": 0.014715946973031321,
+     "mark": 53.47999954223633
+    },
+    {
+     "sym": "XLK",
+     "side": -1,
+     "entry": 144.06500244140625,
+     "qty": 35,
+     "atr": 0.02632727984352145,
+     "mark": 147.6300048828125
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 115.30000305175781,
+     "qty": 57,
+     "atr": 0.015693957985120747,
+     "mark": 116.26000213623047
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 45.59000015258789,
+     "qty": 146,
+     "atr": 0.01974494237802315,
+     "mark": 45.41999816894531
+    }
+   ],
+   "exit_day": "2025-12-08",
+   "exit_reason": "time",
+   "ret": 0.0005386570471251877
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-02",
+   "exit_idx": 37,
+   "report": "2025-12-01",
+   "label": "long XLV (Bullish) / short XLK+XLC+XLE",
+   "risk_unit": 284.9719147202823,
+   "mode": "MOMENTUM",
+   "pnl": -643.6356811523438,
+   "legs": [
+    {
+     "sym": "XLV",
+     "side": 1,
+     "entry": 155.25,
+     "qty": 128,
+     "atr": 0.014340374130448988,
+     "mark": 151.42999267578125
+    },
+    {
+     "sym": "XLK",
+     "side": -1,
+     "entry": 144.06500244140625,
+     "qty": 35,
+     "atr": 0.02632727984352145,
+     "mark": 147.6300048828125
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 115.30000305175781,
+     "qty": 57,
+     "atr": 0.015693957985120747,
+     "mark": 116.26000213623047
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 45.59000015258789,
+     "qty": 146,
+     "atr": 0.01974494237802315,
+     "mark": 45.41999816894531
+    }
+   ],
+   "exit_day": "2025-12-08",
+   "exit_reason": "time",
+   "ret": -0.03334036814091478
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-02",
+   "exit_idx": 37,
+   "report": "2025-12-01",
+   "label": "long XLB (Bullish) / short XLK+XLC+XLE",
+   "risk_unit": 313.59549001088317,
+   "mode": "MOMENTUM",
+   "pnl": -691.0750846862793,
+   "legs": [
+    {
+     "sym": "XLB",
+     "side": 1,
+     "entry": 44.68000030517578,
+     "qty": 447,
+     "atr": 0.01570178830064481,
+     "mark": 43.47999954223633
+    },
+    {
+     "sym": "XLK",
+     "side": -1,
+     "entry": 144.06500244140625,
+     "qty": 35,
+     "atr": 0.02632727984352145,
+     "mark": 147.6300048828125
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 115.30000305175781,
+     "qty": 57,
+     "atr": 0.015693957985120747,
+     "mark": 116.26000213623047
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 45.59000015258789,
+     "qty": 146,
+     "atr": 0.01974494237802315,
+     "mark": 45.41999816894531
+    }
+   ],
+   "exit_day": "2025-12-08",
+   "exit_reason": "time",
+   "ret": -0.03555011399717984
+  },
+  {
+   "kind": "P_M1",
+   "entry_day": "2025-12-09",
+   "exit_idx": 42,
+   "report": "2025-12-08",
+   "label": "long SLV (#1) / short XLP",
+   "risk_unit": 392.7317631590375,
+   "mode": "MOMENTUM",
+   "pnl": 662.561279296875,
+   "legs": [
+    {
+     "sym": "SLV",
+     "side": 1,
+     "entry": 53.38999938964844,
+     "qty": 229,
+     "atr": 0.03212185587055502,
+     "mark": 58.11000061035156
+    },
+    {
+     "sym": "XLP",
+     "side": -1,
+     "entry": 77.9800033569336,
+     "qty": 252,
+     "atr": 0.010993405078448103,
+     "mark": 79.63999938964844
+    }
+   ],
+   "exit_day": "2025-12-15",
+   "exit_reason": "time",
+   "ret": 0.05282649071449027
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-09",
+   "exit_idx": 42,
+   "report": "2025-12-08",
+   "label": "long XLF (Bullish) / short XLP",
+   "risk_unit": 215.34435790133858,
+   "mode": "MOMENTUM",
+   "pnl": 128.51161575317383,
+   "legs": [
+    {
+     "sym": "XLF",
+     "side": 1,
+     "entry": 53.5,
+     "qty": 367,
+     "atr": 0.010967651730440734,
+     "mark": 54.9900016784668
+    },
+    {
+     "sym": "XLP",
+     "side": -1,
+     "entry": 77.9800033569336,
+     "qty": 252,
+     "atr": 0.010993405078448103,
+     "mark": 79.63999938964844
+    }
+   ],
+   "exit_day": "2025-12-15",
+   "exit_reason": "time",
+   "ret": 0.005520197128629681
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-09",
+   "exit_idx": 42,
+   "report": "2025-12-08",
+   "label": "long XLV (Bullish) / short XLP",
+   "risk_unit": 231.9667827217338,
+   "mode": "MOMENTUM",
+   "pnl": 110.581787109375,
+   "legs": [
+    {
+     "sym": "XLV",
+     "side": 1,
+     "entry": 152.0,
+     "qty": 129,
+     "atr": 0.011830211277118207,
+     "mark": 156.10000610351562
+    },
+    {
+     "sym": "XLP",
+     "side": -1,
+     "entry": 77.9800033569336,
+     "qty": 252,
+     "atr": 0.010993405078448103,
+     "mark": 79.63999938964844
+    }
+   ],
+   "exit_day": "2025-12-15",
+   "exit_reason": "time",
+   "ret": 0.004614376621409758
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-09",
+   "exit_idx": 42,
+   "report": "2025-12-08",
+   "label": "long SOXX (Bullish) / short XLP",
+   "risk_unit": 392.55047349352407,
+   "mode": "MOMENTUM",
+   "pnl": -1005.7384948730469,
+   "legs": [
+    {
+     "sym": "SOXX",
+     "side": 1,
+     "entry": 310.7799987792969,
+     "qty": 46,
+     "atr": 0.027458993432752016,
+     "mark": 298.010009765625
+    },
+    {
+     "sym": "XLP",
+     "side": -1,
+     "entry": 77.9800033569336,
+     "qty": 252,
+     "atr": 0.010993405078448103,
+     "mark": 79.63999938964844
+    }
+   ],
+   "exit_day": "2025-12-15",
+   "exit_reason": "stop",
+   "ret": -0.07153301294061634
+  },
+  {
+   "kind": "P_M1",
+   "entry_day": "2025-12-16",
+   "exit_idx": 47,
+   "report": "2025-12-15",
+   "label": "long SLV (#1) / short XLE+XLRE",
+   "risk_unit": 391.59839984528446,
+   "mode": "MOMENTUM",
+   "pnl": 1259.641227722168,
+   "legs": [
+    {
+     "sym": "SLV",
+     "side": 1,
+     "entry": 57.61000061035156,
+     "qty": 194,
+     "atr": 0.03503816058714023,
+     "mark": 62.470001220703125
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 44.83000183105469,
+     "qty": 218,
+     "atr": 0.01514255193894937,
+     "mark": 44.209999084472656
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 40.95000076293945,
+     "qty": 239,
+     "atr": 0.009547795017191713,
+     "mark": 40.189998626708984
+    }
+   ],
+   "exit_day": "2025-12-22",
+   "exit_reason": "time",
+   "ret": 0.1113029873543999
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-16",
+   "exit_idx": 47,
+   "report": "2025-12-15",
+   "label": "long XLF (Bullish) / short XLE+XLRE",
+   "risk_unit": 228.63107249629374,
+   "mode": "MOMENTUM",
+   "pnl": 416.48067474365234,
+   "legs": [
+    {
+     "sym": "XLF",
+     "side": 1,
+     "entry": 55.040000915527344,
+     "qty": 356,
+     "atr": 0.011668279488935413,
+     "mark": 55.31999969482422
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 44.83000183105469,
+     "qty": 218,
+     "atr": 0.01514255193894937,
+     "mark": 44.209999084472656
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 40.95000076293945,
+     "qty": 239,
+     "atr": 0.009547795017191713,
+     "mark": 40.189998626708984
+    }
+   ],
+   "exit_day": "2025-12-22",
+   "exit_reason": "time",
+   "ret": 0.0202616745256786
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-16",
+   "exit_idx": 47,
+   "report": "2025-12-15",
+   "label": "long XLI (Bullish) / short XLE+XLRE",
+   "risk_unit": 225.6317076144076,
+   "mode": "MOMENTUM",
+   "pnl": 341.8007278442383,
+   "legs": [
+    {
+     "sym": "XLI",
+     "side": 1,
+     "entry": 156.85000610351562,
+     "qty": 125,
+     "atr": 0.011508151677877445,
+     "mark": 157.0500030517578
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 44.83000183105469,
+     "qty": 218,
+     "atr": 0.01514255193894937,
+     "mark": 44.209999084472656
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 40.95000076293945,
+     "qty": 239,
+     "atr": 0.009547795017191713,
+     "mark": 40.189998626708984
+    }
+   ],
+   "exit_day": "2025-12-22",
+   "exit_reason": "time",
+   "ret": 0.016441874166311744
+  },
+  {
+   "kind": "P_M3",
+   "entry_day": "2025-12-16",
+   "exit_idx": 52,
+   "report": "2025-12-15",
+   "label": "long MU (\u2191 catalyst) / short XLE+XLRE",
+   "risk_unit": 390.2098866912737,
+   "mode": "MOMENTUM",
+   "pnl": 1788.3605461120605,
+   "legs": [
+    {
+     "sym": "MU",
+     "side": 1,
+     "entry": 235.8000030517578,
+     "qty": 31,
+     "atr": 0.05338174527909393,
+     "mark": 292.6300048828125
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 44.83000183105469,
+     "qty": 218,
+     "atr": 0.01514255193894937,
+     "mark": 44.959999084472656
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 40.95000076293945,
+     "qty": 239,
+     "atr": 0.009547795017191713,
+     "mark": 40.720001220703125
+    }
+   ],
+   "exit_day": "2025-12-30",
+   "exit_reason": "time",
+   "ret": 0.24269584366606176
+  },
+  {
+   "kind": "P_M1",
+   "entry_day": "2025-12-23",
+   "exit_idx": 52,
+   "report": "2025-12-22",
+   "label": "long SLV (#1) / short XLE+XLP+XLU",
+   "risk_unit": 406.1985835229818,
+   "mode": "MOMENTUM",
+   "pnl": 698.0005416870117,
+   "legs": [
+    {
+     "sym": "SLV",
+     "side": 1,
+     "entry": 63.68000030517578,
+     "qty": 171,
+     "atr": 0.037302611520352386,
+     "mark": 68.9800033569336
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 44.369998931884766,
+     "qty": 152,
+     "atr": 0.016737292951693537,
+     "mark": 44.959999084472656
+    },
+    {
+     "sym": "XLP",
+     "side": -1,
+     "entry": 77.80999755859375,
+     "qty": 87,
+     "atr": 0.0085554545892279,
+     "mark": 78.1500015258789
+    },
+    {
+     "sym": "XLU",
+     "side": -1,
+     "entry": 42.400001525878906,
+     "qty": 159,
+     "atr": 0.013028409347400422,
+     "mark": 42.959999084472656
+    }
+   ],
+   "exit_day": "2025-12-30",
+   "exit_reason": "time",
+   "ret": 0.06261855175073373
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-23",
+   "exit_idx": 52,
+   "report": "2025-12-22",
+   "label": "long XLF (Bullish) / short XLE+XLP+XLU",
+   "risk_unit": 248.97273991924993,
+   "mode": "MOMENTUM",
+   "pnl": -256.01037216186523,
+   "legs": [
+    {
+     "sym": "XLF",
+     "side": 1,
+     "entry": 55.310001373291016,
+     "qty": 367,
+     "atr": 0.01226540986165715,
+     "mark": 55.18000030517578
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 44.369998931884766,
+     "qty": 152,
+     "atr": 0.016737292951693537,
+     "mark": 44.959999084472656
+    },
+    {
+     "sym": "XLP",
+     "side": -1,
+     "entry": 77.80999755859375,
+     "qty": 87,
+     "atr": 0.0085554545892279,
+     "mark": 78.1500015258789
+    },
+    {
+     "sym": "XLU",
+     "side": -1,
+     "entry": 42.400001525878906,
+     "qty": 159,
+     "atr": 0.013028409347400422,
+     "mark": 42.959999084472656
+    }
+   ],
+   "exit_day": "2025-12-30",
+   "exit_reason": "time",
+   "ret": -0.013614997375700471
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-23",
+   "exit_idx": 52,
+   "report": "2025-12-22",
+   "label": "long XLI (Bullish) / short XLE+XLP+XLU",
+   "risk_unit": 273.97329422030083,
+   "mode": "MOMENTUM",
+   "pnl": -285.70076751708984,
+   "legs": [
+    {
+     "sym": "XLI",
+     "side": 1,
+     "entry": 157.02000427246094,
+     "qty": 129,
+     "atr": 0.013525817911191909,
+     "mark": 156.4199981689453
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 44.369998931884766,
+     "qty": 152,
+     "atr": 0.016737292951693537,
+     "mark": 44.959999084472656
+    },
+    {
+     "sym": "XLP",
+     "side": -1,
+     "entry": 77.80999755859375,
+     "qty": 87,
+     "atr": 0.0085554545892279,
+     "mark": 78.1500015258789
+    },
+    {
+     "sym": "XLU",
+     "side": -1,
+     "entry": 42.400001525878906,
+     "qty": 159,
+     "atr": 0.013028409347400422,
+     "mark": 42.959999084472656
+    }
+   ],
+   "exit_day": "2025-12-30",
+   "exit_reason": "time",
+   "ret": -0.01510801734614623
+  },
+  {
+   "kind": "P_M1",
+   "entry_day": "2025-12-31",
+   "exit_idx": 57,
+   "report": "2025-12-30",
+   "label": "long SLV (#1) / short XLE+XLP+XLU",
+   "risk_unit": 406.9900120598073,
+   "mode": "MOMENTUM",
+   "pnl": 945.7095909118652,
+   "legs": [
+    {
+     "sym": "SLV",
+     "side": 1,
+     "entry": 65.54000091552734,
+     "qty": 126,
+     "atr": 0.04928409239656984,
+     "mark": 70.95999908447266
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 44.93000030517578,
+     "qty": 151,
+     "atr": 0.014030701088731442,
+     "mark": 45.130001068115234
+    },
+    {
+     "sym": "XLP",
+     "side": -1,
+     "entry": 77.98999786376953,
+     "qty": 87,
+     "atr": 0.007428081453882603,
+     "mark": 76.62000274658203
+    },
+    {
+     "sym": "XLU",
+     "side": -1,
+     "entry": 42.970001220703125,
+     "qty": 158,
+     "atr": 0.010845103484392249,
+     "mark": 41.869998931884766
+    }
+   ],
+   "exit_day": "2026-01-07",
+   "exit_reason": "time",
+   "ret": 0.11276175494984407
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-31",
+   "exit_idx": 57,
+   "report": "2025-12-30",
+   "label": "long XLK (Bullish) / short XLE+XLP+XLU",
+   "risk_unit": 258.6680215438056,
+   "mode": "MOMENTUM",
+   "pnl": 376.7687187194824,
+   "legs": [
+    {
+     "sym": "XLK",
+     "side": 1,
+     "entry": 145.7100067138672,
+     "qty": 139,
+     "atr": 0.012771401637192129,
+     "mark": 146.52999877929688
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 44.93000030517578,
+     "qty": 151,
+     "atr": 0.014030701088731442,
+     "mark": 45.130001068115234
+    },
+    {
+     "sym": "XLP",
+     "side": -1,
+     "entry": 77.98999786376953,
+     "qty": 87,
+     "atr": 0.007428081453882603,
+     "mark": 76.62000274658203
+    },
+    {
+     "sym": "XLU",
+     "side": -1,
+     "entry": 42.970001220703125,
+     "qty": 158,
+     "atr": 0.010845103484392249,
+     "mark": 41.869998931884766
+    }
+   ],
+   "exit_day": "2026-01-07",
+   "exit_reason": "time",
+   "ret": 0.01760355037825035
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-31",
+   "exit_idx": 57,
+   "report": "2025-12-30",
+   "label": "long XLF (Bullish) / short XLE+XLP+XLU",
+   "risk_unit": 177.0075255224853,
+   "mode": "MOMENTUM",
+   "pnl": 406.6995964050293,
+   "legs": [
+    {
+     "sym": "XLF",
+     "side": 1,
+     "entry": 55.220001220703125,
+     "qty": 369,
+     "atr": 0.008686982624295899,
+     "mark": 55.61000061035156
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 44.93000030517578,
+     "qty": 151,
+     "atr": 0.014030701088731442,
+     "mark": 45.130001068115234
+    },
+    {
+     "sym": "XLP",
+     "side": -1,
+     "entry": 77.98999786376953,
+     "qty": 87,
+     "atr": 0.007428081453882603,
+     "mark": 76.62000274658203
+    },
+    {
+     "sym": "XLU",
+     "side": -1,
+     "entry": 42.970001220703125,
+     "qty": 158,
+     "atr": 0.010845103484392249,
+     "mark": 41.869998931884766
+    }
+   ],
+   "exit_day": "2026-01-07",
+   "exit_reason": "time",
+   "ret": 0.018962903136654753
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2025-12-31",
+   "exit_idx": 57,
+   "report": "2025-12-30",
+   "label": "long XLB (Bullish) / short XLE+XLP+XLU",
+   "risk_unit": 174.00238501480152,
+   "mode": "MOMENTUM",
+   "pnl": 741.0796852111816,
+   "legs": [
+    {
+     "sym": "XLB",
+     "side": 1,
+     "entry": 45.61000061035156,
+     "qty": 447,
+     "atr": 0.008534687028302262,
+     "mark": 46.68000030517578
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 44.93000030517578,
+     "qty": 151,
+     "atr": 0.014030701088731442,
+     "mark": 45.130001068115234
+    },
+    {
+     "sym": "XLP",
+     "side": -1,
+     "entry": 77.98999786376953,
+     "qty": 87,
+     "atr": 0.007428081453882603,
+     "mark": 76.62000274658203
+    },
+    {
+     "sym": "XLU",
+     "side": -1,
+     "entry": 42.970001220703125,
+     "qty": 158,
+     "atr": 0.010845103484392249,
+     "mark": 41.869998931884766
+    }
+   ],
+   "exit_day": "2026-01-07",
+   "exit_reason": "time",
+   "ret": 0.035344827554311425
+  },
+  {
+   "kind": "P_M1",
+   "entry_day": "2026-01-15",
+   "exit_idx": 67,
+   "report": "2026-01-14",
+   "label": "long SLV (#1) / short XLY+XLRE",
+   "risk_unit": 416.7252226164472,
+   "mode": "MOMENTUM",
+   "pnl": 638.9903335571289,
+   "legs": [
+    {
+     "sym": "SLV",
+     "side": 1,
+     "entry": 80.73999786376953,
+     "qty": 81,
+     "atr": 0.06372003927287147,
+     "mark": 87.12999725341797
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 122.87000274658203,
+     "qty": 84,
+     "atr": 0.016468785089209022,
+     "mark": 122.62000274658203
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 41.540000915527344,
+     "qty": 251,
+     "atr": 0.013574879467920681,
+     "mark": 41.13999938964844
+    }
+   ],
+   "exit_day": "2026-01-22",
+   "exit_reason": "time",
+   "ret": 0.09558932882715682
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-01-15",
+   "exit_idx": 67,
+   "report": "2026-01-14",
+   "label": "long XLK (Bullish) / short XLY+XLRE",
+   "risk_unit": 334.108910922256,
+   "mode": "MOMENTUM",
+   "pnl": -169.69788360595703,
+   "legs": [
+    {
+     "sym": "XLK",
+     "side": 1,
+     "entry": 146.92999267578125,
+     "qty": 142,
+     "atr": 0.016013610370035184,
+     "mark": 144.8800048828125
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 122.87000274658203,
+     "qty": 84,
+     "atr": 0.016468785089209022,
+     "mark": 122.62000274658203
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 41.540000915527344,
+     "qty": 251,
+     "atr": 0.013574879467920681,
+     "mark": 41.13999938964844
+    }
+   ],
+   "exit_day": "2026-01-22",
+   "exit_reason": "time",
+   "ret": -0.009120827081469786
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-01-15",
+   "exit_idx": 67,
+   "report": "2026-01-14",
+   "label": "long XLC (Bullish) / short XLY+XLRE",
+   "risk_unit": 196.42789062318747,
+   "mode": "MOMENTUM",
+   "pnl": -10.319236755371094,
+   "legs": [
+    {
+     "sym": "XLC",
+     "side": 1,
+     "entry": 116.98999786376953,
+     "qty": 178,
+     "atr": 0.009432665147119516,
+     "mark": 116.25
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 122.87000274658203,
+     "qty": 84,
+     "atr": 0.016468785089209022,
+     "mark": 122.62000274658203
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 41.540000915527344,
+     "qty": 251,
+     "atr": 0.013574879467920681,
+     "mark": 41.13999938964844
+    }
+   ],
+   "exit_day": "2026-01-22",
+   "exit_reason": "time",
+   "ret": -0.0014876234192587176
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-01-15",
+   "exit_idx": 67,
+   "report": "2026-01-14",
+   "label": "long XLI (Bullish) / short XLY+XLRE",
+   "risk_unit": 299.7234724995367,
+   "mode": "MOMENTUM",
+   "pnl": 175.57946014404297,
+   "legs": [
+    {
+     "sym": "XLI",
+     "side": 1,
+     "entry": 165.07000732421875,
+     "qty": 126,
+     "atr": 0.014410599216719635,
+     "mark": 165.5
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 122.87000274658203,
+     "qty": 84,
+     "atr": 0.016468785089209022,
+     "mark": 122.62000274658203
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 41.540000915527344,
+     "qty": 251,
+     "atr": 0.013574879467920681,
+     "mark": 41.13999938964844
+    }
+   ],
+   "exit_day": "2026-01-22",
+   "exit_reason": "time",
+   "ret": 0.007444645572921101
+  },
+  {
+   "kind": "P_M1",
+   "entry_day": "2026-01-23",
+   "exit_idx": 72,
+   "report": "2026-01-22",
+   "label": "long MU (#1) / short XLC+XLRE",
+   "risk_unit": 414.9900918782348,
+   "mode": "MOMENTUM",
+   "pnl": 338.2105255126953,
+   "legs": [
+    {
+     "sym": "MU",
+     "side": 1,
+     "entry": 397.1600036621094,
+     "qty": 19,
+     "atr": 0.05499441933142666,
+     "mark": 435.7900085449219
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 116.06999969482422,
+     "qty": 90,
+     "atr": 0.011011658595469286,
+     "mark": 119.79000091552734
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 41.130001068115234,
+     "qty": 254,
+     "atr": 0.014299453880874521,
+     "mark": 41.369998931884766
+    }
+   ],
+   "exit_day": "2026-01-29",
+   "exit_reason": "time",
+   "ret": 0.042860358220171556
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-01-23",
+   "exit_idx": 72,
+   "report": "2026-01-22",
+   "label": "long XLE (Bullish) / short XLC+XLRE",
+   "risk_unit": 418.60937525906803,
+   "mode": "MOMENTUM",
+   "pnl": 19.049537658691406,
+   "legs": [
+    {
+     "sym": "XLE",
+     "side": 1,
+     "entry": 49.52000045776367,
+     "qty": 419,
+     "atr": 0.020175034574851092,
+     "mark": 50.5099983215332
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 116.06999969482422,
+     "qty": 90,
+     "atr": 0.011011658595469286,
+     "mark": 119.79000091552734
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 41.130001068115234,
+     "qty": 254,
+     "atr": 0.014299453880874521,
+     "mark": 41.369998931884766
+    }
+   ],
+   "exit_day": "2026-01-29",
+   "exit_reason": "time",
+   "ret": -0.00010491394596214776
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-01-23",
+   "exit_idx": 72,
+   "report": "2026-01-22",
+   "label": "long XLV (Bullish) / short XLC+XLRE",
+   "risk_unit": 278.4038667699465,
+   "mode": "MOMENTUM",
+   "pnl": -921.1190032958984,
+   "legs": [
+    {
+     "sym": "XLV",
+     "side": 1,
+     "entry": 157.8000030517578,
+     "qty": 132,
+     "atr": 0.01336578049438213,
+     "mark": 153.82000732421875
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 116.06999969482422,
+     "qty": 90,
+     "atr": 0.011011658595469286,
+     "mark": 119.79000091552734
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 41.130001068115234,
+     "qty": 254,
+     "atr": 0.014299453880874521,
+     "mark": 41.369998931884766
+    }
+   ],
+   "exit_day": "2026-01-29",
+   "exit_reason": "stop",
+   "ret": -0.045220054416251806
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-01-23",
+   "exit_idx": 72,
+   "report": "2026-01-22",
+   "label": "long SOXX (Bullish) / short XLC+XLRE",
+   "risk_unit": 416.008768965447,
+   "mode": "MOMENTUM",
+   "pnl": 282.2799835205078,
+   "legs": [
+    {
+     "sym": "SOXX",
+     "side": 1,
+     "entry": 346.3900146484375,
+     "qty": 46,
+     "atr": 0.026108341776918453,
+     "mark": 361.1300048828125
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 116.06999969482422,
+     "qty": 90,
+     "atr": 0.011011658595469286,
+     "mark": 119.79000091552734
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 41.130001068115234,
+     "qty": 254,
+     "atr": 0.014299453880874521,
+     "mark": 41.369998931884766
+    }
+   ],
+   "exit_day": "2026-01-29",
+   "exit_reason": "time",
+   "ret": 0.016526323204854147
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-02-10",
+   "exit_idx": 84,
+   "report": "2026-02-09",
+   "label": "long XLI (Bullish) / short XLY",
+   "risk_unit": 320.22950806753533,
+   "mode": "MOMENTUM",
+   "pnl": 468.8396301269531,
+   "legs": [
+    {
+     "sym": "XLI",
+     "side": 1,
+     "entry": 173.7100067138672,
+     "qty": 120,
+     "atr": 0.015362265446755615,
+     "mark": 175.0800018310547
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 117.76000213623047,
+     "qty": 177,
+     "atr": 0.018130170827499847,
+     "mark": 116.04000091552734
+    }
+   ],
+   "exit_day": "2026-02-17",
+   "exit_reason": "time",
+   "ret": 0.021494889596569262
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-02-10",
+   "exit_idx": 84,
+   "report": "2026-02-09",
+   "label": "long XLP (Bullish) / short XLY",
+   "risk_unit": 335.0060478333736,
+   "mode": "MOMENTUM",
+   "pnl": 512.3690490722656,
+   "legs": [
+    {
+     "sym": "XLP",
+     "side": 1,
+     "entry": 87.33000183105469,
+     "qty": 239,
+     "atr": 0.016050600200618187,
+     "mark": 88.19999694824219
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 117.76000213623047,
+     "qty": 177,
+     "atr": 0.018130170827499847,
+     "mark": 116.04000091552734
+    }
+   ],
+   "exit_day": "2026-02-17",
+   "exit_reason": "time",
+   "ret": 0.023551296508140352
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-02-10",
+   "exit_idx": 84,
+   "report": "2026-02-09",
+   "label": "long XLB (Bullish) / short XLY",
+   "risk_unit": 417.3624779112222,
+   "mode": "MOMENTUM",
+   "pnl": 508.489933013916,
+   "legs": [
+    {
+     "sym": "XLB",
+     "side": 1,
+     "entry": 52.150001525878906,
+     "qty": 371,
+     "atr": 0.021571739498049494,
+     "mark": 52.70000076293945
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 117.76000213623047,
+     "qty": 177,
+     "atr": 0.018130170827499847,
+     "mark": 116.04000091552734
+    }
+   ],
+   "exit_day": "2026-02-17",
+   "exit_reason": "time",
+   "ret": 0.025245677304466512
+  },
+  {
+   "kind": "P_M3",
+   "entry_day": "2026-02-10",
+   "exit_idx": 89,
+   "report": "2026-02-09",
+   "label": "long GOOGL (\u2191 catalyst) / short XLY",
+   "risk_unit": 416.85926911415464,
+   "mode": "MOMENTUM",
+   "pnl": -192.0495147705078,
+   "legs": [
+    {
+     "sym": "GOOGL",
+     "side": 1,
+     "entry": 320.9700012207031,
+     "qty": 37,
+     "atr": 0.03510130756758175,
+     "mark": 310.8999938964844
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 117.76000213623047,
+     "qty": 177,
+     "atr": 0.018130170827499847,
+     "mark": 116.73999786376953
+    }
+   ],
+   "exit_day": "2026-02-24",
+   "exit_reason": "time",
+   "ret": -0.017525646808531633
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-02-18",
+   "exit_idx": 89,
+   "report": "2026-02-17",
+   "label": "long XLI (Bullish) / short XLC+XLY+XLRE",
+   "risk_unit": 356.5856205403274,
+   "mode": "MOMENTUM",
+   "pnl": 52.0888671875,
+   "legs": [
+    {
+     "sym": "XLI",
+     "side": 1,
+     "entry": 175.3800048828125,
+     "qty": 120,
+     "atr": 0.016943475624952943,
+     "mark": 176.97999572753906
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 114.25,
+     "qty": 61,
+     "atr": 0.01606851047608857,
+     "mark": 116.16000366210938
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 116.11000061035156,
+     "qty": 60,
+     "atr": 0.019274052640159894,
+     "mark": 116.73999786376953
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 43.81999969482422,
+     "qty": 160,
+     "atr": 0.015871997722514353,
+     "mark": 43.72999954223633
+    }
+   ],
+   "exit_day": "2026-02-24",
+   "exit_reason": "time",
+   "ret": 0.001469503676389555
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-02-18",
+   "exit_idx": 89,
+   "report": "2026-02-17",
+   "label": "long XLB (Bullish) / short XLC+XLY+XLRE",
+   "risk_unit": 421.3287359714589,
+   "mode": "MOMENTUM",
+   "pnl": -16.789825439453125,
+   "legs": [
+    {
+     "sym": "XLB",
+     "side": 1,
+     "entry": 53.0,
+     "qty": 342,
+     "atr": 0.023244440912030172,
+     "mark": 53.36000061035156
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 114.25,
+     "qty": 61,
+     "atr": 0.01606851047608857,
+     "mark": 116.16000366210938
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 116.11000061035156,
+     "qty": 60,
+     "atr": 0.019274052640159894,
+     "mark": 116.73999786376953
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 43.81999969482422,
+     "qty": 160,
+     "atr": 0.015871997722514353,
+     "mark": 43.72999954223633
+    }
+   ],
+   "exit_day": "2026-02-24",
+   "exit_reason": "time",
+   "ret": -0.002011357472956503
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-02-18",
+   "exit_idx": 89,
+   "report": "2026-02-17",
+   "label": "long SOXX (Bullish) / short XLC+XLY+XLRE",
+   "risk_unit": 416.155573759125,
+   "mode": "MOMENTUM",
+   "pnl": 46.69000244140625,
+   "legs": [
+    {
+     "sym": "SOXX",
+     "side": 1,
+     "entry": 355.82000732421875,
+     "qty": 30,
+     "atr": 0.03898558870524006,
+     "mark": 362.0400085449219
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 114.25,
+     "qty": 61,
+     "atr": 0.01606851047608857,
+     "mark": 116.16000366210938
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 116.11000061035156,
+     "qty": 60,
+     "atr": 0.019274052640159894,
+     "mark": 116.73999786376953
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 43.81999969482422,
+     "qty": 160,
+     "atr": 0.015871997722514353,
+     "mark": 43.72999954223633
+    }
+   ],
+   "exit_day": "2026-02-24",
+   "exit_reason": "time",
+   "ret": 0.0028774775326464545
+  },
+  {
+   "kind": "P_M1",
+   "entry_day": "2026-02-25",
+   "exit_idx": 94,
+   "report": "2026-02-24",
+   "label": "long TSLA (#1) / short XLC+XLF+XLY",
+   "risk_unit": 422.1418875877414,
+   "mode": "MOMENTUM",
+   "pnl": -547.8093528747559,
+   "legs": [
+    {
+     "sym": "TSLA",
+     "side": 1,
+     "entry": 412.1499938964844,
+     "qty": 31,
+     "atr": 0.033040107840414085,
+     "mark": 392.42999267578125
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 116.33000183105469,
+     "qty": 60,
+     "atr": 0.013648767799646636,
+     "mark": 117.95999908447266
+    },
+    {
+     "sym": "XLF",
+     "side": -1,
+     "entry": 51.2400016784668,
+     "qty": 137,
+     "atr": 0.020001961290961424,
+     "mark": 51.209999084472656
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 116.9800033569336,
+     "qty": 60,
+     "atr": 0.018058634437028133,
+     "mark": 114.36000061035156
+    }
+   ],
+   "exit_day": "2026-03-03",
+   "exit_reason": "time",
+   "ret": -0.04417194734512496
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-02-25",
+   "exit_idx": 94,
+   "report": "2026-02-24",
+   "label": "long XLE (Bullish) / short XLC+XLF+XLY",
+   "risk_unit": 422.1160196000479,
+   "mode": "MOMENTUM",
+   "pnl": 527.1111488342285,
+   "legs": [
+    {
+     "sym": "XLE",
+     "side": 1,
+     "entry": 55.29999923706055,
+     "qty": 380,
+     "atr": 0.020087371534392225,
+     "mark": 56.52000045776367
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 116.33000183105469,
+     "qty": 60,
+     "atr": 0.013648767799646636,
+     "mark": 117.95999908447266
+    },
+    {
+     "sym": "XLF",
+     "side": -1,
+     "entry": 51.2400016784668,
+     "qty": 137,
+     "atr": 0.020001961290961424,
+     "mark": 51.209999084472656
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 116.9800033569336,
+     "qty": 60,
+     "atr": 0.018058634437028133,
+     "mark": 114.36000061035156
+    }
+   ],
+   "exit_day": "2026-03-03",
+   "exit_reason": "time",
+   "ret": 0.024074182487800366
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-02-25",
+   "exit_idx": 94,
+   "report": "2026-02-24",
+   "label": "long XLI (Bullish) / short XLC+XLF+XLY",
+   "risk_unit": 323.0903668944836,
+   "mode": "MOMENTUM",
+   "pnl": -186.64873886108398,
+   "legs": [
+    {
+     "sym": "XLI",
+     "side": 1,
+     "entry": 177.55999755859375,
+     "qty": 118,
+     "atr": 0.015420443761998647,
+     "mark": 175.44000244140625
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 116.33000183105469,
+     "qty": 60,
+     "atr": 0.013648767799646636,
+     "mark": 117.95999908447266
+    },
+    {
+     "sym": "XLF",
+     "side": -1,
+     "entry": 51.2400016784668,
+     "qty": 137,
+     "atr": 0.020001961290961424,
+     "mark": 51.209999084472656
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 116.9800033569336,
+     "qty": 60,
+     "atr": 0.018058634437028133,
+     "mark": 114.36000061035156
+    }
+   ],
+   "exit_day": "2026-03-03",
+   "exit_reason": "time",
+   "ret": -0.009902462513794251
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-02-25",
+   "exit_idx": 94,
+   "report": "2026-02-24",
+   "label": "long SOXX (Bullish) / short XLC+XLF+XLY",
+   "risk_unit": 421.97680243736863,
+   "mode": "MOMENTUM",
+   "pnl": -1350.3899192810059,
+   "legs": [
+    {
+     "sym": "SOXX",
+     "side": 1,
+     "entry": 366.20001220703125,
+     "qty": 45,
+     "atr": 0.025606941463138272,
+     "mark": 334.7799987792969
+    },
+    {
+     "sym": "XLC",
+     "side": -1,
+     "entry": 116.33000183105469,
+     "qty": 60,
+     "atr": 0.013648767799646636,
+     "mark": 117.95999908447266
+    },
+    {
+     "sym": "XLF",
+     "side": -1,
+     "entry": 51.2400016784668,
+     "qty": 137,
+     "atr": 0.020001961290961424,
+     "mark": 51.209999084472656
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 116.9800033569336,
+     "qty": 60,
+     "atr": 0.018058634437028133,
+     "mark": 114.36000061035156
+    }
+   ],
+   "exit_day": "2026-03-03",
+   "exit_reason": "stop",
+   "ret": -0.08303901380951383
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-03-04",
+   "exit_idx": 99,
+   "report": "2026-03-03",
+   "label": "long XLC (Bullish) / short XLY",
+   "risk_unit": 279.6054081264487,
+   "mode": "MOMENTUM",
+   "pnl": 48.74900817871094,
+   "legs": [
+    {
+     "sym": "XLC",
+     "side": 1,
+     "entry": 117.7699966430664,
+     "qty": 175,
+     "atr": 0.013566657339189611,
+     "mark": 117.37999725341797
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 115.08999633789062,
+     "qty": 180,
+     "atr": 0.018644775465516957,
+     "mark": 114.44000244140625
+    }
+   ],
+   "exit_day": "2026-03-10",
+   "exit_reason": "time",
+   "ret": 0.0013672489478290125
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-03-04",
+   "exit_idx": 99,
+   "report": "2026-03-03",
+   "label": "long XLE (Bullish) / short XLY",
+   "risk_unit": 414.09848794664276,
+   "mode": "MOMENTUM",
+   "pnl": -33.882049560546875,
+   "legs": [
+    {
+     "sym": "XLE",
+     "side": 1,
+     "entry": 56.060001373291016,
+     "qty": 328,
+     "atr": 0.02252043095173247,
+     "mark": 55.599998474121094
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 115.08999633789062,
+     "qty": 180,
+     "atr": 0.018644775465516957,
+     "mark": 114.44000244140625
+    }
+   ],
+   "exit_day": "2026-03-10",
+   "exit_reason": "time",
+   "ret": -0.002898682608374101
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-03-04",
+   "exit_idx": 99,
+   "report": "2026-03-03",
+   "label": "long XLI (Bullish) / short XLY",
+   "risk_unit": 357.2839445358214,
+   "mode": "MOMENTUM",
+   "pnl": -621.2708129882812,
+   "legs": [
+    {
+     "sym": "XLI",
+     "side": 1,
+     "entry": 176.3300018310547,
+     "qty": 117,
+     "atr": 0.01731814720096477,
+     "mark": 170.02000427246094
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 115.08999633789062,
+     "qty": 180,
+     "atr": 0.018644775465516957,
+     "mark": 114.44000244140625
+    }
+   ],
+   "exit_day": "2026-03-10",
+   "exit_reason": "time",
+   "ret": -0.031095376084191342
+  },
+  {
+   "kind": "P_M3",
+   "entry_day": "2026-03-04",
+   "exit_idx": 104,
+   "report": "2026-03-03",
+   "label": "long DELL (\u2191 catalyst) / short XLY",
+   "risk_unit": 409.226321883452,
+   "mode": "MOMENTUM",
+   "pnl": 638.2190551757812,
+   "legs": [
+    {
+     "sym": "DELL",
+     "side": 1,
+     "entry": 146.0,
+     "qty": 42,
+     "atr": 0.06673619078334181,
+     "mark": 153.00999450683594
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 115.08999633789062,
+     "qty": 180,
+     "atr": 0.018644775465516957,
+     "mark": 113.18000030517578
+    }
+   ],
+   "exit_day": "2026-03-17",
+   "exit_reason": "time",
+   "ret": 0.10189491931892888
+  },
+  {
+   "kind": "P_M1",
+   "entry_day": "2026-03-11",
+   "exit_idx": 104,
+   "report": "2026-03-10",
+   "label": "long RSP (#1) / short XLY+XLRE",
+   "risk_unit": 321.8720638103589,
+   "mode": "MOMENTUM",
+   "pnl": 54.210731506347656,
+   "legs": [
+    {
+     "sym": "RSP",
+     "side": 1,
+     "entry": 197.00999450683594,
+     "qty": 104,
+     "atr": 0.015709475543266568,
+     "mark": 196.0500030517578
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 114.83000183105469,
+     "qty": 89,
+     "atr": 0.02005232520089409,
+     "mark": 113.18000030517578
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 42.75,
+     "qty": 240,
+     "atr": 0.015610704148144436,
+     "mark": 42.720001220703125
+    }
+   ],
+   "exit_day": "2026-03-17",
+   "exit_reason": "time",
+   "ret": 0.0016522600439800815
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-03-11",
+   "exit_idx": 104,
+   "report": "2026-03-10",
+   "label": "long XLK (Bullish) / short XLY+XLRE",
+   "risk_unit": 407.57291799727716,
+   "mode": "MOMENTUM",
+   "pnl": 32.36884307861328,
+   "legs": [
+    {
+     "sym": "XLK",
+     "side": 1,
+     "entry": 140.5800018310547,
+     "qty": 117,
+     "atr": 0.024779692476020555,
+     "mark": 139.5399932861328
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 114.83000183105469,
+     "qty": 89,
+     "atr": 0.02005232520089409,
+     "mark": 113.18000030517578
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 42.75,
+     "qty": 240,
+     "atr": 0.015610704148144436,
+     "mark": 42.720001220703125
+    }
+   ],
+   "exit_day": "2026-03-17",
+   "exit_reason": "time",
+   "ret": 0.0008537793444497803
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-03-11",
+   "exit_idx": 104,
+   "report": "2026-03-10",
+   "label": "long XLP (Bullish) / short XLY+XLRE",
+   "risk_unit": 317.87823209639373,
+   "mode": "MOMENTUM",
+   "pnl": -49.951622009277344,
+   "legs": [
+    {
+     "sym": "XLP",
+     "side": 1,
+     "entry": 85.55000305175781,
+     "qty": 240,
+     "atr": 0.015482087510080567,
+     "mark": 84.69999694824219
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 114.83000183105469,
+     "qty": 89,
+     "atr": 0.02005232520089409,
+     "mark": 113.18000030517578
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 42.75,
+     "qty": 240,
+     "atr": 0.015610704148144436,
+     "mark": 42.720001220703125
+    }
+   ],
+   "exit_day": "2026-03-17",
+   "exit_reason": "time",
+   "ret": -0.00342287791233881
+  },
+  {
+   "kind": "P_M1",
+   "entry_day": "2026-03-18",
+   "exit_idx": 109,
+   "report": "2026-03-17",
+   "label": "long MU (#1) / short XLY+XLRE",
+   "risk_unit": 385.8728186166139,
+   "mode": "MOMENTUM",
+   "pnl": -96.45057678222656,
+   "legs": [
+    {
+     "sym": "MU",
+     "side": 1,
+     "entry": 464.760009765625,
+     "qty": 13,
+     "atr": 0.06386634797589186,
+     "mark": 395.5299987792969
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 112.5,
+     "qty": 91,
+     "atr": 0.019711353080953016,
+     "mark": 109.68000030517578
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 42.54999923706055,
+     "qty": 242,
+     "atr": 0.015241562960204954,
+     "mark": 40.290000915527344
+    }
+   ],
+   "exit_day": "2026-03-24",
+   "exit_reason": "time",
+   "ret": -0.0180220477088259
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-03-18",
+   "exit_idx": 109,
+   "report": "2026-03-17",
+   "label": "long XLK (Bullish) / short XLY+XLRE",
+   "risk_unit": 410.7080945664895,
+   "mode": "MOMENTUM",
+   "pnl": 367.4590606689453,
+   "legs": [
+    {
+     "sym": "XLK",
+     "side": 1,
+     "entry": 139.30999755859375,
+     "qty": 138,
+     "atr": 0.021363474732306147,
+     "mark": 136.14999389648438
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 112.5,
+     "qty": 91,
+     "atr": 0.019711353080953016,
+     "mark": 109.68000030517578
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 42.54999923706055,
+     "qty": 242,
+     "atr": 0.015241562960204954,
+     "mark": 40.290000915527344
+    }
+   ],
+   "exit_day": "2026-03-24",
+   "exit_reason": "time",
+   "ret": 0.018111998528337416
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-03-18",
+   "exit_idx": 109,
+   "report": "2026-03-17",
+   "label": "long XLE (Bullish) / short XLY+XLRE",
+   "risk_unit": 405.77931817495033,
+   "mode": "MOMENTUM",
+   "pnl": 1538.5390319824219,
+   "legs": [
+    {
+     "sym": "XLE",
+     "side": 1,
+     "entry": 58.7400016784668,
+     "qty": 350,
+     "atr": 0.01973730758208108,
+     "mark": 60.84000015258789
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 112.5,
+     "qty": 91,
+     "atr": 0.019711353080953016,
+     "mark": 109.68000030517578
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 42.54999923706055,
+     "qty": 242,
+     "atr": 0.015241562960204954,
+     "mark": 40.290000915527344
+    }
+   ],
+   "exit_day": "2026-03-24",
+   "exit_reason": "time",
+   "ret": 0.07383756303585731
+  },
+  {
+   "kind": "P_M2",
+   "entry_day": "2026-03-18",
+   "exit_idx": 109,
+   "report": "2026-03-17",
+   "label": "long XLI (Bullish) / short XLY+XLRE",
+   "risk_unit": 407.331617402338,
+   "mode": "MOMENTUM",
+   "pnl": 536.6297912597656,
+   "legs": [
+    {
+     "sym": "XLI",
+     "side": 1,
+     "entry": 166.1699981689453,
+     "qty": 123,
+     "atr": 0.019929224302606765,
+     "mark": 164.0
+    },
+    {
+     "sym": "XLY",
+     "side": -1,
+     "entry": 112.5,
+     "qty": 91,
+     "atr": 0.019711353080953016,
+     "mark": 109.68000030517578
+    },
+    {
+     "sym": "XLRE",
+     "side": -1,
+     "entry": 42.54999923706055,
+     "qty": 242,
+     "atr": 0.015241562960204954,
+     "mark": 40.290000915527344
+    }
+   ],
+   "exit_day": "2026-03-24",
+   "exit_reason": "time",
+   "ret": 0.025279149760357306
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-05-05",
+   "exit_idx": 147,
+   "report": "2026-05-04",
+   "label": "long META (\u2193 catalyst) / short NVDA (#1)",
+   "risk_unit": 416.0189277439445,
+   "mode": "FADE",
+   "pnl": -1520.6102447509766,
+   "legs": [
+    {
+     "sym": "META",
+     "side": 1,
+     "entry": 613.3099975585938,
+     "qty": 23,
+     "atr": 0.029492066881560936,
+     "mark": 598.8599853515625
+    },
+    {
+     "sym": "NVDA",
+     "side": -1,
+     "entry": 199.3000030517578,
+     "qty": 59,
+     "atr": 0.035590821824916186,
+     "mark": 219.44000244140625
+    }
+   ],
+   "exit_day": "2026-05-11",
+   "exit_reason": "stop",
+   "ret": -0.10874496554057178
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-05-06",
+   "exit_idx": 143,
+   "report": "2026-05-05",
+   "label": "long GME (persisting #3/#4) / short QQQ (#1)",
+   "risk_unit": 419.5546616372962,
+   "mode": "FADE",
+   "pnl": -1138.198184967041,
+   "legs": [
+    {
+     "sym": "GME",
+     "side": 1,
+     "entry": 24.299999237060547,
+     "qty": 330,
+     "atr": 0.052320074175074484,
+     "mark": 23.170000076293945
+    },
+    {
+     "sym": "QQQ",
+     "side": -1,
+     "entry": 687.780029296875,
+     "qty": 30,
+     "atr": 0.013946945919955687,
+     "mark": 713.2899780273438
+    }
+   ],
+   "exit_day": "2026-05-11",
+   "exit_reason": "stop",
+   "ret": -0.14374867450326054
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-05-07",
+   "exit_idx": 144,
+   "report": "2026-05-06",
+   "label": "long IBIT (persisting #3/#4) / short QQQ (#1)",
+   "risk_unit": 417.580775611462,
+   "mode": "FADE",
+   "pnl": -840.0201416015625,
+   "legs": [
+    {
+     "sym": "IBIT",
+     "side": 1,
+     "entry": 45.869998931884766,
+     "qty": 419,
+     "atr": 0.021726898906223226,
+     "mark": 45.119998931884766
+    },
+    {
+     "sym": "QQQ",
+     "side": -1,
+     "entry": 696.5800170898438,
+     "qty": 29,
+     "atr": 0.01434065550203908,
+     "mark": 714.7100219726562
+    }
+   ],
+   "exit_day": "2026-05-13",
+   "exit_reason": "time",
+   "ret": -0.044737623486020964
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-05-07",
+   "exit_idx": 144,
+   "report": "2026-05-06",
+   "label": "long PLTR (persisting #3/#4) / short QQQ (#1)",
+   "risk_unit": 412.2462314988729,
+   "mode": "FADE",
+   "pnl": -874.2203521728516,
+   "legs": [
+    {
+     "sym": "PLTR",
+     "side": 1,
+     "entry": 135.10000610351562,
+     "qty": 69,
+     "atr": 0.04422341077189325,
+     "mark": 130.0500030517578
+    },
+    {
+     "sym": "QQQ",
+     "side": -1,
+     "entry": 696.5800170898438,
+     "qty": 29,
+     "atr": 0.01434065550203908,
+     "mark": 714.7100219726562
+    }
+   ],
+   "exit_day": "2026-05-13",
+   "exit_reason": "time",
+   "ret": -0.09537436921985143
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-05-06",
+   "exit_idx": 148,
+   "report": "2026-05-05",
+   "label": "long ON (\u2193 catalyst) / short QQQ (#1)",
+   "risk_unit": 416.38704347758284,
+   "mode": "FADE",
+   "pnl": -167.700439453125,
+   "legs": [
+    {
+     "sym": "ON",
+     "side": 1,
+     "entry": 102.62000274658203,
+     "qty": 72,
+     "atr": 0.05635503047017522,
+     "mark": 106.0199966430664
+    },
+    {
+     "sym": "QQQ",
+     "side": -1,
+     "entry": 687.780029296875,
+     "qty": 30,
+     "atr": 0.013946945919955687,
+     "mark": 701.530029296875
+    }
+   ],
+   "exit_day": "2026-05-19",
+   "exit_reason": "time",
+   "ret": -0.024637836584202245
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-05-13",
+   "exit_idx": 148,
+   "report": "2026-05-12",
+   "label": "long XLE (persisting #3/#4) / short QQQ (#1)",
+   "risk_unit": 404.52648654604855,
+   "mode": "FADE",
+   "pnl": 1305.6397094726562,
+   "legs": [
+    {
+     "sym": "XLE",
+     "side": 1,
+     "entry": 57.470001220703125,
+     "qty": 280,
+     "atr": 0.02513898418762723,
+     "mark": 61.290000915527344
+    },
+    {
+     "sym": "QQQ",
+     "side": -1,
+     "entry": 709.9600219726562,
+     "qty": 28,
+     "atr": 0.015296985046377906,
+     "mark": 701.530029296875
+    }
+   ],
+   "exit_day": "2026-05-19",
+   "exit_reason": "time",
+   "ret": 0.07999438598973968
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-05-14",
+   "exit_idx": 149,
+   "report": "2026-05-13",
+   "label": "long QQQ (persisting #3/#4) / short QQQ (#1)",
+   "risk_unit": 323.91374615981437,
+   "mode": "FADE",
+   "pnl": 0.0,
+   "legs": [
+    {
+     "sym": "QQQ",
+     "side": 1,
+     "entry": 714.6199951171875,
+     "qty": 28,
+     "atr": 0.016188111382524614,
+     "mark": 713.1500244140625
+    },
+    {
+     "sym": "QQQ",
+     "side": -1,
+     "entry": 714.6199951171875,
+     "qty": 28,
+     "atr": 0.016188111382524614,
+     "mark": 713.1500244140625
+    }
+   ],
+   "exit_day": "2026-05-20",
+   "exit_reason": "time",
+   "ret": -0.000997943003675843
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-05-14",
+   "exit_idx": 154,
+   "report": "2026-05-13",
+   "label": "long COIN (\u2193 catalyst) / short QQQ (#1)",
+   "risk_unit": 399.2182360849603,
+   "mode": "FADE",
+   "pnl": -1075.6811218261719,
+   "legs": [
+    {
+     "sym": "COIN",
+     "side": 1,
+     "entry": 201.25,
+     "qty": 30,
+     "atr": 0.06612310328529364,
+     "mark": 180.00999450683594
+    },
+    {
+     "sym": "QQQ",
+     "side": -1,
+     "entry": 714.6199951171875,
+     "qty": 28,
+     "atr": 0.016188111382524614,
+     "mark": 730.280029296875
+    }
+   ],
+   "exit_day": "2026-05-26",
+   "exit_reason": "stop",
+   "ret": -0.18030727820354958
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-05-26",
+   "exit_idx": 161,
+   "report": "2026-05-25",
+   "label": "long WMT (\u2193 catalyst) / short NVDA (#1)",
+   "risk_unit": 401.2074058044709,
+   "mode": "FADE",
+   "pnl": -1045.2607879638672,
+   "legs": [
+    {
+     "sym": "WMT",
+     "side": 1,
+     "entry": 120.69000244140625,
+     "qty": 110,
+     "atr": 0.030220730623803437,
+     "mark": 114.5999984741211
+    },
+    {
+     "sym": "NVDA",
+     "side": -1,
+     "entry": 216.5399932861328,
+     "qty": 48,
+     "atr": 0.038485877018077395,
+     "mark": 224.36000061035156
+    }
+   ],
+   "exit_day": "2026-06-01",
+   "exit_reason": "stop",
+   "ret": -0.07961406808682357
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-06-02",
+   "exit_idx": 161,
+   "report": "2026-06-01",
+   "label": "long QQQ (persisting #3/#4) / short NVDA (#1)",
+   "risk_unit": 136.8647988792767,
+   "mode": "FADE",
+   "pnl": 102.66961669921875,
+   "legs": [
+    {
+     "sym": "QQQ",
+     "side": 1,
+     "entry": 742.4000244140625,
+     "qty": 13,
+     "atr": 0.014181116791532033,
+     "mark": 716.0700073242188
+    },
+    {
+     "sym": "NVDA",
+     "side": -1,
+     "entry": 227.17999267578125,
+     "qty": 24,
+     "atr": 0.03510181344839608,
+     "mark": 208.63999938964844
+    }
+   ],
+   "exit_day": "2026-06-08",
+   "exit_reason": "time",
+   "ret": 0.009896331908779208
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-07-02",
+   "exit_idx": 187,
+   "report": "2026-07-01",
+   "label": "long GME (\u2193 catalyst) / short IWM (#1)",
+   "risk_unit": 398.56522773334814,
+   "mode": "FADE",
+   "pnl": -213.6291446685791,
+   "legs": [
+    {
+     "sym": "GME",
+     "side": 1,
+     "entry": 22.75,
+     "qty": 651,
+     "atr": 0.0269114449609796,
+     "mark": 21.920000076293945
+    },
+    {
+     "sym": "IWM",
+     "side": -1,
+     "entry": 300.5400085449219,
+     "qty": 66,
+     "atr": 0.016636961255877384,
+     "mark": 295.5899963378906
+    }
+   ],
+   "exit_day": "2026-07-16",
+   "exit_reason": "time",
+   "ret": -0.015564799687551742
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-07-02",
+   "exit_idx": 187,
+   "report": "2026-07-01",
+   "label": "long OXY (\u2193 catalyst) / short IWM (#1)",
+   "risk_unit": 397.9035234644509,
+   "mode": "FADE",
+   "pnl": 1993.9017333984375,
+   "legs": [
+    {
+     "sym": "OXY",
+     "side": 1,
+     "entry": 48.439998626708984,
+     "qty": 320,
+     "atr": 0.025669870893447817,
+     "mark": 53.650001525878906
+    },
+    {
+     "sym": "IWM",
+     "side": -1,
+     "entry": 300.5400085449219,
+     "qty": 66,
+     "atr": 0.016636961255877384,
+     "mark": 295.5899963378906
+    }
+   ],
+   "exit_day": "2026-07-16",
+   "exit_reason": "time",
+   "ret": 0.12744911999916525
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-07-21",
+   "exit_idx": 194,
+   "report": "2026-07-20",
+   "label": "long XLE (persisting #3/#4) / short IBIT (#1)",
+   "risk_unit": 405.8563652815322,
+   "mode": "FADE",
+   "pnl": 394.04030990600586,
+   "legs": [
+    {
+     "sym": "XLE",
+     "side": 1,
+     "entry": 58.15999984741211,
+     "qty": 328,
+     "atr": 0.0212752230152697,
+     "mark": 58.36000061035156
+    },
+    {
+     "sym": "IBIT",
+     "side": -1,
+     "entry": 37.61000061035156,
+     "qty": 391,
+     "atr": 0.027617830181730134,
+     "mark": 36.77000045776367
+    }
+   ],
+   "exit_day": "2026-07-27",
+   "exit_reason": "time",
+   "ret": 0.019777272101889065
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-07-20",
+   "exit_idx": 198,
+   "report": "2026-07-17",
+   "label": "long NFLX (\u2193 catalyst) / short IWM (#1)",
+   "risk_unit": 405.1252214180782,
+   "mode": "FADE",
+   "pnl": 804.8697357177734,
+   "legs": [
+    {
+     "sym": "NFLX",
+     "side": 1,
+     "entry": 68.31999969482422,
+     "qty": 161,
+     "atr": 0.03683117292642909,
+     "mark": 71.70999908447266
+    },
+    {
+     "sym": "IWM",
+     "side": -1,
+     "entry": 295.010009765625,
+     "qty": 68,
+     "atr": 0.013189191531729077,
+     "mark": 291.20001220703125
+    }
+   ],
+   "exit_day": "2026-07-31",
+   "exit_reason": "time",
+   "ret": 0.07174824755095337
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-07-20",
+   "exit_idx": 198,
+   "report": "2026-07-17",
+   "label": "long TSM (\u2193 catalyst) / short IWM (#1)",
+   "risk_unit": 391.6975100757514,
+   "mode": "FADE",
+   "pnl": 176.0400390625,
+   "legs": [
+    {
+     "sym": "TSM",
+     "side": 1,
+     "entry": 407.7099914550781,
+     "qty": 24,
+     "atr": 0.04003024190857455,
+     "mark": 404.25
+    },
+    {
+     "sym": "IWM",
+     "side": -1,
+     "entry": 295.010009765625,
+     "qty": 68,
+     "atr": 0.013189191531729077,
+     "mark": 291.20001220703125
+    }
+   ],
+   "exit_day": "2026-07-31",
+   "exit_reason": "time",
+   "ret": 0.01648314590720054
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-07-22",
+   "exit_idx": 200,
+   "report": "2026-07-21",
+   "label": "long GOOGL (\u2193 catalyst) / short IBIT (#1)",
+   "risk_unit": 401.78273271370875,
+   "mode": "FADE",
+   "pnl": 1389.8104782104492,
+   "legs": [
+    {
+     "sym": "GOOGL",
+     "side": 1,
+     "entry": 348.1600036621094,
+     "qty": 37,
+     "atr": 0.03118966182739611,
+     "mark": 377.6499938964844
+    },
+    {
+     "sym": "IBIT",
+     "side": -1,
+     "entry": 37.150001525878906,
+     "qty": 393,
+     "atr": 0.02788996455943917,
+     "mark": 36.38999938964844
+    }
+   ],
+   "exit_day": "2026-08-04",
+   "exit_reason": "time",
+   "ret": 0.10679101438087835
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-07-22",
+   "exit_idx": 200,
+   "report": "2026-07-21",
+   "label": "long ASML (\u2193 catalyst) / short IBIT (#1)",
+   "risk_unit": 375.5574981016269,
+   "mode": "FADE",
+   "pnl": 19.88079071044922,
+   "legs": [
+    {
+     "sym": "ASML",
+     "side": 1,
+     "entry": 1767.6500244140625,
+     "qty": 5,
+     "atr": 0.04249229122445955,
+     "mark": 1711.8900146484375
+    },
+    {
+     "sym": "IBIT",
+     "side": -1,
+     "entry": 37.150001525878906,
+     "qty": 393,
+     "atr": 0.02788996455943917,
+     "mark": 36.38999938964844
+    }
+   ],
+   "exit_day": "2026-08-04",
+   "exit_reason": "time",
+   "ret": 0.0009561203492827536
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-08-03",
+   "exit_idx": 203,
+   "report": "2026-07-31",
+   "label": "long GLD (persisting #3/#4) / short XLE (#1)",
+   "risk_unit": 363.1529056594662,
+   "mode": "FADE",
+   "pnl": 1996.8892555236816,
+   "legs": [
+    {
+     "sym": "GLD",
+     "side": 1,
+     "entry": 370.1000061035156,
+     "qty": 56,
+     "atr": 0.017521948685225948,
+     "mark": 398.4700012207031
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 58.689998626708984,
+     "qty": 343,
+     "atr": 0.020603310087640592,
+     "mark": 57.5
+    }
+   ],
+   "exit_day": "2026-08-07",
+   "exit_reason": "time",
+   "ret": 0.09533479430773378
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-07-28",
+   "exit_idx": 204,
+   "report": "2026-07-27",
+   "label": "long NVDA (\u2193 catalyst) / short XLE (#1)",
+   "risk_unit": 404.10850333173516,
+   "mode": "FADE",
+   "pnl": 605.2800064086914,
+   "legs": [
+    {
+     "sym": "NVDA",
+     "side": 1,
+     "entry": 195.0,
+     "qty": 54,
+     "atr": 0.03837687590994636,
+     "mark": 217.5500030517578
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 58.40999984741211,
+     "qty": 346,
+     "atr": 0.018009106884029347,
+     "mark": 60.18000030517578
+    }
+   ],
+   "exit_day": "2026-08-10",
+   "exit_reason": "time",
+   "ret": 0.05593494931372256
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-08-03",
+   "exit_idx": 208,
+   "report": "2026-07-31",
+   "label": "long AAPL (\u2193 catalyst) / short XLE (#1)",
+   "risk_unit": 413.40164383623545,
+   "mode": "FADE",
+   "pnl": -566.5096015930176,
+   "legs": [
+    {
+     "sym": "AAPL",
+     "side": 1,
+     "entry": 309.5799865722656,
+     "qty": 42,
+     "atr": 0.03179435592978001,
+     "mark": 308.260009765625
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 58.689998626708984,
+     "qty": 343,
+     "atr": 0.020603310087640592,
+     "mark": 60.18000030517578
+    }
+   ],
+   "exit_day": "2026-08-10",
+   "exit_reason": "halt",
+   "ret": -0.04356975396503612
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-08-06",
+   "exit_idx": 211,
+   "report": "2026-08-05",
+   "label": "long GILD (\u2193 catalyst) / short GLD (#1)",
+   "risk_unit": 432.1100564616669,
+   "mode": "FADE",
+   "pnl": -812.9912872314453,
+   "legs": [
+    {
+     "sym": "GILD",
+     "side": 1,
+     "entry": 133.99000549316406,
+     "qty": 103,
+     "atr": 0.031310120864441335,
+     "mark": 133.05999755859375
+    },
+    {
+     "sym": "GLD",
+     "side": -1,
+     "entry": 389.5,
+     "qty": 55,
+     "atr": 0.019880923109821966,
+     "mark": 402.5400085449219
+    }
+   ],
+   "exit_day": "2026-08-10",
+   "exit_reason": "halt",
+   "ret": -0.05890826904930511
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-08-17",
+   "exit_idx": 213,
+   "report": "2026-08-14",
+   "label": "long TSLA (persisting #3/#4) / short GLD (#1)",
+   "risk_unit": 419.68479695586495,
+   "mode": "FADE",
+   "pnl": -272.75006103515625,
+   "legs": [
+    {
+     "sym": "TSLA",
+     "side": 1,
+     "entry": 340.69000244140625,
+     "qty": 37,
+     "atr": 0.033293704742948294,
+     "mark": 362.8599853515625
+    },
+    {
+     "sym": "GLD",
+     "side": -1,
+     "entry": 402.3399963378906,
+     "qty": 52,
+     "atr": 0.018151323300688492,
+     "mark": 423.3599853515625
+    }
+   ],
+   "exit_day": "2026-08-21",
+   "exit_reason": "time",
+   "ret": -0.023043087303887412
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-08-17",
+   "exit_idx": 218,
+   "report": "2026-08-14",
+   "label": "long LOW (\u2193 catalyst) / short GLD (#1)",
+   "risk_unit": 421.83964111103484,
+   "mode": "FADE",
+   "pnl": -1065.1597290039062,
+   "legs": [
+    {
+     "sym": "LOW",
+     "side": 1,
+     "entry": 215.75,
+     "qty": 82,
+     "atr": 0.02384419868925952,
+     "mark": 216.08999633789062
+    },
+    {
+     "sym": "GLD",
+     "side": -1,
+     "entry": 402.3399963378906,
+     "qty": 52,
+     "atr": 0.018151323300688492,
+     "mark": 423.3599853515625
+    }
+   ],
+   "exit_day": "2026-08-21",
+   "exit_reason": "stop",
+   "ret": -0.061330400388486014
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-08-25",
+   "exit_idx": 219,
+   "report": "2026-08-24",
+   "label": "long NVDA (persisting #3/#4) / short GLD (#1)",
+   "risk_unit": 418.06683997220665,
+   "mode": "FADE",
+   "pnl": 1512.8892822265625,
+   "legs": [
+    {
+     "sym": "NVDA",
+     "side": 1,
+     "entry": 211.02999877929688,
+     "qty": 83,
+     "atr": 0.023868406901006736,
+     "mark": 220.77999877929688
+    },
+    {
+     "sym": "GLD",
+     "side": -1,
+     "entry": 422.7799987792969,
+     "qty": 49,
+     "atr": 0.01765121049799593,
+     "mark": 408.4200134277344
+    }
+   ],
+   "exit_day": "2026-08-31",
+   "exit_reason": "time",
+   "ret": 0.08527997964023101
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-08-25",
+   "exit_idx": 219,
+   "report": "2026-08-24",
+   "label": "long XLE (persisting #3/#4) / short GLD (#1)",
+   "risk_unit": 335.14926441490746,
+   "mode": "FADE",
+   "pnl": 1294.9987182617188,
+   "legs": [
+    {
+     "sym": "XLE",
+     "side": 1,
+     "entry": 62.20000076293945,
+     "qty": 336,
+     "atr": 0.016036463611238592,
+     "mark": 63.959999084472656
+    },
+    {
+     "sym": "GLD",
+     "side": -1,
+     "entry": 422.7799987792969,
+     "qty": 49,
+     "atr": 0.01765121049799593,
+     "mark": 408.4200134277344
+    }
+   ],
+   "exit_day": "2026-08-31",
+   "exit_reason": "time",
+   "ret": 0.06097109614036663
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-08-25",
+   "exit_idx": 224,
+   "report": "2026-08-24",
+   "label": "long GH (\u2193 catalyst) / short GLD (#1)",
+   "risk_unit": 416.8752955586984,
+   "mode": "FADE",
+   "pnl": 916.3400268554688,
+   "legs": [
+    {
+     "sym": "GH",
+     "side": 1,
+     "entry": 164.5399932861328,
+     "qty": 60,
+     "atr": 0.04222633934694912,
+     "mark": 160.97999572753906
+    },
+    {
+     "sym": "GLD",
+     "side": -1,
+     "entry": 422.7799987792969,
+     "qty": 49,
+     "atr": 0.01765121049799593,
+     "mark": 399.7200012207031
+    }
+   ],
+   "exit_day": "2026-09-08",
+   "exit_reason": "time",
+   "ret": 0.09133721524120693
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-08-26",
+   "exit_idx": 225,
+   "report": "2026-08-25",
+   "label": "long DKS (\u2193 catalyst) / short GLD (#1)",
+   "risk_unit": 414.86115666299935,
+   "mode": "FADE",
+   "pnl": 1571.8195877075195,
+   "legs": [
+    {
+     "sym": "DKS",
+     "side": 1,
+     "entry": 121.87000274658203,
+     "qty": 53,
+     "atr": 0.06422884070921242,
+     "mark": 133.36000061035156
+    },
+    {
+     "sym": "GLD",
+     "side": -1,
+     "entry": 423.0,
+     "qty": 49,
+     "atr": 0.0179843960989095,
+     "mark": 403.3500061035156
+    }
+   ],
+   "exit_day": "2026-09-09",
+   "exit_reason": "time",
+   "ret": 0.2412721624837011
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-09-01",
+   "exit_idx": 229,
+   "report": "2026-08-31",
+   "label": "long AAPL (\u2193 catalyst) / short GLD (#1)",
+   "risk_unit": 432.69870059003335,
+   "mode": "FADE",
+   "pnl": 1109.7398681640625,
+   "legs": [
+    {
+     "sym": "AAPL",
+     "side": 1,
+     "entry": 316.9800109863281,
+     "qty": 62,
+     "atr": 0.022017196851382103,
+     "mark": 331.3399963378906
+    },
+    {
+     "sym": "GLD",
+     "side": -1,
+     "entry": 398.2900085449219,
+     "qty": 53,
+     "atr": 0.02048924154664017,
+     "mark": 394.1499938964844
+    }
+   ],
+   "exit_day": "2026-09-15",
+   "exit_reason": "time",
+   "ret": 0.055413250642376205
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-09-01",
+   "exit_idx": 229,
+   "report": "2026-08-31",
+   "label": "long PCG (\u2193 catalyst) / short GLD (#1)",
+   "risk_unit": 436.87051839177997,
+   "mode": "FADE",
+   "pnl": 137.52046394348145,
+   "legs": [
+    {
+     "sym": "PCG",
+     "side": 1,
+     "entry": 13.300000190734863,
+     "qty": 546,
+     "atr": 0.060160085946546905,
+     "mark": 13.149999618530273
+    },
+    {
+     "sym": "GLD",
+     "side": -1,
+     "entry": 398.2900085449219,
+     "qty": 53,
+     "atr": 0.02048924154664017,
+     "mark": 394.1499938964844
+    }
+   ],
+   "exit_day": "2026-09-15",
+   "exit_reason": "time",
+   "ret": 0.01700481112650635
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-09-09",
+   "exit_idx": 229,
+   "report": "2026-09-08",
+   "label": "long GLD (persisting #3/#4) / short IBIT (#1)",
+   "risk_unit": 437.7184335971729,
+   "mode": "FADE",
+   "pnl": -6.8798370361328125,
+   "legs": [
+    {
+     "sym": "GLD",
+     "side": 1,
+     "entry": 406.1099853515625,
+     "qty": 54,
+     "atr": 0.019959856223306177,
+     "mark": 394.1499938964844
+    },
+    {
+     "sym": "IBIT",
+     "side": -1,
+     "entry": 45.06999969482422,
+     "qty": 326,
+     "atr": 0.030211208062917033,
+     "mark": 43.11000061035156
+    }
+   ],
+   "exit_day": "2026-09-15",
+   "exit_reason": "time",
+   "ret": -0.0011194202016195241
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-09-02",
+   "exit_idx": 230,
+   "report": "2026-09-01",
+   "label": "long NVDA (\u2193 catalyst) / short GLD (#1)",
+   "risk_unit": 439.8369460591733,
+   "mode": "FADE",
+   "pnl": 132.63009643554688,
+   "legs": [
+    {
+     "sym": "NVDA",
+     "side": 1,
+     "entry": 218.7899932861328,
+     "qty": 56,
+     "atr": 0.03589849362697478,
+     "mark": 213.89999389648438
+    },
+    {
+     "sym": "GLD",
+     "side": -1,
+     "entry": 399.7099914550781,
+     "qty": 51,
+     "atr": 0.021540841558825262,
+     "mark": 391.739990234375
+    }
+   ],
+   "exit_day": "2026-09-16",
+   "exit_reason": "time",
+   "ret": 0.009520832960754833
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-09-18",
+   "exit_idx": 236,
+   "report": "2026-09-17",
+   "label": "long GLD (persisting #3/#4) / short XLE (#1)",
+   "risk_unit": 438.81107316111604,
+   "mode": "FADE",
+   "pnl": 23.749046325683594,
+   "legs": [
+    {
+     "sym": "GLD",
+     "side": 1,
+     "entry": 400.4800109863281,
+     "qty": 55,
+     "atr": 0.019922050862749053,
+     "mark": 391.69000244140625
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 64.19999694824219,
+     "qty": 317,
+     "atr": 0.02175623142088239,
+     "mark": 62.599998474121094
+    }
+   ],
+   "exit_day": "2026-09-24",
+   "exit_reason": "time",
+   "ret": 0.00013871860206735023
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-09-16",
+   "exit_idx": 239,
+   "report": "2026-09-15",
+   "label": "long ZUMZ (\u2193 catalyst) / short XLE (#1)",
+   "risk_unit": 442.2471837963109,
+   "mode": "FADE",
+   "pnl": 1241.8899745941162,
+   "legs": [
+    {
+     "sym": "ZUMZ",
+     "side": 1,
+     "entry": 13.789999961853027,
+     "qty": 563,
+     "atr": 0.05696294261933178,
+     "mark": 13.779999732971191
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 65.22000122070312,
+     "qty": 339,
+     "atr": 0.019934204708999124,
+     "mark": 61.540000915527344
+    }
+   ],
+   "exit_day": "2026-09-29",
+   "exit_reason": "time",
+   "ret": 0.15811646634430568
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-09-16",
+   "exit_idx": 239,
+   "report": "2026-09-15",
+   "label": "long COST (\u2193 catalyst) / short XLE (#1)",
+   "risk_unit": 332.766215044457,
+   "mode": "FADE",
+   "pnl": 1812.4810409545898,
+   "legs": [
+    {
+     "sym": "COST",
+     "side": 1,
+     "entry": 901.0499877929688,
+     "qty": 24,
+     "atr": 0.015387890958355447,
+     "mark": 924.5900268554688
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 65.22000122070312,
+     "qty": 339,
+     "atr": 0.019934204708999124,
+     "mark": 61.540000915527344
+    }
+   ],
+   "exit_day": "2026-09-29",
+   "exit_reason": "time",
+   "ret": 0.08281796028430798
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-09-17",
+   "exit_idx": 240,
+   "report": "2026-09-16",
+   "label": "long CRM (\u2193 catalyst) / short XLE (#1)",
+   "risk_unit": 440.94038597950265,
+   "mode": "FADE",
+   "pnl": -59.279296875,
+   "legs": [
+    {
+     "sym": "CRM",
+     "side": 1,
+     "entry": 244.17999267578125,
+     "qty": 48,
+     "atr": 0.03762084657540728,
+     "mark": 229.57000732421875
+    },
+    {
+     "sym": "XLE",
+     "side": -1,
+     "entry": 63.5,
+     "qty": 321,
+     "atr": 0.021799076059970977,
+     "mark": 61.5
+    }
+   ],
+   "exit_day": "2026-09-30",
+   "exit_reason": "time",
+   "ret": -0.0063699362227840756
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-09-25",
+   "exit_idx": 241,
+   "report": "2026-09-24",
+   "label": "long XLE (persisting #3/#4) / short QQQ (#1)",
+   "risk_unit": 449.254882034194,
+   "mode": "FADE",
+   "pnl": 286.08050537109375,
+   "legs": [
+    {
+     "sym": "XLE",
+     "side": 1,
+     "entry": 61.91999816894531,
+     "qty": 336,
+     "atr": 0.021593477726600172,
+     "mark": 62.70000076293945
+    },
+    {
+     "sym": "QQQ",
+     "side": -1,
+     "entry": 742.8300170898438,
+     "qty": 30,
+     "atr": 0.014637258962163151,
+     "mark": 742.030029296875
+    }
+   ],
+   "exit_day": "2026-10-01",
+   "exit_reason": "time",
+   "ret": 0.012709201514944613
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-09-30",
+   "exit_idx": 249,
+   "report": "2026-09-29",
+   "label": "long NKE (\u2193 catalyst) / short LITE (#1)",
+   "risk_unit": 456.83783108617985,
+   "mode": "FADE",
+   "pnl": -1483.8217239379883,
+   "legs": [
+    {
+     "sym": "NKE",
+     "side": 1,
+     "entry": 35.7400016784668,
+     "qty": 473,
+     "atr": 0.027023795868421834,
+     "mark": 33.869998931884766
+    },
+    {
+     "sym": "LITE",
+     "side": -1,
+     "entry": 985.5349731445312,
+     "qty": 6,
+     "atr": 0.06685626151786897,
+     "mark": 1085.4200439453125
+    }
+   ],
+   "exit_day": "2026-10-02",
+   "exit_reason": "stop",
+   "ret": -0.08844048505136376
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-09-30",
+   "exit_idx": 244,
+   "report": "2026-09-29",
+   "label": "long IBIT (persisting #3/#4) / short LITE (#1)",
+   "risk_unit": 457.03502360024805,
+   "mode": "FADE",
+   "pnl": -803.4696197509766,
+   "legs": [
+    {
+     "sym": "IBIT",
+     "side": 1,
+     "entry": 48.22999954223633,
+     "qty": 322,
+     "atr": 0.02942905744975153,
+     "mark": 48.4900016784668
+    },
+    {
+     "sym": "LITE",
+     "side": -1,
+     "entry": 985.5349731445312,
+     "qty": 6,
+     "atr": 0.06685626151786897,
+     "mark": 1133.4000244140625
+    }
+   ],
+   "exit_day": "2026-10-06",
+   "exit_reason": "time",
+   "ret": -0.05245805346706734
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-09-24",
+   "exit_idx": 245,
+   "report": "2026-09-23",
+   "label": "long SHOP (\u2193 catalyst) / short PLTR (#1)",
+   "risk_unit": 450.8007533819738,
+   "mode": "FADE",
+   "pnl": 1219.1101989746094,
+   "legs": [
+    {
+     "sym": "SHOP",
+     "side": 1,
+     "entry": 140.55999755859375,
+     "qty": 61,
+     "atr": 0.05257666770995585,
+     "mark": 166.02999877929688
+    },
+    {
+     "sym": "PLTR",
+     "side": -1,
+     "entry": 189.1999969482422,
+     "qty": 68,
+     "atr": 0.03490074335912413,
+     "mark": 194.1199951171875
+    }
+   ],
+   "exit_day": "2026-10-07",
+   "exit_reason": "time",
+   "ret": 0.1408238504005242
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-10-02",
+   "exit_idx": 246,
+   "report": "2026-10-01",
+   "label": "long XLE (persisting #3/#4) / short IBIT (#1)",
+   "risk_unit": 414.813061754011,
+   "mode": "FADE",
+   "pnl": 2057.2694549560547,
+   "legs": [
+    {
+     "sym": "XLE",
+     "side": 1,
+     "entry": 61.86000061035156,
+     "qty": 364,
+     "atr": 0.018422184161914344,
+     "mark": 65.23999786376953
+    },
+    {
+     "sym": "IBIT",
+     "side": -1,
+     "entry": 49.03499984741211,
+     "qty": 298,
+     "atr": 0.030821106742102367,
+     "mark": 46.2599983215332
+    }
+   ],
+   "exit_day": "2026-10-08",
+   "exit_reason": "time",
+   "ret": 0.09053157144463593
+  },
+  {
+   "kind": "P_F1",
+   "entry_day": "2026-10-05",
+   "exit_idx": 247,
+   "report": "2026-10-02",
+   "label": "long QQQ (persisting #3/#4) / short IBIT (#1)",
+   "risk_unit": 301.83194734166693,
+   "mode": "FADE",
+   "pnl": 771.5421142578125,
+   "legs": [
+    {
+     "sym": "QQQ",
+     "side": 1,
+     "entry": 749.3499755859375,
+     "qty": 30,
+     "atr": 0.013426389856784706,
+     "mark": 751.27001953125
+    },
+    {
+     "sym": "IBIT",
+     "side": -1,
+     "entry": 48.7400016784668,
+     "qty": 326,
+     "atr": 0.0282677907938056,
+     "mark": 46.54999923706055
+    }
+   ],
+   "exit_day": "2026-10-09",
+   "exit_reason": "time",
+   "ret": 0.03348170363701586
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-09-30",
+   "exit_idx": 249,
+   "report": "2026-09-29",
+   "label": "long PANW (\u2193 catalyst) / short LITE (#1)",
+   "risk_unit": 451.204178596655,
+   "mode": "FADE",
+   "pnl": 127.02023315429688,
+   "legs": [
+    {
+     "sym": "PANW",
+     "side": 1,
+     "entry": 391.3599853515625,
+     "qty": 25,
+     "atr": 0.046116536742133604,
+     "mark": 397.0299987792969
+    },
+    {
+     "sym": "LITE",
+     "side": -1,
+     "entry": 985.5349731445312,
+     "qty": 6,
+     "atr": 0.06685626151786897,
+     "mark": 987.989990234375
+    }
+   ],
+   "exit_day": "2026-10-13",
+   "exit_reason": "time",
+   "ret": 0.012172260083449234
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-10-01",
+   "exit_idx": 250,
+   "report": "2026-09-30",
+   "label": "long YPF (\u2193 catalyst) / short IBIT (#1)",
+   "risk_unit": 456.90112764602657,
+   "mode": "FADE",
+   "pnl": 1007.25,
+   "legs": [
+    {
+     "sym": "YPF",
+     "side": 1,
+     "entry": 50.0,
+     "qty": 305,
+     "atr": 0.029960729681706662,
+     "mark": 52.25
+    },
+    {
+     "sym": "IBIT",
+     "side": -1,
+     "entry": 47.2400016784668,
+     "qty": 321,
+     "atr": 0.030093263787165724,
+     "mark": 46.2400016784668
+    }
+   ],
+   "exit_day": "2026-10-14",
+   "exit_reason": "time",
+   "ret": 0.06504002326102334
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-10-08",
+   "exit_idx": 255,
+   "report": "2026-10-07",
+   "label": "long STZ (\u2193 catalyst) / short QQQ (#1)",
+   "risk_unit": 453.2056650863043,
+   "mode": "FADE",
+   "pnl": 3264.699478149414,
+   "legs": [
+    {
+     "sym": "STZ",
+     "side": 1,
+     "entry": 116.81999969482422,
+     "qty": 158,
+     "atr": 0.024553931628570634,
+     "mark": 132.02000427246094
+    },
+    {
+     "sym": "QQQ",
+     "side": -1,
+     "entry": 753.969970703125,
+     "qty": 30,
+     "atr": 0.01113582836119072,
+     "mark": 725.2000122070312
+    }
+   ],
+   "exit_day": "2026-10-21",
+   "exit_reason": "time",
+   "ret": 0.1757215962511669
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-10-09",
+   "exit_idx": 256,
+   "report": "2026-10-08",
+   "label": "long CMG (\u2193 catalyst) / short QQQ (#1)",
+   "risk_unit": 465.9192163410715,
+   "mode": "FADE",
+   "pnl": -30.279098510742188,
+   "legs": [
+    {
+     "sym": "CMG",
+     "side": 1,
+     "entry": 32.5099983215332,
+     "qty": 348,
+     "atr": 0.04118266354792077,
+     "mark": 28.139999389648438
+    },
+    {
+     "sym": "QQQ",
+     "side": -1,
+     "entry": 752.5499877929688,
+     "qty": 31,
+     "atr": 0.011964728961607463,
+     "mark": 704.469970703125
+    }
+   ],
+   "exit_day": "2026-10-22",
+   "exit_reason": "time",
+   "ret": -0.004074320662632224
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-10-12",
+   "exit_idx": 257,
+   "report": "2026-10-09",
+   "label": "long MARA (\u2193 catalyst) / short QQQ (#1)",
+   "risk_unit": 465.05218682410253,
+   "mode": "FADE",
+   "pnl": -563.5110564231873,
+   "legs": [
+    {
+     "sym": "MARA",
+     "side": 1,
+     "entry": 9.520000457763672,
+     "qty": 787,
+     "atr": 0.06207117824073164,
+     "mark": 7.019999980926514
+    },
+    {
+     "sym": "QQQ",
+     "side": -1,
+     "entry": 749.6900024414062,
+     "qty": 31,
+     "atr": 0.011824957820760849,
+     "mark": 704.4000244140625
+    }
+   ],
+   "exit_day": "2026-10-23",
+   "exit_reason": "time",
+   "ret": -0.07703858913224575
+  },
+  {
+   "kind": "P_F2",
+   "entry_day": "2026-10-14",
+   "exit_idx": 259,
+   "report": "2026-10-13",
+   "label": "long INTC (\u2193 catalyst) / short NVDA (#1)",
+   "risk_unit": 468.5678952031993,
+   "mode": "FADE",
+   "pnl": 100.87934875488281,
+   "legs": [
+    {
+     "sym": "INTC",
+     "side": 1,
+     "entry": 99.54000091552734,
+     "qty": 103,
+     "atr": 0.04570225863179437,
+     "mark": 93.73999786376953
+    },
+    {
+     "sym": "NVDA",
+     "side": -1,
+     "entry": 225.52999877929688,
+     "qty": 92,
+     "atr": 0.02248715060181341,
+     "mark": 217.94000244140625
+    }
+   ],
+   "exit_day": "2026-10-27",
+   "exit_reason": "time",
+   "ret": 0.008390684328626068
+  }
+ ],
+ "daily": [
+  [
+   "2025-12-02",
+   -156.70012456703188,
+   -0.20711474685668946,
+   99843.09276068611,
+   -0.010372011780180065,
+   4,
+   1.448803935568858,
+   0
+  ],
+  [
+   "2025-12-03",
+   -34.561092376708984,
+   3.579046929785794,
+   99812.11071523918,
+   -0.010721492802744322,
+   4,
+   1.4593065168073662,
+   0
+  ],
+  [
+   "2025-12-04",
+   -870.9822082519531,
+   0.6081916644328104,
+   98941.73669865166,
+   -0.01961878879106599,
+   4,
+   1.4702127734415638,
+   0
+  ],
+  [
+   "2025-12-05",
+   -205.58246612548828,
+   3.64600400254334,
+   98739.80023652871,
+   -0.021740974722404067,
+   4,
+   1.4780983804628,
+   0
+  ],
+  [
+   "2025-12-08",
+   -364.55350258255004,
+   -6.878603729965298,
+   98368.3681302162,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2025-12-09",
+   45.861128303527835,
+   -2.5442216369628907,
+   98411.68503688276,
+   -0.12926420455098225,
+   4,
+   1.468389932093802,
+   0
+  ],
+  [
+   "2025-12-10",
+   670.245964050293,
+   84.23435473627667,
+   99166.16535566933,
+   -0.12152191402725458,
+   4,
+   1.4686527377338692,
+   0
+  ],
+  [
+   "2025-12-11",
+   232.4682388305664,
+   27.99586587538102,
+   99426.62946037528,
+   -0.11886547946034523,
+   4,
+   1.4789037199436728,
+   0
+  ],
+  [
+   "2025-12-12",
+   -1573.594051361084,
+   -127.386390805938,
+   97725.64901820825,
+   -0.1370365729758365,
+   4,
+   1.5013328614268135,
+   0
+  ],
+  [
+   "2025-12-15",
+   374.9451401805879,
+   -22.911529236710912,
+   98077.68262915213,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2025-12-16",
+   884.0164776611327,
+   -3.920270249938965,
+   98957.77883656332,
+   -0.19807792252560583,
+   4,
+   1.35749701808131,
+   0
+  ],
+  [
+   "2025-12-17",
+   -1063.5972137451172,
+   -215.89690143639783,
+   97678.2847213818,
+   -0.21156133650774867,
+   4,
+   1.3852324384929633,
+   0
+  ],
+  [
+   "2025-12-18",
+   1430.3281784057617,
+   155.76126079585944,
+   99264.37416058342,
+   -0.19377163708217882,
+   4,
+   1.3612724791264674,
+   0
+  ],
+  [
+   "2025-12-19",
+   1267.2582092285156,
+   116.89545233829882,
+   100648.52782215024,
+   -0.17851589550872193,
+   4,
+   1.3522932350135204,
+   0
+  ],
+  [
+   "2025-12-22",
+   958.6576236667634,
+   110.47471255178411,
+   101717.66015836879,
+   -0.10488738699959269,
+   1,
+   0.2734773815614989,
+   0
+  ],
+  [
+   "2025-12-23",
+   25.75303443336486,
+   46.913950565599954,
+   101790.32714336776,
+   -0.1955916718799799,
+   4,
+   1.3793294895012138,
+   0
+  ],
+  [
+   "2025-12-24",
+   339.2197570800781,
+   69.96567785252961,
+   102199.51257830036,
+   -0.19148937227178683,
+   4,
+   1.3815167663281018,
+   0
+  ],
+  [
+   "2025-12-26",
+   953.5908012390137,
+   -2.175207516632282,
+   103150.92817202274,
+   -0.18047854768515403,
+   4,
+   1.3764472568717891,
+   0
+  ],
+  [
+   "2025-12-29",
+   -1091.3703269958496,
+   -66.5610364480662,
+   101992.99680857883,
+   -0.19322797302295255,
+   4,
+   1.3884443384453895,
+   0
+  ],
+  [
+   "2025-12-30",
+   8.950730705261272,
+   -28.007819751027338,
+   101973.93971953307,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2025-12-31",
+   -322.88624993133544,
+   -2.4814458518981932,
+   101648.57202374983,
+   -0.12206004484344415,
+   4,
+   1.4720117079082475,
+   0
+  ],
+  [
+   "2026-01-02",
+   -264.2426452636719,
+   22.69034270018426,
+   101407.01972118634,
+   -0.12495655566640489,
+   4,
+   1.4902862981180218,
+   0
+  ],
+  [
+   "2026-01-05",
+   785.2030868530273,
+   84.23636648166793,
+   102276.45917452103,
+   -0.11621705438217499,
+   4,
+   1.491694683004281,
+   0
+  ],
+  [
+   "2026-01-06",
+   1956.9384574890137,
+   70.29895248698284,
+   104303.69658449703,
+   -0.0951963418896548,
+   4,
+   1.4703328317302948,
+   0
+  ],
+  [
+   "2026-01-07",
+   164.3501106071472,
+   -33.99207131575718,
+   104434.05462378841,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-01-08",
+   0.0,
+   -0.0,
+   104434.05462378841,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-01-09",
+   0.0,
+   0.0,
+   104434.05462378841,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-01-12",
+   0.0,
+   0.0,
+   104434.05462378841,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-01-13",
+   0.0,
+   -0.0,
+   104434.05462378841,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-01-14",
+   0.0,
+   -0.0,
+   104434.05462378841,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-01-15",
+   -228.6653767967224,
+   -2.823219825744629,
+   104202.56602716594,
+   -0.13546786482247503,
+   4,
+   1.4593872891079516,
+   0
+  ],
+  [
+   "2026-01-16",
+   -585.2230377197266,
+   -11.944703876138854,
+   103605.39828557007,
+   -0.1418972602751959,
+   4,
+   1.4694404014193476,
+   0
+  ],
+  [
+   "2026-01-20",
+   971.7092056274414,
+   -299.46562843625765,
+   104277.64186276126,
+   -0.13166401460137384,
+   4,
+   1.4331953550075718,
+   0
+  ],
+  [
+   "2026-01-21",
+   -189.7076187133789,
+   158.41666340010644,
+   104246.35090744798,
+   -0.1335233363888839,
+   4,
+   1.449392497661847,
+   0
+  ],
+  [
+   "2026-01-22",
+   514.590304965973,
+   69.91901626175326,
+   104830.86022867571,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-01-23",
+   -727.1175526752472,
+   -3.8335242637634277,
+   104099.9091517367,
+   -0.1841271666325692,
+   4,
+   1.4300068005344622,
+   0
+  ],
+  [
+   "2026-01-26",
+   -442.7871284484863,
+   97.24713097578513,
+   103754.369154264,
+   -0.18900802546549622,
+   4,
+   1.4355350317321052,
+   0
+  ],
+  [
+   "2026-01-27",
+   891.7759246826172,
+   77.95442432277751,
+   104724.09950326939,
+   -0.17874235836230445,
+   4,
+   1.4253583395232705,
+   0
+  ],
+  [
+   "2026-01-28",
+   1376.383014678955,
+   -2.1594753611362445,
+   106098.3230425872,
+   -0.16345451097227034,
+   4,
+   1.4111905174166735,
+   0
+  ],
+  [
+   "2026-01-29",
+   -1529.9072059459686,
+   -37.88274570554869,
+   104530.53309093569,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-01-30",
+   0.0,
+   -0.0,
+   104530.53309093569,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-02-02",
+   0.0,
+   0.0,
+   104530.53309093569,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-02-03",
+   0.0,
+   -0.0,
+   104530.53309093569,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-02-04",
+   0.0,
+   -0.0,
+   104530.53309093569,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-02-05",
+   0.0,
+   -0.0,
+   104530.53309093569,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-02-06",
+   0.0,
+   0.0,
+   104530.53309093569,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-02-09",
+   0.0,
+   0.0,
+   104530.53309093569,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-02-10",
+   -307.2087344703674,
+   -2.132504209136963,
+   104221.19185225618,
+   -0.10230665046318017,
+   4,
+   1.5053825307380824,
+   0
+  ],
+  [
+   "2026-02-11",
+   795.3787460327148,
+   -2.62355738872383,
+   105013.94704090017,
+   -0.09396030315677124,
+   4,
+   1.493906525236588,
+   0
+  ],
+  [
+   "2026-02-12",
+   731.2247047424316,
+   -152.58247235807517,
+   105592.58927328452,
+   -0.08652044293814,
+   4,
+   1.470786535160976,
+   0
+  ],
+  [
+   "2026-02-13",
+   263.4182243347168,
+   6.383915477288758,
+   105862.39141309653,
+   -0.08381162802144397,
+   4,
+   1.4701952127098794,
+   0
+  ],
+  [
+   "2026-02-17",
+   -529.6110808353424,
+   14.217044586043018,
+   105346.99737684723,
+   -0.08889043638371928,
+   1,
+   0.30104151561251946,
+   0
+  ],
+  [
+   "2026-02-18",
+   -152.712091217041,
+   44.5566000273208,
+   105238.8418856575,
+   -0.21337804312297567,
+   4,
+   1.3745168044803218,
+   0
+  ],
+  [
+   "2026-02-19",
+   260.66895294189453,
+   -59.27591341013958,
+   105440.23492518926,
+   -0.21049829038123333,
+   4,
+   1.3696252658871575,
+   0
+  ],
+  [
+   "2026-02-20",
+   -200.78157806396484,
+   160.46923848943413,
+   105399.92258561472,
+   -0.21248374968226544,
+   4,
+   1.3854842195972004,
+   0
+  ],
+  [
+   "2026-02-23",
+   622.3108901977539,
+   -228.81444634115294,
+   105793.41902947132,
+   -0.20581109937423078,
+   4,
+   1.3650826368208469,
+   0
+  ],
+  [
+   "2026-02-24",
+   -372.0676239356995,
+   153.90599201167302,
+   105575.25739754729,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-02-25",
+   -641.013853805542,
+   -2.683111682128906,
+   104931.56043205962,
+   -0.1278505566428772,
+   4,
+   1.4824630265706167,
+   0
+  ],
+  [
+   "2026-02-26",
+   -967.6642303466797,
+   -74.7089903288338,
+   103889.18721138411,
+   -0.13844773481310965,
+   4,
+   1.4955009619400035,
+   0
+  ],
+  [
+   "2026-02-27",
+   304.16151428222656,
+   -69.12862958924033,
+   104124.2200960771,
+   -0.13521408480868338,
+   4,
+   1.4890389654060663,
+   0
+  ],
+  [
+   "2026-03-02",
+   1107.630630493164,
+   7.783022269407381,
+   105239.63374883967,
+   -0.12325613491940567,
+   4,
+   1.475039047337688,
+   0
+  ],
+  [
+   "2026-03-03",
+   -1515.113663581848,
+   -116.92890482527449,
+   103607.59118043254,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-03-04",
+   -785.0945842475892,
+   -3.563107890319824,
+   102818.93348829464,
+   -0.17327100026404496,
+   4,
+   1.4567945278925396,
+   0
+  ],
+  [
+   "2026-03-05",
+   -563.1625747680664,
+   -99.44486246400876,
+   102156.32605106257,
+   -0.17990762527208196,
+   4,
+   1.462986269626222,
+   0
+  ],
+  [
+   "2026-03-06",
+   1127.500114440918,
+   -241.11683447260808,
+   103042.70933103088,
+   -0.16741797671978664,
+   4,
+   1.4318567762975827,
+   0
+  ],
+  [
+   "2026-03-09",
+   -54.235923767089844,
+   151.10880424228117,
+   103139.58221150607,
+   -0.16778658071549563,
+   4,
+   1.432080232669311,
+   0
+  ],
+  [
+   "2026-03-10",
+   -441.3583956260681,
+   -28.36020358692487,
+   102669.86361229308,
+   -0.1418098729171392,
+   1,
+   0.2594607573281843,
+   0
+  ],
+  [
+   "2026-03-11",
+   279.80537286376955,
+   -19.001054472018946,
+   102930.66793068482,
+   -0.17673110611464152,
+   4,
+   1.4079429518100686,
+   0
+  ],
+  [
+   "2026-03-12",
+   771.4323348999023,
+   -276.38400014726017,
+   103425.71626543747,
+   -0.16842637489599024,
+   4,
+   1.3822563944491677,
+   0
+  ],
+  [
+   "2026-03-13",
+   282.51827239990234,
+   -98.6546810978145,
+   103609.57985673955,
+   -0.16540073044311507,
+   4,
+   1.3783642454096463,
+   0
+  ],
+  [
+   "2026-03-16",
+   -190.91868591308594,
+   174.36417432113748,
+   103593.0253451476,
+   -0.16727013056515327,
+   4,
+   1.3928928183395703,
+   0
+  ],
+  [
+   "2026-03-17",
+   -624.4534012641907,
+   42.11743956439118,
+   103010.6893834478,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-03-18",
+   685.3975677223206,
+   -3.0228460113525393,
+   103693.06410515876,
+   -0.14575931560316152,
+   4,
+   1.4150555957965936,
+   0
+  ],
+  [
+   "2026-03-19",
+   439.10169982910156,
+   -37.334798954906255,
+   104094.83100603295,
+   -0.14097845411827487,
+   4,
+   1.4058679423571312,
+   0
+  ],
+  [
+   "2026-03-20",
+   978.2782363891602,
+   -249.97044781728692,
+   104823.13879460482,
+   -0.13066628492572294,
+   4,
+   1.36725641177868,
+   0
+  ],
+  [
+   "2026-03-23",
+   -625.6894378662109,
+   143.6920519731722,
+   104341.14140871179,
+   -0.13726646426368122,
+   4,
+   1.384737970301391,
+   0
+  ],
+  [
+   "2026-03-24",
+   722.7273412513733,
+   -50.943121280159566,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-03-25",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-03-26",
+   0.0,
+   -0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-03-27",
+   0.0,
+   -0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-03-30",
+   0.0,
+   -0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-03-31",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-01",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-02",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-06",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-07",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-08",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-09",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-10",
+   0.0,
+   -0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-13",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-14",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-15",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-16",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-17",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-20",
+   0.0,
+   -0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-21",
+   0.0,
+   -0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-22",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-23",
+   0.0,
+   -0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-24",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-27",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-28",
+   0.0,
+   -0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-29",
+   0.0,
+   -0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-04-30",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-05-01",
+   0.0,
+   0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-05-04",
+   0.0,
+   -0.0,
+   105012.925628683,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-05-05",
+   -39.78167348480225,
+   -0.46411610107421875,
+   104972.67983909712,
+   0.022106518657312516,
+   1,
+   0.24299256286939894,
+   0
+  ],
+  [
+   "2026-05-06",
+   -480.14729851913455,
+   -37.51696258959301,
+   104455.0155779884,
+   -0.22967199086972523,
+   3,
+   0.80442236986652,
+   0
+  ],
+  [
+   "2026-05-07",
+   -845.5888107204437,
+   -76.09132840771079,
+   103533.33543886025,
+   -0.35410546295614476,
+   5,
+   1.471034621396305,
+   0
+  ],
+  [
+   "2026-05-08",
+   -1944.177188873291,
+   302.29299856637925,
+   101891.45124855333,
+   -0.3788924035606261,
+   5,
+   1.5176737230628896,
+   0
+  ],
+  [
+   "2026-05-11",
+   -479.6634511966705,
+   85.43343477736646,
+   101497.22123213403,
+   -0.25746416930063826,
+   3,
+   0.979407486975473,
+   0
+  ],
+  [
+   "2026-05-12",
+   -35.10166549682617,
+   -39.59527728840114,
+   101422.5242893488,
+   -0.2579998831590837,
+   3,
+   0.9692840870775163,
+   0
+  ],
+  [
+   "2026-05-13",
+   -658.484058851242,
+   144.5641176379843,
+   100908.60434813554,
+   -0.1683271823149896,
+   2,
+   0.653271363065744,
+   0
+  ],
+  [
+   "2026-05-14",
+   165.08995190429687,
+   131.33441372904838,
+   101205.02871376889,
+   -0.3039315195476744,
+   4,
+   1.3176491180546448,
+   0
+  ],
+  [
+   "2026-05-15",
+   441.438232421875,
+   -370.1039121557344,
+   101276.36303403502,
+   -0.2993586955747141,
+   4,
+   1.2966310644027308,
+   0
+  ],
+  [
+   "2026-05-18",
+   136.84011840820312,
+   -21.354101000564125,
+   101391.84905144267,
+   -0.2976681073909489,
+   4,
+   1.2896452971769627,
+   0
+  ],
+  [
+   "2026-05-19",
+   414.9355247192383,
+   -204.30055084647202,
+   101602.48402531544,
+   -0.1362106551294258,
+   2,
+   0.6371106276619776,
+   0
+  ],
+  [
+   "2026-05-20",
+   -410.128173828125,
+   141.7617683776639,
+   101334.11761986498,
+   -0.1404216192851152,
+   1,
+   0.25368455448156285,
+   0
+  ],
+  [
+   "2026-05-21",
+   30.020538330078125,
+   28.212477404720637,
+   101392.35063559978,
+   -0.14004488758439063,
+   1,
+   0.25458607122115684,
+   0
+  ],
+  [
+   "2026-05-22",
+   -341.9388732910156,
+   55.75764121127694,
+   101106.16940352005,
+   -0.143823263266311,
+   1,
+   0.2536029176145195,
+   0
+  ],
+  [
+   "2026-05-26",
+   -683.4413991241455,
+   93.08062272746649,
+   100515.80862712338,
+   0.02715413599525356,
+   1,
+   0.23236126052937225,
+   0
+  ],
+  [
+   "2026-05-27",
+   105.17987060546875,
+   0.45170934140054053,
+   100621.44020707025,
+   0.028170932575660772,
+   1,
+   0.23100643705598128,
+   0
+  ],
+  [
+   "2026-05-28",
+   -39.599639892578125,
+   -15.64514426060823,
+   100566.19542291707,
+   0.027792641017120093,
+   1,
+   0.2323146467816233,
+   0
+  ],
+  [
+   "2026-05-29",
+   -197.2201385498047,
+   -7.00288708763496,
+   100361.97239727962,
+   0.025884106970453378,
+   1,
+   0.2278474548127051,
+   0
+  ],
+  [
+   "2026-06-01",
+   -772.7478663711548,
+   -7.593663260884123,
+   99581.63086764757,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-02",
+   145.96722186279297,
+   -0.8704798950195313,
+   99726.72760961535,
+   0.04364325973008274,
+   1,
+   0.15088993880923549,
+   0
+  ],
+  [
+   "2026-06-03",
+   168.330810546875,
+   30.50777618080214,
+   99925.56619634303,
+   0.045240977436763086,
+   1,
+   0.1483977609544655,
+   0
+  ],
+  [
+   "2026-06-04",
+   -140.64056396484375,
+   -17.110551525758815,
+   99767.81508085242,
+   0.04390283297404115,
+   1,
+   0.1491038957343661,
+   0
+  ],
+  [
+   "2026-06-05",
+   -136.70989990234375,
+   113.0201440823539,
+   99744.12532503244,
+   0.04254265409566329,
+   1,
+   0.14124320674362997,
+   0
+  ],
+  [
+   "2026-06-08",
+   51.012153045654294,
+   -10.456664441008435,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-09",
+   0.0,
+   -0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-10",
+   0.0,
+   -0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-11",
+   0.0,
+   0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-12",
+   0.0,
+   0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-15",
+   0.0,
+   0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-16",
+   0.0,
+   -0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-17",
+   0.0,
+   -0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-18",
+   0.0,
+   0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-22",
+   0.0,
+   -0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-23",
+   0.0,
+   -0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-24",
+   0.0,
+   -0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-25",
+   0.0,
+   0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-26",
+   0.0,
+   -0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-29",
+   0.0,
+   0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-06-30",
+   0.0,
+   0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-07-01",
+   0.0,
+   -0.0,
+   99784.68081363708,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-07-02",
+   551.7019270019531,
+   -1.7547076950073242,
+   100334.62803294403,
+   -0.08744277670672086,
+   2,
+   0.6955482802719649,
+   0
+  ],
+  [
+   "2026-07-06",
+   -245.3001308441162,
+   76.52119943900048,
+   100165.84910153892,
+   -0.09003905709158687,
+   2,
+   0.6977503850832665,
+   0
+  ],
+  [
+   "2026-07-07",
+   911.5588779449463,
+   -43.0389279817653,
+   101034.3690515021,
+   -0.0802427906864358,
+   2,
+   0.6936934587166946,
+   0
+  ],
+  [
+   "2026-07-08",
+   643.4188232421875,
+   -25.17555464777428,
+   101652.61232009651,
+   -0.07342517554974841,
+   2,
+   0.6887659883764269,
+   0
+  ],
+  [
+   "2026-07-09",
+   -746.3675537109375,
+   63.0341750319665,
+   100969.27894141753,
+   -0.08131412390463957,
+   2,
+   0.6958664031287777,
+   0
+  ],
+  [
+   "2026-07-10",
+   178.0297508239746,
+   35.35178978710541,
+   101182.66048202862,
+   -0.07938315388541489,
+   2,
+   0.6928969685151415,
+   0
+  ],
+  [
+   "2026-07-13",
+   1173.5681438446045,
+   -61.730631368294624,
+   102294.49799450493,
+   -0.06704789307538706,
+   2,
+   0.6903606129476118,
+   0
+  ],
+  [
+   "2026-07-14",
+   47.63937568664551,
+   24.343011790849793,
+   102366.48038198242,
+   -0.06653536550865065,
+   2,
+   0.6929968787181415,
+   0
+  ],
+  [
+   "2026-07-15",
+   -532.9870662689209,
+   26.88969197643968,
+   101860.38300768993,
+   -0.07209847476976211,
+   2,
+   0.6944731283795652,
+   0
+  ],
+  [
+   "2026-07-16",
+   -271.2086243619919,
+   -41.26300662222569,
+   101547.91137670571,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-07-17",
+   0.0,
+   -0.0,
+   101547.91137670571,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-07-20",
+   90.98841519546508,
+   -3.843072041320801,
+   101635.05671985986,
+   -0.18906232580327034,
+   2,
+   0.5932299452099585,
+   0
+  ],
+  [
+   "2026-07-21",
+   203.59840767669678,
+   159.3629709444367,
+   101998.01809848098,
+   -0.14337436516079802,
+   3,
+   0.9362232872760772,
+   0
+  ],
+  [
+   "2026-07-22",
+   400.15029676055906,
+   -18.414639028927716,
+   102379.75375621262,
+   -0.21174129558303684,
+   5,
+   1.4273449155735085,
+   0
+  ],
+  [
+   "2026-07-23",
+   128.11042404174805,
+   -267.733739581626,
+   102240.13044067274,
+   -0.21077742355068535,
+   5,
+   1.4101377873506706,
+   0
+  ],
+  [
+   "2026-07-24",
+   304.35986328125,
+   21.834104345710184,
+   102566.3244082997,
+   -0.20713963902922652,
+   5,
+   1.3992954263877406,
+   0
+  ],
+  [
+   "2026-07-27",
+   -1471.5988810672761,
+   3.35729740797277,
+   101098.0828246404,
+   -0.2716708366192981,
+   4,
+   1.0881369646241101,
+   0
+  ],
+  [
+   "2026-07-28",
+   877.1009944038392,
+   64.01613247942063,
+   102039.19995152365,
+   -0.3552829675421516,
+   5,
+   1.3739265674703383,
+   0
+  ],
+  [
+   "2026-07-29",
+   -262.86278533935547,
+   -557.8914137266065,
+   101218.44575245769,
+   -0.36076085024114307,
+   5,
+   1.3747809449541293,
+   0
+  ],
+  [
+   "2026-07-30",
+   71.64189147949219,
+   612.1997807367447,
+   101902.28742467392,
+   -0.35763682621161513,
+   5,
+   1.3898921456118747,
+   0
+  ],
+  [
+   "2026-07-31",
+   1602.664519329071,
+   258.39214421862374,
+   103763.34408822162,
+   -0.15858229339285915,
+   3,
+   0.7784989019655173,
+   0
+  ],
+  [
+   "2026-08-03",
+   608.8033928794861,
+   233.19157094242857,
+   104605.33905204354,
+   -0.21358957884835658,
+   5,
+   1.489823299160945,
+   0
+  ],
+  [
+   "2026-08-04",
+   1246.043190460205,
+   401.346651945575,
+   106252.72889444932,
+   -0.1411818791526923,
+   3,
+   0.9955915684715229,
+   0
+  ],
+  [
+   "2026-08-05",
+   2576.7593994140625,
+   -30.466298628988003,
+   108799.02199523439,
+   -0.11419404607837434,
+   3,
+   0.9730201647226556,
+   0
+  ],
+  [
+   "2026-08-06",
+   -1178.0710858688353,
+   -21.607947438250328,
+   107599.34296192731,
+   -0.19708474728604472,
+   4,
+   1.3169202333926162,
+   0
+  ],
+  [
+   "2026-08-07",
+   1217.9713970947266,
+   129.4126713859065,
+   108946.72703040794,
+   -0.2070646837396956,
+   3,
+   0.9225396971237001,
+   0
+  ],
+  [
+   "2026-08-10",
+   -2695.9025402259826,
+   -11.221233901882847,
+   106239.60325628008,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-08-11",
+   0.0,
+   -0.0,
+   106239.60325628008,
+   0.0,
+   0,
+   0.0,
+   1
+  ],
+  [
+   "2026-08-12",
+   0.0,
+   0.0,
+   106239.60325628008,
+   0.0,
+   0,
+   0.0,
+   1
+  ],
+  [
+   "2026-08-13",
+   0.0,
+   0.0,
+   106239.60325628008,
+   0.0,
+   0,
+   0.0,
+   1
+  ],
+  [
+   "2026-08-14",
+   0.0,
+   -0.0,
+   106239.60325628008,
+   0.0,
+   0,
+   0.0,
+   1
+  ],
+  [
+   "2026-08-17",
+   -410.1803022766113,
+   -2.3840879272460938,
+   105827.03886607623,
+   -0.1126407746447082,
+   2,
+   0.6843381342661272,
+   0
+  ],
+  [
+   "2026-08-18",
+   617.9106750488281,
+   -80.65517653593794,
+   106364.29436458912,
+   -0.10626243542254427,
+   2,
+   0.6731193858565343,
+   0
+  ],
+  [
+   "2026-08-19",
+   -705.3908386230469,
+   23.569789997853903,
+   105682.47331596393,
+   -0.11362262277780004,
+   2,
+   0.7008806390916265,
+   0
+  ],
+  [
+   "2026-08-20",
+   -587.4313354492188,
+   -100.98273215022687,
+   104994.05924836449,
+   -0.1199625124071018,
+   2,
+   0.7026943374145748,
+   0
+  ],
+  [
+   "2026-08-21",
+   -326.4755024108887,
+   49.01179169182004,
+   104716.59553764542,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-08-24",
+   0.0,
+   -0.0,
+   104716.59553764542,
+   0.0,
+   0,
+   0.0,
+   0
+  ],
+  [
+   "2026-08-25",
+   -689.4282782287598,
+   -2.8991560943603516,
+   104024.2681033223,
+   -0.13934998761446507,
+   3,
+   1.0704886822266626,
+   0
+  ],
+  [
+   "2026-08-26",
+   1676.796326335907,
+   0.7027889840574777,
+   105701.76721864227,
+   -0.2561289338599572,
+   4,
+   1.3063562280907266,
+   0
+  ],
+  [
+   "2026-08-27",
+   1190.4701843261719,
+   177.1673253243899,
+   107069.40472829284,
+   -0.24173862576503682,
+   4,
+   1.3054746310282277,
+   0
+  ],
+  [
+   "2026-08-28",
+   1707.268051147461,
+   -59.08211015927516,
+   108717.59066928102,
+   -0.22237011104203552,
+   4,
+   1.2519532689689714,
+   0
+  ],
+  [
+   "2026-08-31",
+   602.1000179595948,
+   -72.44366538456218,
+   109247.24702185606,
+   -0.2134942652735024,
+   2,
+   0.519250264351313,
+   0
+  ],
+  [
+   "2026-09-01",
+   2402.0447955350874,
+   -162.8169476859687,
+   111486.47486970518,
+   -0.32462439459556314,
+   4,
+   1.1273364839700475,
+   0
+  ],
+  [
+   "2026-09-02",
+   -1345.739769897461,
+   158.68448428501543,
+   110299.41958409274,
+   -0.41390626140923514,
+   5,
+   1.4484589273833497,
+   0
+  ],
+  [
+   "2026-09-03",
+   -1117.8907718658447,
+   477.6973247158272,
+   109659.22613694273,
+   -0.4265168815719879,
+   5,
+   1.4813225952568367,
+   0
+  ],
+  [
+   "2026-09-04",
+   650.814079284668,
+   -180.39865855923912,
+   110129.64155766816,
+   -0.4187855007599474,
+   5,
+   1.464928015989695,
+   0
+  ],
+  [
+   "2026-09-08",
+   1190.1233917236327,
+   -255.5271207581791,
+   111064.23782863362,
+   -0.3150291356110462,
+   4,
+   1.1677581568838573,
+   0
+  ],
+  [
+   "2026-09-09",
+   -1135.6977152862548,
+   -166.38382287478709,
+   109762.15629047257,
+   -0.14722060892336186,
+   4,
+   1.2697430128721017,
+   0
+  ],
+  [
+   "2026-09-10",
+   1230.3732376098633,
+   -97.10847664031571,
+   110895.42105144211,
+   -0.1346212323887523,
+   4,
+   1.244483460567156,
+   0
+  ],
+  [
+   "2026-09-11",
+   -53.671722412109375,
+   127.24731581101501,
+   110968.99664484101,
+   -0.13501563881467585,
+   4,
+   1.2505228584003736,
+   0
+  ],
+  [
+   "2026-09-14",
+   -174.89044761657715,
+   -66.88145587312513,
+   110727.22474135131,
+   -0.13688991531802414,
+   4,
+   1.2405693346607958,
+   0
+  ],
+  [
+   "2026-09-15",
+   58.20989066505423,
+   -70.91132751589068,
+   110714.52330450047,
+   -0.07424617426795733,
+   1,
+   0.288879621494803,
+   0
+  ],
+  [
+   "2026-09-16",
+   567.5591124472618,
+   -37.491989351606016,
+   111244.59042759612,
+   -0.129710930543626,
+   2,
+   0.6507735677227114,
+   0
+  ],
+  [
+   "2026-09-17",
+   -649.9755908660889,
+   161.75478317762867,
+   110756.36961990767,
+   -0.2142217490184669,
+   3,
+   0.9489713670910093,
+   0
+  ],
+  [
+   "2026-09-18",
+   -198.17355901336668,
+   -28.611180398692746,
+   110529.5848804956,
+   -0.20110820398434864,
+   4,
+   1.3302819098682148,
+   0
+  ],
+  [
+   "2026-09-21",
+   2656.807025909424,
+   344.1199052806837,
+   113530.5118116857,
+   -0.17239065484885938,
+   4,
+   1.2756316870482276,
+   0
+  ],
+  [
+   "2026-09-22",
+   1208.49032497406,
+   -3.2778924395716245,
+   114735.7242442202,
+   -0.16004700430078686,
+   4,
+   1.2571659680163385,
+   0
+  ],
+  [
+   "2026-09-23",
+   -1249.5189933776855,
+   -132.5039712815322,
+   113353.70127956098,
+   -0.17302150457863064,
+   4,
+   1.2751697351927374,
+   0
+  ],
+  [
+   "2026-09-24",
+   -690.5535999488831,
+   -17.422455986590236,
+   112645.7252236255,
+   -0.2331376410201079,
+   4,
+   1.1097187891990605,
+   0
+  ],
+  [
+   "2026-09-25",
+   905.3351952056885,
+   142.63547654491373,
+   113693.6958953761,
+   -0.2358517713865711,
+   5,
+   1.4741906372893812,
+   0
+  ],
+  [
+   "2026-09-28",
+   602.4896488189697,
+   -199.6629066332254,
+   114096.52263756185,
+   -0.22973855221563264,
+   5,
+   1.4685154668272071,
+   0
+  ],
+  [
+   "2026-09-29",
+   330.69328468179697,
+   -50.70205354253542,
+   114376.5138687011,
+   -0.12301494271779059,
+   3,
+   0.8318349352886486,
+   0
+  ],
+  [
+   "2026-09-30",
+   58.62003136253358,
+   -35.56720482418165,
+   114399.56669523945,
+   0.16814355580560314,
+   5,
+   1.0841466925800471,
+   0
+  ],
+  [
+   "2026-10-01",
+   -1596.8405151119232,
+   -34.35849681715767,
+   112768.36768331037,
+   0.1680900500350066,
+   5,
+   1.00417415314637,
+   0
+  ],
+  [
+   "2026-10-02",
+   -85.92419506645194,
+   -140.51379904371657,
+   112541.9296892002,
+   0.1536828869511029,
+   5,
+   1.1382920969939059,
+   0
+  ],
+  [
+   "2026-10-05",
+   1207.378221370697,
+   -118.1961196490844,
+   113631.11179092182,
+   0.2210098103727849,
+   6,
+   1.48595284010043,
+   0
+  ],
+  [
+   "2026-10-06",
+   131.55999187088014,
+   -139.8084593422848,
+   113622.86332345041,
+   0.14471539157382896,
+   5,
+   1.3008948841412538,
+   0
+  ],
+  [
+   "2026-10-07",
+   218.74997233581541,
+   38.80766357818769,
+   113880.4209593644,
+   0.17338995325810033,
+   4,
+   1.0739814400222574,
+   0
+  ],
+  [
+   "2026-10-08",
+   2832.1145397377013,
+   81.33338618334834,
+   116793.86888528545,
+   0.07272403376095027,
+   4,
+   1.0770442063865868,
+   0
+  ],
+  [
+   "2026-10-09",
+   -439.53881216049194,
+   -54.87954544872787,
+   116299.45052767624,
+   -0.09705987924032052,
+   4,
+   1.061847588052968,
+   0
+  ],
+  [
+   "2026-10-12",
+   1296.8758255519867,
+   -9.701884374521866,
+   117586.6244688537,
+   -0.2187656828723683,
+   5,
+   1.3060709797712162,
+   0
+  ],
+  [
+   "2026-10-13",
+   -220.56987893676757,
+   -3.816352885900975,
+   117362.23823703102,
+   -0.2550596487448199,
+   4,
+   1.1685187061256284,
+   0
+  ],
+  [
+   "2026-10-14",
+   1404.9394367351533,
+   -325.61148343598165,
+   118441.5661903302,
+   -0.338461336105909,
+   4,
+   1.1377603015465991,
+   0
+  ],
+  [
+   "2026-10-15",
+   1311.1074621047974,
+   111.24104189487609,
+   119863.91469432987,
+   -0.45268568911539026,
+   5,
+   1.3870199451967398,
+   0
+  ],
+  [
+   "2026-10-16",
+   370.7805733680725,
+   -600.4771389126445,
+   119634.2181287853,
+   -0.4504555560524577,
+   5,
+   1.3502860815882438,
+   0
+  ],
+  [
+   "2026-10-19",
+   -1318.3684725761414,
+   227.79177184857105,
+   118543.64142805773,
+   -0.46572102946731364,
+   5,
+   1.3740894661949064,
+   0
+  ],
+  [
+   "2026-10-20",
+   508.7171368598938,
+   185.01157127124907,
+   119237.37013618887,
+   -0.45874501864091166,
+   5,
+   1.3678863569654105,
+   0
+  ],
+  [
+   "2026-10-21",
+   -1775.2288151283265,
+   287.1809281885227,
+   117749.32224924906,
+   -0.471821239120713,
+   4,
+   1.0329014984291518,
+   0
+  ],
+  [
+   "2026-10-22",
+   766.0221121940613,
+   -658.6312479128351,
+   117856.71311353029,
+   -0.364440744868256,
+   4,
+   1.114515107586625,
+   0
+  ],
+  [
+   "2026-10-23",
+   150.00031260561946,
+   -225.33826484644706,
+   117781.37516128947,
+   -0.32190957404542236,
+   4,
+   1.1818686370746885,
+   0
+  ],
+  [
+   "2026-10-26",
+   -796.747582183838,
+   266.4716789817074,
+   117251.09925808734,
+   -0.44856245205971584,
+   5,
+   1.4462223491517472,
+   0
+  ],
+  [
+   "2026-10-27",
+   860.2576846656799,
+   292.5432080735888,
+   118403.90015082661,
+   -0.3490093616676123,
+   4,
+   1.1860194556893036,
+   0
+  ]
+ ],
+ "modes": {
+  "2025-12-02": "MOMENTUM",
+  "2025-12-03": "MOMENTUM",
+  "2025-12-04": "MOMENTUM",
+  "2025-12-05": "MOMENTUM",
+  "2025-12-08": "MOMENTUM",
+  "2025-12-09": "MOMENTUM",
+  "2025-12-10": "MOMENTUM",
+  "2025-12-11": "MOMENTUM",
+  "2025-12-12": "MOMENTUM",
+  "2025-12-15": "MOMENTUM",
+  "2025-12-16": "MOMENTUM",
+  "2025-12-17": "MOMENTUM",
+  "2025-12-18": "MOMENTUM",
+  "2025-12-19": "MOMENTUM",
+  "2025-12-22": "MOMENTUM",
+  "2025-12-23": "MOMENTUM",
+  "2025-12-24": "MOMENTUM",
+  "2025-12-26": "MOMENTUM",
+  "2025-12-29": "MOMENTUM",
+  "2025-12-30": "MOMENTUM",
+  "2025-12-31": "MOMENTUM",
+  "2026-01-02": "NEUTRAL",
+  "2026-01-05": "NEUTRAL",
+  "2026-01-06": "NEUTRAL",
+  "2026-01-07": "NEUTRAL",
+  "2026-01-08": "NEUTRAL",
+  "2026-01-09": "NEUTRAL",
+  "2026-01-12": "NEUTRAL",
+  "2026-01-13": "NEUTRAL",
+  "2026-01-14": "NEUTRAL",
+  "2026-01-15": "MOMENTUM",
+  "2026-01-16": "MOMENTUM",
+  "2026-01-20": "MOMENTUM",
+  "2026-01-21": "MOMENTUM",
+  "2026-01-22": "NEUTRAL",
+  "2026-01-23": "MOMENTUM",
+  "2026-01-26": "MOMENTUM",
+  "2026-01-27": "NEUTRAL",
+  "2026-01-28": "NEUTRAL",
+  "2026-01-29": "NEUTRAL",
+  "2026-01-30": "NEUTRAL",
+  "2026-02-02": "NEUTRAL",
+  "2026-02-03": "NEUTRAL",
+  "2026-02-04": "NEUTRAL",
+  "2026-02-05": "NEUTRAL",
+  "2026-02-06": "NEUTRAL",
+  "2026-02-09": "NEUTRAL",
+  "2026-02-10": "MOMENTUM",
+  "2026-02-11": "MOMENTUM",
+  "2026-02-12": "MOMENTUM",
+  "2026-02-13": "MOMENTUM",
+  "2026-02-17": "MOMENTUM",
+  "2026-02-18": "MOMENTUM",
+  "2026-02-19": "MOMENTUM",
+  "2026-02-20": "MOMENTUM",
+  "2026-02-23": "MOMENTUM",
+  "2026-02-24": "MOMENTUM",
+  "2026-02-25": "MOMENTUM",
+  "2026-02-26": "MOMENTUM",
+  "2026-02-27": "MOMENTUM",
+  "2026-03-02": "MOMENTUM",
+  "2026-03-03": "MOMENTUM",
+  "2026-03-04": "MOMENTUM",
+  "2026-03-05": "MOMENTUM",
+  "2026-03-06": "MOMENTUM",
+  "2026-03-09": "MOMENTUM",
+  "2026-03-10": "MOMENTUM",
+  "2026-03-11": "MOMENTUM",
+  "2026-03-12": "MOMENTUM",
+  "2026-03-13": "MOMENTUM",
+  "2026-03-16": "MOMENTUM",
+  "2026-03-17": "MOMENTUM",
+  "2026-03-18": "MOMENTUM",
+  "2026-03-19": "NEUTRAL",
+  "2026-03-20": "NEUTRAL",
+  "2026-03-23": "NEUTRAL",
+  "2026-03-24": "NEUTRAL",
+  "2026-03-25": "NEUTRAL",
+  "2026-03-26": "NEUTRAL",
+  "2026-03-27": "NEUTRAL",
+  "2026-03-30": "NEUTRAL",
+  "2026-03-31": "NEUTRAL",
+  "2026-04-01": "NEUTRAL",
+  "2026-04-02": "NEUTRAL",
+  "2026-04-06": "NEUTRAL",
+  "2026-04-07": "NEUTRAL",
+  "2026-04-08": "NEUTRAL",
+  "2026-04-09": "NEUTRAL",
+  "2026-04-10": "NEUTRAL",
+  "2026-04-13": "NEUTRAL",
+  "2026-04-14": "FADE",
+  "2026-04-15": "NEUTRAL",
+  "2026-04-16": "NEUTRAL",
+  "2026-04-17": "NEUTRAL",
+  "2026-04-20": "NEUTRAL",
+  "2026-04-21": "NEUTRAL",
+  "2026-04-22": "NEUTRAL",
+  "2026-04-23": "NEUTRAL",
+  "2026-04-24": "NEUTRAL",
+  "2026-04-27": "NEUTRAL",
+  "2026-04-28": "NEUTRAL",
+  "2026-04-29": "NEUTRAL",
+  "2026-04-30": "NEUTRAL",
+  "2026-05-01": "NEUTRAL",
+  "2026-05-04": "NEUTRAL",
+  "2026-05-05": "FADE",
+  "2026-05-06": "FADE",
+  "2026-05-07": "FADE",
+  "2026-05-08": "FADE",
+  "2026-05-11": "FADE",
+  "2026-05-12": "FADE",
+  "2026-05-13": "FADE",
+  "2026-05-14": "FADE",
+  "2026-05-15": "FADE",
+  "2026-05-18": "FADE",
+  "2026-05-19": "FADE",
+  "2026-05-20": "NEUTRAL",
+  "2026-05-21": "NEUTRAL",
+  "2026-05-22": "NEUTRAL",
+  "2026-05-26": "FADE",
+  "2026-05-27": "FADE",
+  "2026-05-28": "FADE",
+  "2026-05-29": "FADE",
+  "2026-06-01": "FADE",
+  "2026-06-02": "FADE",
+  "2026-06-03": "FADE",
+  "2026-06-04": "FADE",
+  "2026-06-05": "FADE",
+  "2026-06-08": "FADE",
+  "2026-06-09": "FADE",
+  "2026-06-10": "FADE",
+  "2026-06-11": "FADE",
+  "2026-06-12": "FADE",
+  "2026-06-15": "FADE",
+  "2026-06-16": "FADE",
+  "2026-06-17": "FADE",
+  "2026-06-18": "FADE",
+  "2026-06-22": "NEUTRAL",
+  "2026-06-23": "NEUTRAL",
+  "2026-06-24": "NEUTRAL",
+  "2026-06-25": "NEUTRAL",
+  "2026-06-26": "NEUTRAL",
+  "2026-06-29": "NEUTRAL",
+  "2026-06-30": "NEUTRAL",
+  "2026-07-01": "NEUTRAL",
+  "2026-07-02": "FADE",
+  "2026-07-06": "FADE",
+  "2026-07-07": "NEUTRAL",
+  "2026-07-08": "FADE",
+  "2026-07-09": "NEUTRAL",
+  "2026-07-10": "NEUTRAL",
+  "2026-07-13": "NEUTRAL",
+  "2026-07-14": "NEUTRAL",
+  "2026-07-15": "NEUTRAL",
+  "2026-07-16": "NEUTRAL",
+  "2026-07-17": "NEUTRAL",
+  "2026-07-20": "FADE",
+  "2026-07-21": "FADE",
+  "2026-07-22": "FADE",
+  "2026-07-23": "FADE",
+  "2026-07-24": "FADE",
+  "2026-07-27": "FADE",
+  "2026-07-28": "FADE",
+  "2026-07-29": "FADE",
+  "2026-07-30": "FADE",
+  "2026-07-31": "FADE",
+  "2026-08-03": "FADE",
+  "2026-08-04": "FADE",
+  "2026-08-05": "FADE",
+  "2026-08-06": "FADE",
+  "2026-08-07": "FADE",
+  "2026-08-10": "FADE",
+  "2026-08-11": "FADE",
+  "2026-08-12": "FADE",
+  "2026-08-13": "FADE",
+  "2026-08-14": "FADE",
+  "2026-08-17": "FADE",
+  "2026-08-18": "NEUTRAL",
+  "2026-08-19": "NEUTRAL",
+  "2026-08-20": "NEUTRAL",
+  "2026-08-21": "NEUTRAL",
+  "2026-08-24": "FADE",
+  "2026-08-25": "FADE",
+  "2026-08-26": "FADE",
+  "2026-08-27": "FADE",
+  "2026-08-28": "FADE",
+  "2026-08-31": "FADE",
+  "2026-09-01": "FADE",
+  "2026-09-02": "FADE",
+  "2026-09-03": "FADE",
+  "2026-09-04": "FADE",
+  "2026-09-08": "FADE",
+  "2026-09-09": "FADE",
+  "2026-09-10": "FADE",
+  "2026-09-11": "FADE",
+  "2026-09-14": "FADE",
+  "2026-09-15": "FADE",
+  "2026-09-16": "FADE",
+  "2026-09-17": "FADE",
+  "2026-09-18": "FADE",
+  "2026-09-21": "FADE",
+  "2026-09-22": "FADE",
+  "2026-09-23": "FADE",
+  "2026-09-24": "FADE",
+  "2026-09-25": "FADE",
+  "2026-09-28": "FADE",
+  "2026-09-29": "FADE",
+  "2026-09-30": "FADE",
+  "2026-10-01": "FADE",
+  "2026-10-02": "FADE",
+  "2026-10-05": "FADE",
+  "2026-10-06": "FADE",
+  "2026-10-07": "FADE",
+  "2026-10-08": "FADE",
+  "2026-10-09": "FADE",
+  "2026-10-12": "FADE",
+  "2026-10-13": "FADE",
+  "2026-10-14": "FADE",
+  "2026-10-15": "FADE",
+  "2026-10-16": "FADE",
+  "2026-10-19": "FADE",
+  "2026-10-20": "FADE",
+  "2026-10-21": "FADE",
+  "2026-10-22": "FADE",
+  "2026-10-23": "FADE",
+  "2026-10-26": "FADE",
+  "2026-10-27": "FADE"
+ },
+ "params": {
+  "regime_method": "text",
+  "regime_k": 10,
+  "pf1": true,
+  "pf2": true,
+  "pm1": true,
+  "pm2": true,
+  "pm3": true,
+  "hold_f1": 5,
+  "hold_f2": 10,
+  "hold_m1": 5,
+  "hold_m2": 5,
+  "hold_m3": 10,
+  "max_cat": 2,
+  "max_basket": 3,
+  "risk_per_atr": 0.004,
+  "max_notional": 0.2,
+  "stop_mult": 2.5,
+  "gross_cap": 1.5,
+  "max_pairs": 6,
+  "daily_loss_halt": 0.02,
+  "dd_halve": 0.06,
+  "dd_stop": 0.12,
+  "max_atr": 0.07,
+  "min_price": 5.0,
+  "cost_bps": 10.0,
+  "hedge_residual": true,
+  "hedge_cost_bps": 2.0
+ }
+}

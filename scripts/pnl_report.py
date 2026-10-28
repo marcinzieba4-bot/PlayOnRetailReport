@@ -57,7 +57,7 @@ def main(path="results/LS_base.json", out="results/LS_base_report.html"):
     tiles_html = "".join(f'<div class="tile"><div class="k">{k}</div><div class="v">{v}</div></div>' for k, v in tiles)
     rows = "".join(f'<tr><td>{i+1}</td><td>{t["entry_day"]}</td><td>{t["exit_day"]}</td><td>{t["leg"]}</td><td>{html.escape(t["play"][:48])}</td><td>{t["sym"]}</td><td>{"SHORT" if t["side"]<0 else "LONG"}</td>'
                    f'<td class="num">{t["qty"]}</td><td class="num">{t["entry"]:.2f}</td><td class="num">{t["stop"]:.2f}</td><td class="num">{t["exit"]:.2f}</td><td>{t["exit_reason"]}</td>'
-                   f'<td class="num {"up" if t["ret"]>0 else "dn"}">{t["ret"]*100:+.2f}%</td><td class="num {"up" if t["ret"]>0 else "dn"}">{(t["exit"]/t["entry"]-1)*t["side"]*t["qty"]*t["entry"]:+,.0f}</td></tr>' for i, t in enumerate(tr))
+                   f'<td class="num {"up" if t["ret"]>0 else "dn"}">{t["ret"]*100:+.2f}%</td><td class="num {"up" if t["ret"]>0 else "dn"}">{t.get("pnl", (t["exit"]/t["entry"]-1)*t["side"]*t["qty"]*t["entry"]):+,.0f}</td></tr>' for i, t in enumerate(tr))
     data_js = json.dumps({"dates": dates, "eq": eq, "pnl": pnl, "dd": dd, "eq0": eq0})
     page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Narrative L/S P&L</title>
@@ -100,7 +100,7 @@ svg.addEventListener('mouseleave',()=>{{g.innerHTML='';tip.style.display='none';
     print(f"wrote {out}")
     print(f"\n{'#':>2} {'entry':10s} {'exit':10s} {'leg':3s} {'sym':5s} {'side':5s} {'qty':>5s} {'entry':>8s} {'stop':>8s} {'exit':>8s} {'why':5s} {'ret':>7s} {'pnl$':>7s}  theme")
     for i, t in enumerate(tr):
-        print(f"{i+1:2d} {t['entry_day']} {t['exit_day']} {t['leg']:3s} {t['sym']:5s} {'SHORT' if t['side']<0 else 'LONG ':5s} {t['qty']:5d} {t['entry']:8.2f} {t['stop']:8.2f} {t['exit']:8.2f} {t['exit_reason']:5s} {t['ret']*100:+6.2f}% {(t['exit']/t['entry']-1)*t['side']*t['qty']*t['entry']:+7.0f}  {t['play'][:45]}")
+        print(f"{i+1:2d} {t['entry_day']} {t['exit_day']} {t['leg']:5s} {t['sym'][:9]:9s} {'SHORT' if t['side']<0 else 'LONG ':5s} {t['qty']:5d} {t['entry']:8.2f} {t['stop']:8.2f} {t['exit']:8.2f} {t['exit_reason']:5s} {t['ret']*100:+6.2f}% {t.get('pnl', (t['exit']/t['entry']-1)*t['side']*t['qty']*t['entry']):+7.0f}  {t['play'][:45]}")
 
 if __name__ == "__main__":
     main(*sys.argv[1:])

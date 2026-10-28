@@ -160,6 +160,59 @@ def regime_plan(a):
     print(f"  HEDGE        SPY {'SELL' if net>0 else 'BUY '} ~{abs(net):,.0f} notional to net zero; re-size each close. Gross cap {p.gross_cap:.0%}, daily halt {p.daily_loss_halt:.0%}, size halves past {p.dd_halve:.0%} DD.")
 
 
+def pairs_plan(a):
+    from retailplay import context
+    from retailplay.pair_book import PairParams
+    p = PairParams()
+    rdate = dt.date.fromisoformat(a.date) if a.date else reports.latest_available_report()
+    hist = [d for d in reports.list_archive_dates() if d <= rdate][-max(p.regime_k, 25):]
+    texts = {d: reports.html_to_text(reports.fetch_report_html(d)) for d in hist}
+    regs = {d: context.regime(texts[d]) for d in hist}
+    mode = context.regime_series(regs, p.regime_method, k=p.regime_k)[rdate][0]
+    text = texts[rdate]; sec = reports.parse_retail_section(text, rdate)
+    prev_syms = {map_play(q.name)[0] for q in reports.parse_retail_section(texts[hist[-2]], hist[-2]).plays} if len(hist) > 1 else set()
+    today = dt.date.today()
+    spy_d = prices.daily_map(prices._fetch("SPY", "1d", rdate - dt.timedelta(days=45), today)); sess = next_session(rdate, spy_d)
+    stances = context.sector_stances(text); cats = context.catalysts(text)
+    print(f"Report used : {rdate}   pairs for the {sess} open   equity {a.equity:,.0f}   MODE = {mode}  (votes {[regs[d]['rate_dir'] for d in hist[-p.regime_k:]]})")
+    print("Retail      : " + " | ".join(f"#{q.rank} {q.name[:30]!r}->{map_play(q.name)[0]}{'*' if map_play(q.name)[0] in prev_syms else ''}" for q in sec.plays) + "   (* persisting)")
+    print("Sectors     : " + ", ".join(f"{e}:{'B' if v==1 else 'b' if v==-1 else 'm'}" for e, v in stances.items()) + "   Catalysts: " + ", ".join(f"{t}{'↑' if d>0 else '↓'}" for t, d in cats))
+    s1, d1 = map_play(sec.plays[0].name); theme1 = s1 if (s1 and d1 == 1) else None
+    pers34 = [map_play(q.name)[0] for q in sec.plays[2:4] if map_play(q.name)[0] and map_play(q.name)[1] == 1 and map_play(q.name)[0] in prev_syms]
+    cat_dn = [t for t, d in cats if d == -1][: p.max_cat]; cat_up = [t for t, d in cats if d == 1][: p.max_cat]
+    bear = [e for e, v in stances.items() if v == -1][: p.max_basket] or [e for e, v in stances.items() if v == 0][: p.max_basket]
+    bull = [e for e, v in stances.items() if v == 1]
+    pairs = []
+    if mode == "FADE" and theme1:
+        pairs += [("P_F1", [s], [theme1], p.hold_f1) for s in pers34] + [("P_F2", [t], [theme1], p.hold_f2) for t in cat_dn]
+    elif mode == "MOMENTUM" and bear:
+        pairs += ([("P_M1", [theme1], bear, p.hold_m1)] if theme1 else []) + [("P_M2", [e], bear, p.hold_m2) for e in bull] + [("P_M3", [t], bear, p.hold_m3) for t in cat_up]
+    if not pairs:
+        print("Pairs       : none today (NEUTRAL, or no #1 long theme / no Bearish-or-Mixed sector to short)."); return
+    for kind, longs, shorts, hold in pairs:
+        legs = []
+        for syms, side in ((longs, 1), (shorts, -1)):
+            for s_ in syms:
+                try:
+                    d = prices.daily_map(prices._fetch(s_, "1d", rdate - dt.timedelta(days=45), today))
+                    last = max(k for k in d if k <= rdate); pc = d[last][3]; atr = prices.atr_pct(d, last + dt.timedelta(days=1))
+                except Exception:
+                    legs = None; break
+                if atr is None or atr > p.max_atr or pc < p.min_price:
+                    legs = None; break
+                notional = min(a.equity * p.risk_per_atr / atr, a.equity * p.max_notional) / len(syms)
+                legs.append((s_, side, int(notional / pc), notional, pc, atr))
+            if legs is None:
+                break
+        if not legs:
+            print(f"  {kind}: skipped (missing prices or ATR out of bounds)"); continue
+        risk_unit = sum(n * atr for s_, side, q, n, pc, atr in legs if side == 1)
+        print(f"  {kind}  hold {hold} sessions | pair stop: close both legs if pair loss > {p.stop_mult * risk_unit:,.0f} $ ({p.stop_mult} x long-leg ATR-dollars)")
+        for s_, side, q, n, pc, atr in legs:
+            print(f"      {'BUY ' if side>0 else 'SELL'} {s_:5s} ~{q} sh (~{n:,.0f}, {n/a.equity:.0%} eq) ref {pc:.2f} ATR10 {atr:.2%}")
+    print(f"Rules       : max {p.max_pairs} pairs, gross cap {p.gross_cap:.0%}, daily halt {p.daily_loss_halt:.0%}, size halves past {p.dd_halve:.0%} DD; residual net hedged with SPY.")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--equity", type=float, default=100_000)
@@ -168,7 +221,10 @@ def main():
     ap.add_argument("--weekly", action="store_true", help="print the weekly Retail #1 Fade pair instead of the intraday plan")
     ap.add_argument("--ls", action="store_true", help="print the Narrative Long/Short orders (section 10 of the README)")
     ap.add_argument("--regime", action="store_true", help="print today's regime mode and the regime-gated book orders (section 12)")
+    ap.add_argument("--pairs", action="store_true", help="print today's regime mode and the long/short PAIRS it implies (section 13)")
     a = ap.parse_args()
+    if a.pairs:
+        return pairs_plan(a)
     if a.regime:
         return regime_plan(a)
     if a.weekly:

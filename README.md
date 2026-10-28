@@ -148,11 +148,13 @@ retailplay/sentiment.py tone / warning-intensity / fear-vs-greed / imminence fea
 retailplay/book.py      multi-leg hedged book (S1 fade, LP persisting long, DR dropout short)
 retailplay/context.py   sector stances, macro stance, catalysts, regime (rates / liquidity / 10Y / VIX) from report text
 retailplay/regime_book.py regime-gated narrative momentum book
+retailplay/pair_book.py regime-switched long/short pairs from the same report
 scripts/run_backtest.py all variants -> results/*.json, results/summary.json
 scripts/run_weekly.py   weekly fade variants, all rolling phases -> results/weekly_summary.json
 scripts/run_book.py     book leg combinations -> results/book_summary.json
 scripts/run_ls.py       long/short with risk rules -> results/ls_risk_report.json
 scripts/run_regime.py   regime-gated book variants -> results/regime_risk_report.json
+scripts/run_pairs.py    pair book variants -> results/pair_risk_report.json
 scripts/make_plan.py    next-session plan from the newest available report
 data/retail_plays.json  parsed retail sections for all 98 reports (committed)
 ```
@@ -499,6 +501,76 @@ python scripts/make_plan.py --regime         # today's regime vote and the order
 python scripts/pnl_report.py results/REG_text.json results/REG_text_report.html
 ```
 
+## 13. Pairs: every short gets a long from the same report (and vice versa)
+
+Section 12 hedged with SPY. Here every position is a long/short **pair built from the same
+briefing**, so both sides are report-driven and the book is dollar-neutral by construction
+(`retailplay/pair_book.py`, `scripts/run_pairs.py`, `make_plan.py --pairs`).
+
+Which pairings work, measured first on raw forward returns (long minus short, vol-matched,
+by regime from the text vote):
+
+| regime | pair | n | 5 sessions | 10 sessions | 20 sessions |
+|---|---|---|---|---|---|
+| FADE | long persisting #3/#4 / short #1 | 51 | **+273 bp, 78%, t = 3.0** | +351 bp | **+726 bp, t = 3.4** |
+| FADE | long ↓ catalyst / short #1 | 78 | +43 bp | +188 bp | **+407 bp, 70%, t = 2.7** |
+| FADE | long SPY / short #1 (the section-12 hedge) | 98 | +176 bp, t = 3.3 | +138 bp | +412 bp |
+| FADE | long anything / short newly promoted #2 | 19–43 | mixed, no edge | | |
+| FADE | long Bearish sectors / short Bullish sectors | 91 | +10 bp | −15 bp | −214 bp |
+| MOMENTUM | long #1 / short Bearish-sector basket | 52 | +182 bp | **+408 bp, 73%, t = 2.5** | +963 bp |
+| MOMENTUM | long Bullish sector / short Bearish basket | 52 | +70 bp, t = 2.7 | **+117 bp, 71%, t = 4.0** | +139 bp |
+| MOMENTUM | long ↑ catalyst / short Bearish basket | 52 | +60 bp | +158 bp | **+630 bp, 85%, t = 6.4** |
+| NEUTRAL | any of the above | | nothing positive | | |
+
+So the natural partners are: in tightening, **short #1 against the persisting #3/#4 or the
+author's ↓ catalysts**; in easing, **long the #1 / Bullish sectors / ↑ catalysts against the
+sectors the author calls Bearish** (Mixed if none). The Bullish-vs-Bearish sector spread
+only works in the easing regime.
+
+**The pair book.** FADE: P_F1 long persisting #3/#4 / short #1 (10 sessions), P_F2 long ↓
+catalyst / short #1 (20). MOMENTUM: P_M1 long #1 / short Bearish basket (10), P_M2 long
+Bullish sector / short Bearish basket (10), P_M3 long ↑ catalyst / short Bearish basket (20).
+Legs vol-matched (one ATR = 0.4% of equity per leg, cap 20%), pair stop at 2.5 × the long
+leg's ATR-dollars, gross cap 150%, max 6 pairs, 2% daily halt, drawdown de-risk, residual
+net hedged with SPY.
+
+| variant | total | ann. vol | Sharpe | max DD | beta | pairs | stops | Dec–May | Jun–Oct |
+|---|---|---|---|---|---|---|---|---|---|
+| **PAIR_base** | **+15.5%** | 10.1% | 1.65 | −6.2% | −0.11 | 61 | 16 | +4.7% | +10.4% |
+| fade pairs only | +5.3% | 8.3% | 0.73 | −6.2% | | 34 | | −4.5% | +10.3% |
+| momentum pairs only | +9.6% | 5.8% | 1.79 | −1.9% | | 27 | | +9.6% | 0.0% |
+| without P_F2 (↓ catalyst / #1) | +10.2% | | 1.43 | −4.0% | | 50 | | | |
+| P_F1 hold 5 instead of 10 | +20.3% | | 1.93 | −4.9% | | 62 | | +5.2% | +14.4% |
+| pair stop 3.5 instead of 2.5 | +21.0% | | 1.88 | −7.1% | | 58 | 7 | | |
+| no pair stop | +21.2% | | 2.02 | −5.3% | | 49 | 0 | | |
+| vote window 5 / 20 | +26.8% / +11.3% | | 2.66 / 1.10 | −5.4% / −7.1% | | | | | |
+| 2× risk | +11.4% | 11.6% | 1.09 | −8.1% | | | | | |
+| section-12 SPY-hedged book, for comparison | +18.5% | 7.4% | 2.56 | −4.3% | −0.09 | 176 | | +5.6% | +12.2% |
+
+Attribution (PAIR_base): P_M1 long #1 / short Bearish basket +7.7k over 6 pairs (+1383 bp
+each, 83% hit, silver four times), P_F1 +3.1k over 14, P_M2 +2.6k over 19, P_M3 +0.7k over
+2, **P_F2 −3.3k over 20 (9 stops)**. May 2026 cost −4.9k: the first FADE month shorted
+NVDA/QQQ while they kept rising, and every pair stopped.
+
+**Honest reading.**
+- The pairs are the purer expression of the idea and they still work: +15.5%, both halves
+  positive, beta −0.1. They are noisier than the SPY-hedged book (Sharpe 1.65 vs 2.56)
+  because the report's short candidates are single names and sector ETFs rather than the
+  index.
+- The ↓-catalyst pair is the weak link at pair level: the raw 20-day edge is real, but a
+  single-name long against a single-name short with a 2.5-unit stop gets stopped nine times
+  in twenty. Either widen the stop (3.5 → +21%), drop the stop (+21%), or shorten P_F1 to five
+  sessions (+20%). I have not changed the default because those are after-the-fact choices.
+- The momentum side is still silver-heavy (P_M1 is four silver pairs). The sector spread
+  (P_M2, 19 pairs, 63% hit) is the more diversified evidence that the easing regime works.
+- Fewer than 70 pairs in 11 months. Extend the history before trusting any row.
+
+```bash
+python scripts/run_pairs.py                 # variants + risk table + attribution + monthly P&L
+python scripts/make_plan.py --pairs         # today's regime and the pairs it implies, with sizes and pair stops
+python scripts/pnl_report.py results/PAIR_base.json results/PAIR_base_report.html
+```
+
 ## 7. What to do with this (summary)
 
 1. The briefing is a clean daily crowding signal available at 13:17 ET; trade it for the next
@@ -523,6 +595,9 @@ python scripts/pnl_report.py results/REG_text.json results/REG_text_report.html
    #1 theme, Bullish sectors and ↑ catalysts. Tightening vote: short the #1 theme and a newly
    promoted #2, go long the author's ↓ catalysts. +18.5%, Sharpe 2.6, max DD 4.3%, beta −0.1,
    both halves positive. Section 12.
-9. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
+9. **As pairs**: tightening → short #1 vs the persisting #3/#4 or the ↓ catalysts; easing → long #1,
+   Bullish sectors, ↑ catalysts vs the Bearish sectors. +15.5%, beta −0.1, noisier than the
+   SPY-hedged version. Section 13.
+10. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
    this archive. The weekly trade is the fade (short #1 / long SPY, or long #2), with the same
    small-sample caveat (11 independent weeks).
