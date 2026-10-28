@@ -31,15 +31,21 @@ from .book import risk_report  # same daily-series statistics
 
 @dataclasses.dataclass(frozen=True)
 class RegimeParams:
-    y10_lo: float = 4.3
+    regime_method: str = "text"   # 'text' (no yield level: smoothed rate-direction + liquidity words) | 'composite' | 'ytrend' | 'yrank' | 'fixed'
+    regime_k: int = 10            # reports in the smoothing window
+    y10_lo: float = 4.3           # only used by regime_method='fixed'
     y10_hi: float = 4.6
     use_rate_dir: bool = True
     use_y10: bool = True
     mom_theme: bool = True
     mom_sector: bool = True
     mom_cat: bool = True
-    fade_theme: bool = True
-    fade_sector: bool = True
+    fade_theme: bool = True       # FADE: short the #1 theme (any narrative type)
+    fade_new2: bool = True        # FADE: short a #2 theme that was not listed the day before
+    fade_long34: bool = True      # FADE: long persisting #3 / #4 themes
+    fade_cat_down: bool = True    # FADE: long the author's ↓ catalysts (contrarian), hold_cat
+    fade_sector: bool = False     # FADE: short Bullish sectors (off: no edge)
+    fade_greed_only: bool = False
     hold_theme: int = 5
     hold_sector: int = 10
     hold_cat: int = 20
@@ -60,14 +66,18 @@ class RegimeParams:
 
 
 def mode_of(reg: dict, p: RegimeParams) -> str:
+    """Legacy single-report rule (fixed yield levels). Prefer modes_for()."""
     rd, y = reg.get("rate_dir", 0), reg.get("y10")
     fade = (p.use_rate_dir and rd == 1) or (p.use_y10 and y is not None and y >= p.y10_hi)
     mom = (not p.use_rate_dir or rd <= 0) and (not p.use_y10 or (y is not None and y < p.y10_lo))
-    if fade:
-        return "FADE"
-    if mom:
-        return "MOMENTUM"
-    return "NEUTRAL"
+    return "FADE" if fade else "MOMENTUM" if mom else "NEUTRAL"
+
+
+def modes_for(regs: dict, p: RegimeParams) -> dict:
+    """{report_date: mode} using only reports up to each date; no fixed yield level unless regime_method='fixed'."""
+    if p.regime_method == "fixed" and not p.use_y10:
+        return {d: mode_of(r, p) for d, r in regs.items()}
+    return {d: m for d, (m, sc) in context.regime_series(regs, p.regime_method, k=p.regime_k).items()}
 
 
 def run(sections: dict[dt.date, list], texts: dict[dt.date, str], start: dt.date, end: dt.date,
@@ -85,14 +95,25 @@ def run(sections: dict[dt.date, list], texts: dict[dt.date, str], start: dt.date
         return D[sym]
 
     REG = {d: context.regime(texts[d]) for d in texts}
+    MODE = modes_for(REG, p)
     SEC = {d: context.sector_stances(texts[d]) for d in texts}
     CAT = {d: context.catalysts(texts[d]) for d in texts}
+
+    def listed_days(sym, R):
+        k = 0
+        for j in range(1, 40):
+            pr = R - dt.timedelta(days=j)
+            if pr in sections and sym in [map_play(q.name)[0] for q in sections[pr]]:
+                k += 1
+            else:
+                break
+        return k
 
     def signals_for(T):
         R, plays = plays_for_session(sections, T)
         if not plays:
             return [], "NONE", None
-        mode = mode_of(REG[R], p)
+        mode = MODE[R]
         out = []
         p1 = plays[0]
         sym, rdir = map_play(p1.name)
@@ -110,8 +131,22 @@ def run(sections: dict[dt.date, list], texts: dict[dt.date, str], start: dt.date
                     if dd == 1 and n < p.max_cat_per_day:
                         out.append(("MOM_CAT", tk, 1, p.hold_cat, 0.5, "catalyst ↑ " + tk)); n += 1
         elif mode == "FADE":
-            if p.fade_theme and sym and rdir and f and f["fear_theme"] == 0:
+            if p.fade_theme and sym and rdir and f and (f["fear_theme"] == 0 or not p.fade_greed_only):
                 out.append(("FADE_THEME", sym, -rdir, p.hold_theme, 1.0, p1.name))
+            if p.fade_new2 and len(plays) > 1:
+                s2, r2 = map_play(plays[1].name)
+                if s2 and r2 and listed_days(s2, R) == 0:
+                    out.append(("FADE_NEW2", s2, -r2, p.hold_theme, 0.75, plays[1].name))
+            if p.fade_long34:
+                for q in plays[2:4]:
+                    s3, r3 = map_play(q.name)
+                    if s3 and r3 and listed_days(s3, R) >= 1:
+                        out.append(("FADE_LONG34", s3, r3, p.hold_theme, 0.5, q.name))
+            if p.fade_cat_down:
+                n = 0
+                for tk, dd in CAT[R]:
+                    if dd == -1 and n < p.max_cat_per_day:
+                        out.append(("FADE_CATDOWN", tk, 1, p.hold_cat, 0.5, "catalyst ↓ (contrarian long) " + tk)); n += 1
             if p.fade_sector:
                 for etf, sv in SEC[R].items():
                     if sv == 1:

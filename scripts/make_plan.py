@@ -107,42 +107,57 @@ def ls_plan(a):
 def regime_plan(a):
     import dataclasses
     from retailplay import context
-    from retailplay.regime_book import RegimeParams, mode_of
+    from retailplay.regime_book import RegimeParams, modes_for
     from retailplay.sentiment import features
     p = RegimeParams()
     rdate = dt.date.fromisoformat(a.date) if a.date else reports.latest_available_report()
-    html = reports.fetch_report_html(rdate); text = reports.html_to_text(html)
-    sec = reports.parse_retail_section(text, rdate)
-    reg = context.regime(text); mode = mode_of(reg, p)
+    # the regime read is smoothed over the last regime_k reports, so load them
+    hist = [d for d in reports.list_archive_dates() if d <= rdate][-max(p.regime_k, 25):]
+    texts = {d: reports.html_to_text(reports.fetch_report_html(d)) for d in hist}
+    regs = {d: context.regime(texts[d]) for d in hist}
+    mode = modes_for(regs, p)[rdate]
+    text = texts[rdate]; sec = reports.parse_retail_section(text, rdate); reg = regs[rdate]
+    prev_syms = {map_play(q.name)[0] for q in reports.parse_retail_section(texts[hist[-2]], hist[-2]).plays} if len(hist) > 1 else set()
     today = dt.date.today()
     spy_d = prices.daily_map(prices._fetch("SPY", "1d", rdate - dt.timedelta(days=45), today)); sess = next_session(rdate, spy_d)
     print(f"Report used : {rdate}   orders for the {sess} open   equity {a.equity:,.0f}")
     print(f"Macro read  : subtitle '{reg['subtitle']}' | rate_dir={reg['rate_dir']:+d} (−1 cut, +1 hike) | liquidity words ease={reg['ease_words']} tight={reg['tight_words']} | 10Y={reg['y10']} | VIX={reg['vix']}")
-    print(f"MODE        : {mode}   (MOMENTUM needs cut/easing bias and 10Y < {p.y10_lo}; FADE on hike bias or 10Y >= {p.y10_hi})")
+    votes = [regs[d]['rate_dir'] for d in hist[-p.regime_k:]]
+    print(f"Regime      : method={p.regime_method}, last {p.regime_k} reports rate_dir votes {votes} -> MODE = {mode}")
+    stances = context.sector_stances(text); cats = context.catalysts(text)
+    print("Sectors     : " + ", ".join(f"{e}:{'B' if v==1 else 'b' if v==-1 else 'm'}" for e, v in stances.items()) + "   (B bullish, b bearish, m mixed)")
+    print("Catalysts   : " + ", ".join(f"{t}{'↑' if d>0 else '↓'}" for t, d in cats))
+    print("Retail      : " + " | ".join(f"#{q.rank} {q.name[:34]!r}->{map_play(q.name)[0]}{' (persisting)' if map_play(q.name)[0] in prev_syms else ' (new)'}" for q in sec.plays))
     sig = []
     p1 = sec.plays[0]; sym, rdir = map_play(p1.name); f = features(dataclasses.asdict(p1)) if sym else None
-    stances = context.sector_stances(text); cats = context.catalysts(text)
     if mode == "MOMENTUM":
         if sym and rdir: sig.append(("MOM_THEME", sym, rdir, p.hold_theme, 1.0, p1.name))
         sig += [("MOM_SECTOR", e, 1, p.hold_sector, 0.5, "Bullish " + e) for e, v in stances.items() if v == 1]
         sig += [("MOM_CAT", t, 1, p.hold_cat, 0.5, "catalyst ↑ " + t) for t, d in cats if d == 1][: p.max_cat_per_day]
     elif mode == "FADE":
-        if sym and rdir and f and f["fear_theme"] == 0: sig.append(("FADE_THEME", sym, -rdir, p.hold_theme, 1.0, p1.name))
-        sig += [("FADE_SECTOR", e, -1, p.hold_sector, 0.5, "Bullish " + e) for e, v in stances.items() if v == 1]
-    print(f"Sectors     : " + ", ".join(f"{e}:{'B' if v==1 else 'b' if v==-1 else 'm'}" for e, v in stances.items()) + "   (B bullish, b bearish, m mixed)")
-    print(f"Catalysts   : " + ", ".join(f"{t}{'↑' if d>0 else '↓'}" for t, d in cats))
-    print(f"#1 theme    : {p1.name!r} -> {sym} ({'greed' if f and f['fear_theme']==0 else 'fear' if f else 'n/a'})")
+        if sym and rdir and f and (f["fear_theme"] == 0 or not p.fade_greed_only): sig.append(("FADE_THEME", sym, -rdir, p.hold_theme, 1.0, p1.name))
+        if len(sec.plays) > 1:
+            s2, r2 = map_play(sec.plays[1].name)
+            if s2 and r2 and s2 not in prev_syms and p.fade_new2: sig.append(("FADE_NEW2", s2, -r2, p.hold_theme, 0.75, sec.plays[1].name))
+        for q in sec.plays[2:4]:
+            s3, r3 = map_play(q.name)
+            if s3 and r3 and s3 in prev_syms and p.fade_long34: sig.append(("FADE_LONG34", s3, r3, p.hold_theme, 0.5, q.name))
+        if p.fade_cat_down: sig += [("FADE_CATDOWN", t, 1, p.hold_cat, 0.5, "catalyst ↓ contrarian long " + t) for t, d in cats if d == -1][: p.max_cat_per_day]
+        if p.fade_sector: sig += [("FADE_SECTOR", e, -1, p.hold_sector, 0.5, "Bullish " + e) for e, v in stances.items() if v == 1]
     if not sig:
-        print("Orders      : none (NEUTRAL, or no qualifying signals). Hold cash / existing positions to their time exits."); return
+        print("Orders      : none (NEUTRAL, or no qualifying signals). Hold existing positions to their time exits."); return
     net = 0.0
     for leg, s_, side, hold, scale, name in sig:
-        d = prices.daily_map(prices._fetch(s_, "1d", rdate - dt.timedelta(days=45), today))
+        try:
+            d = prices.daily_map(prices._fetch(s_, "1d", rdate - dt.timedelta(days=45), today))
+        except Exception:
+            print(f"  {leg:12s} {s_:5s} no price data, skipped"); continue
         last = max(k for k in d if k <= rdate); pc = d[last][3]; atr = prices.atr_pct(d, last + dt.timedelta(days=1))
         if atr is None or atr > p.max_atr or pc < p.min_price:
-            print(f"  {leg:11s} {s_:5s} skipped (ATR {atr})"); continue
+            print(f"  {leg:12s} {s_:5s} skipped (ATR {atr})"); continue
         notional = min(a.equity * p.risk_per_atr / atr, a.equity * p.max_notional) * scale; qty = int(notional / pc); net += side * notional
-        print(f"  {leg:11s} {s_:5s} {'BUY ' if side>0 else 'SELL'} ~{qty} sh (~{notional:,.0f}, {notional/a.equity:.0%} eq) | ref {pc:.2f} ATR10 {atr:.2%} | stop {p.stop_atr*atr:.2%} {'below' if side>0 else 'above'} | exit close of session {hold} | {name[:40]}")
-    print(f"  HEDGE       SPY {'SELL' if net>0 else 'BUY '} ~{abs(net):,.0f} notional to net zero; re-size each close. Gross cap {p.gross_cap:.0%}, daily halt {p.daily_loss_halt:.0%}, size halves past {p.dd_halve:.0%} DD.")
+        print(f"  {leg:12s} {s_:5s} {'BUY ' if side>0 else 'SELL'} ~{qty} sh (~{notional:,.0f}, {notional/a.equity:.0%} eq) | ref {pc:.2f} ATR10 {atr:.2%} | stop {p.stop_atr*atr:.2%} {'below' if side>0 else 'above'} | exit close of session {hold} | {name[:40]}")
+    print(f"  HEDGE        SPY {'SELL' if net>0 else 'BUY '} ~{abs(net):,.0f} notional to net zero; re-size each close. Gross cap {p.gross_cap:.0%}, daily halt {p.daily_loss_halt:.0%}, size halves past {p.dd_halve:.0%} DD.")
 
 
 def main():

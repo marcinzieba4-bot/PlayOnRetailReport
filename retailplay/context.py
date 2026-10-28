@@ -12,6 +12,7 @@ import re
 SECTORS = {"XLK": r"XLK", "XLC": r"XLC", "XLF": r"XLF", "XLE": r"XLE", "XLI": r"XLI", "XLY": r"XLY", "XLP": r"XLP",
            "XLV": r"XLV", "XLB": r"XLB", "XLRE": r"XLRE", "XLU": r"XLU", "SOXX": r"Semis"}
 STANCE = {"bullish": 1, "bearish": -1, "mixed": 0, "neutral": 0}
+CRYPTO_TICKERS = {"XRP", "BTC", "ETH", "SOL", "DOGE", "ADA", "BNB", "USDT", "USDC"}
 
 
 def _block(text: str, start_rx: str) -> str:
@@ -54,7 +55,7 @@ def catalysts(text: str) -> list[tuple[str, int]]:
     for part in re.split(r"\n## ?", sec):
         head = part.strip()[:200]
         t = re.search(r"\$([A-Z]{1,5})(?:\.[A-Z]{1,2})?\b", head)
-        if not t:
+        if not t or t.group(1) in CRYPTO_TICKERS:
             continue
         arrow = re.search(r"[↑↓]", head[:200])
         if not arrow:
@@ -115,3 +116,55 @@ def regime(text: str) -> dict:
     v = re.search(r"VIX[^.\n]{0,30}?(\d{2}\.\d{1,2})", text)
     return {"rate_dir": rate, "liq": liq, "y10": float(y.group(1)) if y else None, "vix": float(v.group(1)) if v else None,
             "tight_words": tight, "ease_words": ease, "subtitle": sub[:60]}
+
+
+def regime_series(regs: dict, method: str = "composite", k: int = 10, lookback: int = 60) -> dict:
+    """Point-in-time regime mode per report date from the per-report `regime()` dicts.
+
+    Nothing here uses a fixed yield level. Each date only sees reports dated <= itself.
+      'text'      : majority vote of rate_dir over the last k reports (+ liquidity words as tie-break)
+      'ytrend'    : sign of the change in the quoted 10Y over the last k reports (falling -> easing)
+      'yrank'     : quoted 10Y vs its rolling median over `lookback` reports (below -> easing)
+      'composite' : text vote + ytrend + yrank; MOMENTUM if score <= -2, FADE if score >= +2
+      'fixed'     : legacy: rate_dir and absolute 10Y (4.3 / 4.6)
+    Returns {date: ('MOMENTUM'|'FADE'|'NEUTRAL', score)}.
+    """
+    import statistics as _st
+    dates = sorted(regs)
+    out = {}
+    ys = []
+    for i, d in enumerate(dates):
+        window = dates[max(0, i - k + 1): i + 1]
+        votes = [regs[x]["rate_dir"] for x in window]
+        liq = [regs[x]["liq"] for x in window]
+        text = _st.mean(votes) + 0.5 * _st.mean(liq)
+        text_s = -1 if text <= -0.34 else 1 if text >= 0.34 else 0
+        y = regs[d]["y10"]
+        if y is not None:
+            ys.append((d, y))
+        past = [v for (x, v) in ys if x <= d]
+        yt = 0
+        if len(past) >= k:
+            delta = past[-1] - past[-k]
+            yt = -1 if delta < -0.10 else 1 if delta > 0.10 else 0
+        yr = 0
+        hist = past[-lookback:]
+        if len(hist) >= 20 and y is not None:
+            med = _st.median(hist)
+            yr = -1 if y < med - 0.05 else 1 if y > med + 0.05 else 0
+        if method == "text":
+            score = text_s * 2
+        elif method == "ytrend":
+            score = yt * 2
+        elif method == "yrank":
+            score = yr * 2
+        elif method == "composite":
+            score = text_s + yt + yr
+        elif method == "fixed":
+            rd = regs[d]["rate_dir"]
+            score = 2 if (rd == 1 or (y is not None and y >= 4.6)) else -2 if (rd <= 0 and y is not None and y < 4.3) else 0
+        else:
+            raise ValueError(method)
+        mode = "MOMENTUM" if score <= -2 else "FADE" if score >= 2 else "NEUTRAL"
+        out[d] = (mode, score)
+    return out

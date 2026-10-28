@@ -400,81 +400,103 @@ What this means in practice:
 python scripts/run_ls.py && python scripts/pnl_report.py results/LS_base.json results/LS_base_report.html
 ```
 
-## 12. Reading the whole briefing: a regime-gated narrative momentum book (what actually works)
+## 12. Reading the whole briefing: a regime-switched narrative book (what works)
 
 Sections 1–11 only used the retail section. The rest of the briefing is structured enough to
 read by machine (`retailplay/context.py`): a **Bullish / Bearish / Mixed stance for each of
-12 sectors** every day, a **stance line for the US macro block** with a one-line subtitle
-("cut priced, data soft", "↑ rate hike risk"), **$TICKER catalysts with ↑/↓ arrows**, the
-quoted **10-year yield** and **VIX**, and the vocabulary of the capital-flows block
-("liquidity is returning" vs "coordinated G3 tightening").
+12 sectors** every day, a **stance and one-line subtitle for the US macro block** ("cut
+priced, data soft", "↑ rate hike risk"), **$TICKER catalysts with ↑/↓ arrows**, the quoted
+10-year and VIX, and the vocabulary of the capital-flows block ("liquidity is returning"
+vs "coordinated G3 tightening").
 
-**The finding.** The year has two modes and the briefing's own macro text names them:
+**The regime, read from text only.** For each report, `rate_dir` is −1 / 0 / +1 from the US
+block's subtitle and first lines (cut / easing words vs hike / tightening words), and `liq`
+is −1 / 0 / +1 from the capital-flows vocabulary. The mode is a vote over the last 10
+reports: MOMENTUM when the vote reads easing, FADE when it reads tightening, NEUTRAL
+otherwise. No yield level is used (`regime_method="text"`). Yield-trend and yield-rank
+variants exist for a longer history but do not work on this one because the quoted 10-year
+sat flat at 4.1–4.2% during the whole easing period.
 
-| regime read from the US macro block | #1 theme next 5 sessions | Bullish sectors vs SPY, 10 sessions | ↑ catalysts vs SPY, 20 sessions |
+| regime (text vote) | #1 theme, next 5 sessions | Bullish sectors vs SPY, 10 sessions | ↑ catalysts vs SPY, 20 sessions |
 |---|---|---|---|
-| cut / easing bias (68 report-days, Dec–Mar) | **+217 bp**, 65% hit, t = 2.4 | **+124 bp**, 63%, t = 5.7 | **+372 bp**, 53%, t = 3.8 |
-| hold / unclear (61) | −254 bp | +154 bp | −42 bp |
-| hike bias (101, May–Oct) | −86 bp | **−47 bp**, 44%, t = −1.9 | +95 bp |
-| quoted 10Y < 4.3% (Dec–Mar) | +145 bp | **+186 bp**, t = 8.5 | **+520 bp**, t = 6.2 |
-| quoted 10Y 4.3–4.8% within Dec–May | +67 bp | −23 bp | −157 bp |
-| quoted 10Y > 4.8% (Sep–Oct) | −96 bp | −150 bp, t = −2.5 | −103 bp |
+| MOMENTUM (53 report-days: Dec, Feb–Mar) | **+160 bp** | +92 bp | **+645 bp** |
+| NEUTRAL (74) | −28 bp | +134 bp | −144 bp |
+| FADE (100: May–Oct) | **−166 bp** | −19 bp | +70 bp |
 
-The flip is visible *inside* the first half (10Y under vs over 4.3% in Dec–May), so it is a
-regime, not the report's format change in June. When the author reads policy as easing, the
-narratives he flags keep running for weeks; when he reads it as tightening, they fade.
-This is also why the earlier gold/silver #1 themes were unfadeable: they ran during the
-easing regime.
+**Inside the tightening regime the retail section still has uses, but not the obvious ones:**
 
-**The book** (`retailplay/regime_book.py`, `scripts/run_regime.py`), all inputs from report D,
-traded at the next open:
-- MOMENTUM mode (cut/easing bias **and** quoted 10Y < 4.3%): long the #1 retail theme
-  (5 sessions), long each Bullish sector ETF (10 sessions, half size), long up to two ↑
-  catalysts (20 sessions, half size).
-- FADE mode (hike bias **or** 10Y ≥ 4.6%): short a greed #1 theme, short Bullish sectors.
-- NEUTRAL otherwise: no new positions.
+| FADE regime, signed in retail's direction, excess vs SPY | n | 5 sessions | 10 sessions |
+|---|---|---|---|
+| #1 theme, any type | 100 | −108 bp (t = −2.4) | −85 bp |
+| #1 theme, persisting from the day before | 53 | **−136 bp (t = −3.1)** | −117 bp |
+| #1 fear theme (gold, oil) | 30 | −170 bp (t = −3.0) | −120 bp |
+| #2 theme, newly promoted | 54 | −218 bp | −172 bp |
+| #3 theme, persisting | 30 | +61 bp | +109 bp |
+| #4 theme, persisting | 29 | +96 bp | +172 bp |
+| the author's **↓ catalysts, held long** (contrarian), 20 sessions | 114 | | **+355 bp, 66% hit, t = 3.5** |
+| Bearish sectors, long | 269 | −22 bp | −12 bp |
+
+So in a tightening regime the #1 is a short whether greed or fear (the gold exception of
+section 11 was the easing regime, not the theme type), a newly promoted #2 is a trap, the
+persisting #3/#4 are weakly positive, and the names the author flags as "↓ risk" (usually
+into earnings) are the best longs in the whole dataset.
+
+**The book** (`retailplay/regime_book.py`, `scripts/run_regime.py`, config `REG_text`):
+- MOMENTUM: long the #1 theme (5 sessions), long each Bullish sector ETF (10, half size),
+  long up to two ↑ catalysts (20, half size).
+- FADE: short the #1 theme (5), short a newly promoted #2 (5, 0.75 size), long persisting
+  #3/#4 (5, half), long up to two ↓ catalysts (20, half). Bullish-sector shorts are off.
+- NEUTRAL: no new positions.
 - Risk: one ATR = 0.4% of equity, cap 20% per name, 2 ATR stop, gross cap 120%, 2% daily
-  halt, size halved past −6% drawdown, SPY hedge to net zero, 10 bp per round trip.
+  halt, size halved past −6% drawdown, no entries past −12%, SPY hedge to net zero, 10 bp
+  per round trip.
 
 | variant | total | ann. vol | Sharpe | max DD | beta | trades | Dec–May | Jun–Oct |
 |---|---|---|---|---|---|---|---|---|
-| **REG_base** (momentum + fade) | **+14.4%** | 6.5% | 2.33 | −3.3% | −0.01 | 203 | +14.3% | +0.1% |
-| momentum legs only | +10.8% | 5.5% | 2.10 | −2.4% | −0.01 | 98 | +12.0% | −1.1% |
-| momentum, longer holds (10/20/40) | +16.4% | | 2.94 | −2.1% | | 62 | +17.1% | −0.6% |
-| momentum, no stop | +16.4% | | 3.39 | −2.0% | | 90 | +16.8% | −0.3% |
-| fade legs only | +1.0% | 3.9% | 0.29 | −2.1% | | 119 | −0.6% | +1.6% |
-| theme leg only | +4.8% | | 1.38 | −2.0% | | 30 | | |
-| sector leg only | +7.5% | | 2.55 | −1.0% | | 58 | | |
-| catalyst leg only | +0.6% | | 0.16 | −3.7% | | 49 | | |
-| **always momentum (no regime gate)** | **+0.6%** | 6.8% | 0.13 | **−11.5%** | | 245 | +5.4% | −4.5% |
-| regime gate on SPY alone (long SPY on momentum days) | −0.8% | | | | | | | |
+| **REG_text** | **+18.5%** | 7.4% | 2.56 | −4.3% | −0.09 | 176 | +5.6% | +12.2% |
+| momentum legs only | +7.1% | 4.7% | 1.65 | −2.6% | | 71 | +7.1% | 0.0% |
+| fade legs only | +10.4% | 5.8% | 1.91 | −2.2% | | 105 | −1.4% | +12.0% |
+| without the ↓-catalyst long | +11.7% | | 1.96 | −4.5% | | 156 | +6.0% | +5.4% |
+| without the new-#2 short | +9.6% | | 1.54 | −5.5% | | 164 | +5.9% | +3.4% |
+| without the persisting #3/#4 long | +18.9% | | 2.56 | −4.1% | | 161 | | |
+| with Bullish-sector shorts in FADE | +10.4% | | 1.61 | −6.3% | | 201 | | |
+| vote window 5 / 20 reports instead of 10 | +23.9% / +18.4% | | 3.28 / 2.54 | −4.0% / −4.3% | | | | |
+| composite regime (adds yield trend and rank) | +10.9% | | 1.74 | −3.7% | | | −0.9% | +11.9% |
+| legacy fixed 4.3% / 4.6% yield gate | +23.9% | | 2.97 | −2.9% | | | +11.0% | +11.6% |
+| no stops / halts | +23.2% | | 3.29 | −3.4% | | | | |
 | SPY buy-and-hold | +13.1% | | | | | | | |
-| 10Y threshold 4.0 / 4.2 / 4.4 / 4.5 instead of 4.3 | +0.1% / +5.1% / +8.0% / +11.9% | | | | | | | |
-| rate-direction only, no yield | +5.0% | | | −7.6% | | | | |
 
-Attribution of the base book: #1-theme momentum +8.4% of equity over 25 trades (+235 bp
-each, 68% hit; silver and gold are +5.8% of that), Bullish-sector momentum +5.2% over 47
-trades (XLE, SOXX, XLB, XLU), catalysts +0.4%, fade legs −2.8% combined.
+Monthly P&L ($100k): Dec +3.3k, Jan +2.6k, Feb +3.1k, Mar −1.9k, Apr −0.3k, May −1.2k,
+Jun −0.8k, Jul +3.6k, Aug +3.4k, Sep +3.9k, Oct +2.8k. Eight of eleven months positive.
+
+Attribution: ↓-catalyst contrarian longs +4.8% of equity (37 trades, +213 bp each, 57%
+hit, META +2.6k, OXY, ON, MSFT, NVDA; 13 stops), #1-theme fades +4.0% (32 trades, 69% hit,
+QQQ, IBIT, XLE), #1-theme momentum +2.1% (silver is +4.2k of it), Bullish-sector momentum
++1.1%, catalysts ↑ +0.5%, new-#2 shorts +0.1% (but they cut the drawdown: without them
+−5.5%), persisting #3/#4 longs +0.6%.
 
 **Honest reading.**
-- The regime gate is the whole story. Without it, narrative momentum made +0.6% with an 11.5%
-  drawdown; with it, +14% with a 3.3% drawdown. And the gate is not market timing: SPY held
-  only on momentum days made −0.8%, so the gain is the *selection* of the report's narratives
-  while the report reads policy as easing.
-- All the profit sits in Dec–Apr 2026. Since May the gate has said "fade or stay out" and the
-  book has been flat (+0.1%), which is the correct behaviour, not a failure.
-- The fade legs add nothing. Keep them off; in tightening regimes the right trade is cash.
-- Sensitivity is real: the 10Y threshold moves the result from +0.1% (4.0%) to +14% (4.3%)
-  because the yield was quoted at 4.1–4.2% for the whole easing period. Treat the threshold
-  as "below the level the author calls easy", and prefer the rate-direction reading when the
-  two disagree. Longer holds and no stops did *better*, as momentum trades usually do.
-- One easing regime is one observation. The strategy is testable going forward: it will
-  trade again the day the briefing's US block reads a cut bias with the 10Y under ~4.3%.
+- The regime vote does the work in both directions now: it turns momentum on in Dec–Mar
+  and turns the retail fades on from May. Both halves are positive, which none of the
+  earlier books managed.
+- The legacy fixed yield gate scores higher (+23.9%) because it also calls January
+  momentum; the text vote calls January neutral. The text vote is the one to keep: it has no
+  level in it and will transfer to a longer history. Window length barely matters (5 to 20).
+- The ↓-catalyst contrarian long is the single strongest leg and the least intuitive: the
+  author flags names as "↓ risk" into earnings or news, and in a tightening regime they
+  outperform over the following month. 30 different names, so it is not one stock, but 37
+  trades is still 37 trades.
+- Silver still carries the momentum theme leg. The persisting #3/#4 long, which was the
+  intuitive "lower ranks work in tightening" idea, is positive but tiny (+0.6%).
+- Stops cost about 5 points here, as they did in every momentum variant. They are kept
+  because the sample has no crash in it.
+- One easing regime and one tightening regime are two observations. The next regime flip is
+  the real test; the code reads it from the text the day it happens.
 
 ```bash
 python scripts/run_regime.py                 # variants + risk table + monthly P&L + mode calendar
-python scripts/make_plan.py --regime         # today's mode and the orders it implies
-python scripts/pnl_report.py results/REG_base.json results/REG_base_report.html
+python scripts/make_plan.py --regime         # today's regime vote and the orders it implies
+python scripts/pnl_report.py results/REG_text.json results/REG_text_report.html
 ```
 
 ## 7. What to do with this (summary)
@@ -497,9 +519,10 @@ python scripts/pnl_report.py results/REG_base.json results/REG_base_report.html
    67 sessions. Those risk numbers are the deliverable; the return is not yet evidence.
 7. **Out of sample (Dec 2025 → May 2026) the fades failed**: fear themes at #1 ran for months.
    Only "greed #1 underperforms next week" generalised. See section 11.
-8. **What works: a regime gate read from the macro block.** Ride the briefing's narratives
-   (#1 theme, Bullish sectors) only while it reads policy as easing with the 10Y under ~4.3%;
-   stay out otherwise. +14% / −3.3% DD / zero beta over the year, all earned Dec–Apr. Section 12.
+8. **What works: a regime vote read from the macro text, no yield level.** Easing vote: ride the
+   #1 theme, Bullish sectors and ↑ catalysts. Tightening vote: short the #1 theme and a newly
+   promoted #2, go long the author's ↓ catalysts. +18.5%, Sharpe 2.6, max DD 4.3%, beta −0.1,
+   both halves positive. Section 12.
 9. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
    this archive. The weekly trade is the fade (short #1 / long SPY, or long #2), with the same
    small-sample caveat (11 independent weeks).
