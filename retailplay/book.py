@@ -24,6 +24,7 @@ from collections import defaultdict
 from . import prices
 from .mapping import map_play
 from .sentiment import features
+from .strategy import plays_for_session
 
 
 @dataclasses.dataclass(frozen=True)
@@ -72,11 +73,9 @@ def run(sections: dict[dt.date, list], start: dt.date, end: dt.date, p: BookPara
     rdates = sorted(sections)
 
     def signals_for(T: dt.date):
-        cands = [d for d in rdates if d < T]
-        if not cands:
+        R, plays = plays_for_session(sections, T)
+        if not plays:
             return []
-        R = max(cands)
-        plays = sections[R]
         out = []
         syms_today = [map_play(q.name)[0] for q in plays]
 

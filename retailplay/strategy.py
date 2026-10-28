@@ -101,9 +101,13 @@ def build_signal(session: dt.date, report_date: dt.date, rank: int, play_name: s
     return sig
 
 
-def plays_for_session(sections: dict[dt.date, list], session: dt.date):
-    """Newest report dated strictly before `session`. Returns (report_date, plays)."""
-    cands = [d for d in sections if d < session]
+MAX_REPORT_AGE_DAYS = 3
+
+
+def plays_for_session(sections: dict[dt.date, list], session: dt.date, max_age: int = MAX_REPORT_AGE_DAYS):
+    """Newest report dated strictly before `session`, no older than `max_age` calendar days
+    (a Friday report serves Monday; a month-old report serves nothing). Returns (report_date, plays)."""
+    cands = [d for d in sections if d < session and (session - d).days <= max_age]
     if not cands:
         return None, []
     d = max(cands)

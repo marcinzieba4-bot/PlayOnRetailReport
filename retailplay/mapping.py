@@ -42,8 +42,30 @@ RULES=[
  (r'dividend|fortress|value|stagflation-proof|defensive','RSP',1),(r'ai|mega-cap|nasdaq|big tech|tech earnings|s&p|broad market|buy the dip|leveraged long|buy everything','QQQ',1),
  (r'pershing|ackman','PSHZF',1),(r'prediction','DKNG',1),(r'fed|rate hike|rate-cut|volatility','SPY',0),(r'trump','DJT',1),(r'take-private|buyout','SPY',0),
 ]
+EXTRA=[
+ (r'silver|\bslv\b','SLV',1),(r'quantum|rgti|ionq|qbts','QTUM',1),(r'meme|squeeze|gamestop|\bgme\b','GME',1),
+ (r'\byen\b','FXY',1),(r'\bbanks?\b|jpmorgan','XLF',1),(r'software|intuit|\bintu\b|saas','IGV',1),(r'alphabet|googl','GOOGL',1),
+ (r'strategy / mstr|microstrategy|\bmstr\b','MSTR',1),(r'coinbase|\bcoin\b','COIN',1),(r'robinhood|\bhood\b','HOOD',1),
+ (r'netflix|nflx','NFLX',1),(r'intel|\bintc\b','INTC',1),(r'coreweave|crwv','CRWV',1),(r'opendoor','OPEN',1),(r'kohl','KSS',1),
+ (r'beyond meat|bynd','BYND',1),(r'freeport|\bfcx\b','FCX',1),(r'lululemon|lulu','LULU',1),(r'delta|\bdal\b','DAL',1),
+ (r'plug power|\bplug\b','PLUG',1),(r'luminar|lazr','LAZR',1),(r'figma|\bfig\b','FIG',1),(r'social sentiment|\bbuzz\b','BUZZ',1),
+ (r'us equities|spy\b|s&p','SPY',1),(r'metals','GLD',1),(r'tech dip|dip-buying','QQQ',1),(r'american battery|abat','ABAT',1),
+ (r'nextdoor|nxdr','NXDR',1),(r'ai capacity|data center|infrastructure','SMH',1),(r'burry','QQQ',-1),(r'bitcoin distribution','IBIT',1),
+ (r'options|watch lists|index-inclusion|powell|no ticker|\.hk|cogn3|infosys|infy|moore threads|ashr|usd1|pop mart|ev turnaround|dogecoin|raspberry','SKIP',0),
+]
+TICKER_RX=re.compile(r'(?:^|[\s/,(])\$?([A-Z]{2,5})(?=$|[\s,)/])')
+_NOT={'AI','US','ETF','ETFS','IPO','CEO','SEC','FED','GDP','CPI','PCE','FOMC','THE','AND','OR','VS','HBM','SMR','EM','UK','EU','GC','XAU','WTI','OPEC','BOJ','ECB','DCF','NAV','TV'}
 def map_play(name):
     n=name.lower()
+    if (n.startswith('"') and n.rstrip().endswith('"')) or (n.startswith('\u201c') and n.rstrip().endswith('\u201d')):
+        return None,0   # a whole-line quoted tagline parsed as a name: no theme
     for rx,t,d in RULES:
         if re.search(rx,n): return t,d
+    for rx,t,d in EXTRA:
+        if re.search(rx,n): return (None,0) if t=='SKIP' else (t,d)
+    # "Company / TICKER" or "$TICKER" in the name
+    tail=name.split('/')[-1] if '/' in name else name
+    for m in TICKER_RX.finditer(tail):
+        tk=m.group(1)
+        if tk not in _NOT: return tk,1
     return None,0

@@ -338,6 +338,65 @@ python scripts/run_ls.py            # all configurations + full risk table + wee
 python scripts/make_plan.py --ls    # today's L/S orders from the newest report
 ```
 
+## 11. Out-of-sample: the archive extended to Dec 2025 → Oct 2026 (237 reports)
+
+Everything above was designed on 98 reports (Jun 25 → Sep 30, 2026). The archive now runs
+from 2025-12-01 to 2026-10-27, so Dec 2025 → May 2026 is a true out-of-sample test, and
+Jun → Oct 2026 re-runs the in-sample period with a month added. Two fixes were needed to
+read the older reports: an optional intro line in the section parser (the Dec–Jan format
+has none, which had silently dropped every January #1 play) and ticker extraction for the
+"Company / TICKER" naming used until March. Prices were refetched from Oct 2025. A 3-day
+report-staleness cap was added (no effect here, the archive only skips weekends).
+
+**The headline: the strategies do not survive the earlier period.**
+
+| Strategy, full span Dec 2025 → Oct 2026 | result | Dec–May | Jun–Oct |
+|---|---|---|---|
+| Intraday gap fade, default (section 4) | 90 trades, −6.9 bp/trade, −2.0%, Sharpe −1.2 | | |
+| Weekly #1 fade, SPY hedge (section 8) | 31 weeks, −0.14%/week, −4.3%, max DD −7.5%; negative in all 5 rolling phases | | |
+| Long/short `LS_base` (section 10) | 151 trades, −2.8%, Sharpe −0.4, max DD −6.0% | −5.0% | +2.3% |
+| Long/short, greed-only short leg | 128 trades, +2.0%, Sharpe 0.35, max DD −4.1% | +1.2% | +0.8% |
+| Long leg only (persisting #2–#4) vs SPY | 95 trades, +2.5%, Sharpe 0.5, max DD −4.2% | +2.9% | −0.4% |
+| Short leg only vs SPY | 78 trades, −3.4%, Sharpe −0.9 | −4.4% | +1.0% |
+| SPY, same span | +12.9% | | |
+
+Why: the #1 theme's next-week return flips sign by regime.
+
+| month | #1 next-5-session return (retail direction) | hit | #1 names |
+|---|---|---|---|
+| 2025-12 | **+567 bp** | 96% | SLV, MSTR, SMH |
+| 2026-01 | +193 bp | 64% | SLV, RDDT, GLD |
+| 2026-02 | −64 bp | 40% | SLV, TSLA, GLD |
+| 2026-03 | −368 bp | 32% | NBIS, RKLB, NOW |
+| 2026-04 | +41 bp | 62% | QQQ, GME, OPEN |
+| 2026-05 | −10 bp | 57% | QQQ, NVDA, SMH |
+| 2026-06 | −590 bp | 32% | RKLB, MU, QQQ |
+| 2026-07 | −105 bp | 43% | XLE, IWM, IBIT |
+| 2026-08 | +68 bp | 57% | GLD, MSFT, PLTR |
+| 2026-09 | −57 bp | 32% | IBIT, XLE, QQQ |
+| 2026-10 | −212 bp | 8% | QQQ, IBIT, NVDA |
+
+December 2025 and January 2026 were the silver and gold mania: the #1 fear theme made
++411 bp per week over Dec–May (73% hit, t = 4.1) and shorting it, even at half size with a
+1.5 ATR stop, cost the short leg −5.3% of equity in that half. The greed-theme #1s stayed
+negative in both halves (−118 bp Dec–May, −278 bp Jun–Oct), which is the one text-based
+finding that generalised; it is what keeps the greed-only short leg roughly flat
+(−38 bp/trade) instead of losing. The persisting lower-rank long made +104 bp/trade in
+Dec–May and −17 bp in Jun–Oct, so it is positive but regime-dependent (metals again).
+
+What this means in practice:
+- **Never fade a fear theme at #1.** The in-sample half-size compromise was wrong; the
+  out-of-sample cost was the whole drawdown. `s1_fear_scale=0` is the only defensible setting.
+- **The intraday and weekly fades are not strategies.** They were one quarter's regime.
+- The surviving book is "short greed #1 / long persisting #2–#4 / SPY-hedge": +2.0% over 11
+  months, Sharpe 0.35, max DD 4%, zero beta. That is a hedge-shaped nothing, not a product.
+  The only firm, reusable conclusions from 237 reports are (1) greed narratives at #1
+  underperform the following week and (2) fear narratives at #1 can run for months.
+
+```bash
+python scripts/run_ls.py && python scripts/pnl_report.py results/LS_base.json results/LS_base_report.html
+```
+
 ## 7. What to do with this (summary)
 
 1. The briefing is a clean daily crowding signal available at 13:17 ET; trade it for the next
@@ -356,6 +415,8 @@ python scripts/make_plan.py --ls    # today's L/S orders from the newest report
 6. The assembled long/short (short #1, long persisting #2–#4, SPY-hedged, vol-sized, 1.5 ATR
    stops, daily halt, drawdown de-risk) ran at Sharpe 1.8, max drawdown 1.5%, zero beta over
    67 sessions. Those risk numbers are the deliverable; the return is not yet evidence.
-7. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
+7. **Out of sample (Dec 2025 → May 2026) the fades failed**: fear themes at #1 ran for months.
+   Only "greed #1 underperforms next week" generalised. See section 11.
+8. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
    this archive. The weekly trade is the fade (short #1 / long SPY, or long #2), with the same
    small-sample caveat (11 independent weeks).

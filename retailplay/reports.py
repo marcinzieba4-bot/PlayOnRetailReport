@@ -86,7 +86,8 @@ _FIELD = {
 
 
 def parse_retail_section(text: str, date: dt.date) -> RetailSection:
-    m = re.search(r"## 🔥 What Retail Is Playing\n[^\n]*\n(.*?)(?:\nPowered by|$)", text, flags=re.S)
+    # an optional one-line intro sentence may follow the header (absent in the Dec 2025 - Jan 2026 format)
+    m = re.search(r"## 🔥 What Retail Is Playing\n(?:(?!## )[^\n]*\n)?(.*?)(?:\nPowered by|$)", text, flags=re.S)
     sec = m.group(1) if m else ""
     out = RetailSection(date=date.isoformat())
     for part in re.split(r"\n?## ", sec):
