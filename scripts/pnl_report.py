@@ -79,8 +79,8 @@ body{{margin:0;background:var(--plane);color:var(--ink);font:14px/1.45 system-ui
 table{{width:100%;border-collapse:collapse;font-size:12.5px;font-variant-numeric:tabular-nums}} th,td{{padding:5px 6px;border-bottom:1px solid var(--grid);text-align:left;white-space:nowrap}} th{{color:var(--muted);font-weight:600;position:sticky;top:0;background:var(--surface)}}
 td.num,th.num{{text-align:right}} .up{{color:var(--up)}} .dn{{color:var(--dn)}} .tablewrap{{overflow:auto;max-height:70vh}}
 </style></head><body><div class="wrap">
-<h1>Narrative Long/Short — P&L report (LS_base)</h1>
-<p class="sub">Short the #1 retail theme (greed full size, fear half), long persisting #2–#4 themes, SPY-hedged, vol-sized, 1.5 ATR stops, 5-session hold. {dates[0]} → {dates[-1]}, {n} sessions, $100,000 start. Backtest, not live.</p>
+<h1>P&L report — {html.escape(os.path.basename(path))}</h1>
+<p class="sub">Backtest of the strategy in this results file (see README). {dates[0]} → {dates[-1]}, {n} sessions, $100,000 start. Backtest, not live.</p>
 <div class="tiles">{tiles_html}</div>
 <div class="card"><h2>Equity curve</h2>{svg_eq}<div class="tip"></div></div>
 <div class="card"><h2>Daily P&L (positions + hedge), $</h2>{svg_pnl}<div class="tip"></div></div>

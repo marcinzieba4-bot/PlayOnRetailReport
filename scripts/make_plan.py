@@ -104,6 +104,47 @@ def ls_plan(a):
     json.dump({"report_date": rdate.isoformat(), "session": sess.isoformat(), "orders": orders, "hedge_notional": -net}, open(f"results/ls_plan_{sess.isoformat()}.json", "w"), indent=1)
 
 
+def regime_plan(a):
+    import dataclasses
+    from retailplay import context
+    from retailplay.regime_book import RegimeParams, mode_of
+    from retailplay.sentiment import features
+    p = RegimeParams()
+    rdate = dt.date.fromisoformat(a.date) if a.date else reports.latest_available_report()
+    html = reports.fetch_report_html(rdate); text = reports.html_to_text(html)
+    sec = reports.parse_retail_section(text, rdate)
+    reg = context.regime(text); mode = mode_of(reg, p)
+    today = dt.date.today()
+    spy_d = prices.daily_map(prices._fetch("SPY", "1d", rdate - dt.timedelta(days=45), today)); sess = next_session(rdate, spy_d)
+    print(f"Report used : {rdate}   orders for the {sess} open   equity {a.equity:,.0f}")
+    print(f"Macro read  : subtitle '{reg['subtitle']}' | rate_dir={reg['rate_dir']:+d} (−1 cut, +1 hike) | liquidity words ease={reg['ease_words']} tight={reg['tight_words']} | 10Y={reg['y10']} | VIX={reg['vix']}")
+    print(f"MODE        : {mode}   (MOMENTUM needs cut/easing bias and 10Y < {p.y10_lo}; FADE on hike bias or 10Y >= {p.y10_hi})")
+    sig = []
+    p1 = sec.plays[0]; sym, rdir = map_play(p1.name); f = features(dataclasses.asdict(p1)) if sym else None
+    stances = context.sector_stances(text); cats = context.catalysts(text)
+    if mode == "MOMENTUM":
+        if sym and rdir: sig.append(("MOM_THEME", sym, rdir, p.hold_theme, 1.0, p1.name))
+        sig += [("MOM_SECTOR", e, 1, p.hold_sector, 0.5, "Bullish " + e) for e, v in stances.items() if v == 1]
+        sig += [("MOM_CAT", t, 1, p.hold_cat, 0.5, "catalyst ↑ " + t) for t, d in cats if d == 1][: p.max_cat_per_day]
+    elif mode == "FADE":
+        if sym and rdir and f and f["fear_theme"] == 0: sig.append(("FADE_THEME", sym, -rdir, p.hold_theme, 1.0, p1.name))
+        sig += [("FADE_SECTOR", e, -1, p.hold_sector, 0.5, "Bullish " + e) for e, v in stances.items() if v == 1]
+    print(f"Sectors     : " + ", ".join(f"{e}:{'B' if v==1 else 'b' if v==-1 else 'm'}" for e, v in stances.items()) + "   (B bullish, b bearish, m mixed)")
+    print(f"Catalysts   : " + ", ".join(f"{t}{'↑' if d>0 else '↓'}" for t, d in cats))
+    print(f"#1 theme    : {p1.name!r} -> {sym} ({'greed' if f and f['fear_theme']==0 else 'fear' if f else 'n/a'})")
+    if not sig:
+        print("Orders      : none (NEUTRAL, or no qualifying signals). Hold cash / existing positions to their time exits."); return
+    net = 0.0
+    for leg, s_, side, hold, scale, name in sig:
+        d = prices.daily_map(prices._fetch(s_, "1d", rdate - dt.timedelta(days=45), today))
+        last = max(k for k in d if k <= rdate); pc = d[last][3]; atr = prices.atr_pct(d, last + dt.timedelta(days=1))
+        if atr is None or atr > p.max_atr or pc < p.min_price:
+            print(f"  {leg:11s} {s_:5s} skipped (ATR {atr})"); continue
+        notional = min(a.equity * p.risk_per_atr / atr, a.equity * p.max_notional) * scale; qty = int(notional / pc); net += side * notional
+        print(f"  {leg:11s} {s_:5s} {'BUY ' if side>0 else 'SELL'} ~{qty} sh (~{notional:,.0f}, {notional/a.equity:.0%} eq) | ref {pc:.2f} ATR10 {atr:.2%} | stop {p.stop_atr*atr:.2%} {'below' if side>0 else 'above'} | exit close of session {hold} | {name[:40]}")
+    print(f"  HEDGE       SPY {'SELL' if net>0 else 'BUY '} ~{abs(net):,.0f} notional to net zero; re-size each close. Gross cap {p.gross_cap:.0%}, daily halt {p.daily_loss_halt:.0%}, size halves past {p.dd_halve:.0%} DD.")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--equity", type=float, default=100_000)
@@ -111,7 +152,10 @@ def main():
     ap.add_argument("--legs", type=str, default=None)
     ap.add_argument("--weekly", action="store_true", help="print the weekly Retail #1 Fade pair instead of the intraday plan")
     ap.add_argument("--ls", action="store_true", help="print the Narrative Long/Short orders (section 10 of the README)")
+    ap.add_argument("--regime", action="store_true", help="print today's regime mode and the regime-gated book orders (section 12)")
     a = ap.parse_args()
+    if a.regime:
+        return regime_plan(a)
     if a.weekly:
         return weekly_plan(a)
     if a.ls:
