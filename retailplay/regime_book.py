@@ -31,6 +31,7 @@ from .book import risk_report  # same daily-series statistics
 
 @dataclasses.dataclass(frozen=True)
 class RegimeParams:
+    force_mode: str = ""           # '' = use the regime vote; 'MOMENTUM' | 'FADE' | 'BOTH' | 'INVERT' ignore / flip it (controls)
     regime_method: str = "text"   # 'text' (no yield level: smoothed rate-direction + liquidity words) | 'composite' | 'ytrend' | 'yrank' | 'fixed'
     regime_k: int = 10            # reports in the smoothing window
     y10_lo: float = 4.3           # only used by regime_method='fixed'
@@ -115,11 +116,15 @@ def run(sections: dict[dt.date, list], texts: dict[dt.date, str], start: dt.date
         if not plays:
             return [], "NONE", None
         mode = MODE[R]
+        if p.force_mode == "INVERT":
+            mode = {"MOMENTUM": "FADE", "FADE": "MOMENTUM"}.get(mode, mode)
+        elif p.force_mode:
+            mode = p.force_mode
         out = []
         p1 = plays[0]
         sym, rdir = map_play(p1.name)
         f = features(dataclasses.asdict(p1)) if sym else None
-        if mode == "MOMENTUM":
+        if mode in ("MOMENTUM", "BOTH"):
             if p.mom_theme and sym and rdir:
                 out.append(("MOM_THEME", sym, rdir, p.hold_theme, 1.0, p1.name))
             if p.mom_sector:
@@ -136,7 +141,7 @@ def run(sections: dict[dt.date, list], texts: dict[dt.date, str], start: dt.date
                 s3, r3 = map_play(q.name)
                 if s3 and r3 and listed_days(s3, R) >= 1:
                     out.append(("LONG34", s3, r3, p.hold_theme, 0.5, q.name))
-        if mode == "FADE":
+        if mode in ("FADE", "BOTH"):
             if p.fade_theme and sym and rdir and f and (f["fear_theme"] == 0 or not p.fade_greed_only):
                 out.append(("FADE_THEME", sym, -rdir, p.hold_theme, 1.0, p1.name))
             if p.fade_new2 and len(plays) > 1:
