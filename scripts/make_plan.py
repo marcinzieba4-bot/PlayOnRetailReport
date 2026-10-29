@@ -109,7 +109,7 @@ def regime_plan(a):
     from retailplay import context
     from retailplay.regime_book import RegimeParams, modes_for
     from retailplay.sentiment import features
-    p = RegimeParams()
+    p = RegimeParams(mom_theme=False)   # 'REG lean', README section 14
     rdate = dt.date.fromisoformat(a.date) if a.date else reports.latest_available_report()
     # the regime read is smoothed over the last regime_k reports, so load them
     hist = [d for d in reports.list_archive_dates() if d <= rdate][-max(p.regime_k, 25):]

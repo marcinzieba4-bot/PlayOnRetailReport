@@ -571,6 +571,57 @@ python scripts/make_plan.py --pairs         # today's regime and the pairs it im
 python scripts/pnl_report.py results/PAIR_base.json results/PAIR_base_report.html
 ```
 
+## 14. Extended history: Aug 2025 → Oct 2026 (324 reports)
+
+Four more months were added at the front (Aug–Nov 2025: 86 reports, the "Company / TICKER"
+format, weekdays only). Prices were refetched from June 2025 and three mapping rules fixed
+(Ether → ETHA, Bloom Energy → BE, Dogecoin → IBIT). Aug–Nov 2025 is a genuine out-of-sample
+slice for everything in sections 12–13: the regime vote read it as easing / neutral (no FADE
+days), the quoted 10-year sat at 4.05–4.27%, and SPY made +9.1%.
+
+| book | total (15 months) | Sharpe | max DD | trades | Aug–Nov 25 | Dec–May | Jun–Oct 26 |
+|---|---|---|---|---|---|---|---|
+| REG_text, section 12 as published | +18.0% | 2.01 | −5.0% | 235 | **−0.5%** | +5.4% | +12.4% |
+| REG lean: drop the #1-theme momentum leg | **+19.5%** | **2.29** | **−3.6%** | 224 | +1.5% | +4.8% | +12.4% |
+| REG lean2: only sectors + ↑ catalysts in easing, #1 fade + ↓ catalysts in tightening | +12.1% | 1.60 | −3.6% | 196 | +1.5% | +4.9% | +5.3% |
+| REG lean2 with the composite (yield-based) regime | −1.6% | −0.3 | −8.2% | | +0.7% | −4.2% | +2.0% |
+| PAIR_base, section 13 as published | +4.3% | 0.40 | −8.6% | 101 | **−4.5%** | −0.8% | +10.1% |
+| PAIR without the #1-long pair (P_M1) | +9.4% | 0.79 | −7.1% | 85 | −1.9% | +1.4% | +10.0% |
+| PAIR, sector spread + ↓-catalyst pair only | +12.1% | 1.14 | −4.8% | 69 | +0.3% | −0.4% | +12.2% |
+| SPY | +23.7% | | | | +9.1% | +11.4% | +1.8% |
+
+Signal-level, whole history by regime vote:
+
+| regime vote | days | #1 theme, 5 sessions | Bullish sectors vs SPY, 10 | ↑ catalysts vs SPY, 20 | ↓ catalysts vs SPY, 20 |
+|---|---|---|---|---|---|
+| MOMENTUM | 104 | **−50 bp** (51% hit) | +73 bp | +284 bp | −240 bp |
+| NEUTRAL | 114 | 0 bp | +56 bp | 0 bp | +138 bp |
+| FADE | 106 | **−161 bp** (38%) | −22 bp | +63 bp | **+262 bp** |
+
+**What the extension changed.**
+- **The #1-theme momentum leg is dead.** In Oct–Nov 2025 the vote said easing and the #1
+  themes (NVDA, PLTR, TSLA, SOFI, AMD, quantum) fell 3–15% in the following week; over the
+  whole history the #1 theme returns −50 bp in the easing regime. The December–February
+  silver run was the exception, not the rule. Dropping that leg improves every number.
+- **The sector and ↑-catalyst momentum legs survive** (+73 bp / +284 bp in easing across
+  15 months) and **the tightening-regime legs are unchanged** (#1 fade −161 bp, ↓ catalysts
+  +262 bp). The text vote still separates the regimes; the yield-based composite does not.
+- **The pair book is the fragile one.** Its single-name pairs lost −4.5% in the new months
+  (the #1-long pairs: ETHA, NVDA, IBIT, PLTR, AMD all against sector baskets), and the
+  persisting #3/#4 vs #1 pair flipped from +3.1k to −1.0k just from three mapping fixes.
+  Only the sector-spread and ↓-catalyst pairs hold up. The SPY-hedged book is the robust
+  expression.
+- The new slice is still small (4 months, no tightening days) and the whole history has one
+  easing-to-tightening transition. The next flip back to easing is the test that matters.
+
+The default `RegimeParams()` keeps `mom_theme=True` so that section 12's numbers stay
+reproducible; the recommended configuration is `RegimeParams(mom_theme=False)`
+("REG lean"), and `make_plan.py --regime` now uses it.
+
+```bash
+python scripts/run_regime.py && python scripts/run_pairs.py
+```
+
 ## 7. What to do with this (summary)
 
 1. The briefing is a clean daily crowding signal available at 13:17 ET; trade it for the next
@@ -595,9 +646,12 @@ python scripts/pnl_report.py results/PAIR_base.json results/PAIR_base_report.htm
    #1 theme, Bullish sectors and ↑ catalysts. Tightening vote: short the #1 theme and a newly
    promoted #2, go long the author's ↓ catalysts. +18.5%, Sharpe 2.6, max DD 4.3%, beta −0.1,
    both halves positive. Section 12.
-9. **As pairs**: tightening → short #1 vs the persisting #3/#4 or the ↓ catalysts; easing → long #1,
+9. **Extended to Aug 2025**: the #1-theme momentum leg died out of sample (−50 bp in easing
+   over 15 months); the sector / ↑-catalyst momentum and the tightening fades held. Use the
+   lean regime book (no #1 long). Pairs are fragile. Section 14.
+10. **As pairs**: tightening → short #1 vs the persisting #3/#4 or the ↓ catalysts; easing → long #1,
    Bullish sectors, ↑ catalysts vs the Bearish sectors. +15.5%, beta −0.1, noisier than the
    SPY-hedged version. Section 13.
-10. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
+11. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
    this archive. The weekly trade is the fade (short #1 / long SPY, or long #2), with the same
    small-sample caveat (11 independent weeks).

@@ -8,6 +8,7 @@ Rules are ordered: first match wins.
 import re
 # (regex on play name, ticker, direction) direction: +1 long, -1 short (retail is short / bearish)
 RULES=[
+ (r'\bether\b|\beth\b|ethereum','ETHA',1),(r'bloom energy|\bbe\b','BE',1),(r'dogecoin|\bdoge\b','IBIT',1),
  (r'short gold|long dust','GLD',-1),
  (r'short bitcoin|bitcoin short|bearish crypto|crypto skepticism','IBIT',-1),
  (r'short.*bond|bear bond|yields to 6','TLT',-1),
