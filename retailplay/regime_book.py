@@ -43,6 +43,7 @@ class RegimeParams:
     fade_theme: bool = True       # FADE: short the #1 theme (any narrative type)
     fade_new2: bool = True        # FADE: short a #2 theme that was not listed the day before
     fade_long34: bool = True      # FADE: long persisting #3 / #4 themes
+    long34_modes: tuple = ("FADE",)   # modes in which the persisting #3/#4 long is active (if fade_long34)
     fade_cat_down: bool = True    # FADE: long the author's ↓ catalysts (contrarian), hold_cat
     fade_sector: bool = False     # FADE: short Bullish sectors (off: no edge)
     fade_greed_only: bool = False
@@ -130,14 +131,19 @@ def run(sections: dict[dt.date, list], texts: dict[dt.date, str], start: dt.date
                 for tk, dd in CAT[R]:
                     if dd == 1 and n < p.max_cat_per_day:
                         out.append(("MOM_CAT", tk, 1, p.hold_cat, 0.5, "catalyst ↑ " + tk)); n += 1
-        elif mode == "FADE":
+        if p.fade_long34 and mode in p.long34_modes and mode != "FADE":
+            for q in plays[2:4]:
+                s3, r3 = map_play(q.name)
+                if s3 and r3 and listed_days(s3, R) >= 1:
+                    out.append(("LONG34", s3, r3, p.hold_theme, 0.5, q.name))
+        if mode == "FADE":
             if p.fade_theme and sym and rdir and f and (f["fear_theme"] == 0 or not p.fade_greed_only):
                 out.append(("FADE_THEME", sym, -rdir, p.hold_theme, 1.0, p1.name))
             if p.fade_new2 and len(plays) > 1:
                 s2, r2 = map_play(plays[1].name)
                 if s2 and r2 and listed_days(s2, R) == 0:
                     out.append(("FADE_NEW2", s2, -r2, p.hold_theme, 0.75, plays[1].name))
-            if p.fade_long34:
+            if p.fade_long34 and "FADE" in p.long34_modes:
                 for q in plays[2:4]:
                     s3, r3 = map_play(q.name)
                     if s3 and r3 and listed_days(s3, R) >= 1:

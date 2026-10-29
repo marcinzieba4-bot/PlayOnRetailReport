@@ -7176,6 +7176,9 @@
   "fade_theme": true,
   "fade_new2": false,
   "fade_long34": false,
+  "long34_modes": [
+   "FADE"
+  ],
   "fade_cat_down": true,
   "fade_sector": false,
   "fade_greed_only": false,
