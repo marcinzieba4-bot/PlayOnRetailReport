@@ -96,6 +96,8 @@ def parse_retail_section(text: str, date: dt.date) -> RetailSection:
             continue
         lines = part.split("\n")
         name = lines[0].strip()
+        if re.fullmatch(r"\[\d+\]", name) or name.lower().startswith("powered by"):
+            continue  # footnote / footer markers, not plays
         tag = lines[1].strip().strip('"') if len(lines) > 1 else ""
         body = "\n".join(lines[2:])
         p = Play(rank=len(out.plays) + 1, name=name, tagline=tag)
