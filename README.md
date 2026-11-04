@@ -672,6 +672,52 @@ Bullish sectors +76 / +21 / −22 bp; ↑ catalysts +321 / +56 / +168 bp; ↓ ca
 python scripts/run_lean.py && python scripts/run_regime.py && python scripts/run_pairs.py
 ```
 
+## 16. Extended to Sep 2024 → Nov 2026 (569 reports, 26 months)
+
+Seven more months at the front (Sep 2024 – Mar 2025, 151 reports, same "Company / TICKER"
+format; sector stances, catalysts and the macro subtitle extract cleanly on 444 of 453
+checks). Prices refetched from July 2024 (daily only). The new slice is the post-election
+run-up and the Jan–Mar 2025 top: SPY −0.2% over Sep 2024 – Mar 2025; the vote read it as
+easing/neutral with a single tightening day.
+
+| config | total | vol | Sharpe | max DD | beta | trades | Sep24–Mar25 | Apr–Jul25 | Aug–Nov25 | Dec–May26 | Jun–Oct26 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| **LEAN regime book** | **+14.4%** | 5.7% | 1.13 | −4.9% | 0.00 | 292 | +0.3% | +0.5% | +0.6% | +4.9% | +7.6% |
+| lean, no regime (all legs always) | −1.4% | 5.8% | −0.08 | −7.7% | −0.10 | 508 | −0.4% | −1.9% | −2.2% | +7.5% | −4.0% |
+| lean, momentum legs always | +1.8% | 6.0% | 0.17 | −6.4% | | 479 | −4.7% | +3.9% | −1.4% | +3.2% | +1.0% |
+| lean, tightening legs always | −6.6% | 5.2% | −0.59 | −10.6% | | 425 | −4.9% | −3.7% | +1.4% | −1.4% | +1.9% |
+| lean, regime inverted (control) | −4.5% | 4.7% | −0.43 | −7.6% | | 261 | −3.3% | −1.3% | −0.5% | −0.4% | +1.2% |
+| lean, vote window 5 / 20 | +15.1% / +15.3% | | 1.17 / 1.19 | −6.3% / −5.9% | | | −2.6% / −2.6% | −0.3% / +3.8% | −2.6% / 0.0% | +8.3% / +6.2% | +12.4% / +7.4% |
+| lean, no stops | +14.3% | 5.5% | 1.14 | −8.3% | | 248 | +6.1% | −2.0% | −0.9% | +0.5% | +10.4% |
+| lean, #1 fade only in tightening (no ↓ catalysts) | +8.4% | 5.0% | 0.77 | −3.6% | | 238 | 0.0% | +1.0% | +0.6% | +5.2% | +1.4% |
+| REG_text (section 12 legs incl. #1 long) | +3.1% | 6.0% | 0.27 | −7.5% | | 361 | −0.3% | −1.3% | −1.0% | −1.6% | +7.5% |
+| PAIR_base | +9.6% | 8.8% | 0.53 | −10.6% | | 159 | −5.4% | −1.1% | −1.4% | +2.9% | +15.4% |
+| pairs: sector spread + ↓-catalyst pair only | +12.7% | 7.8% | 0.74 | −5.5% | | 108 | −1.4% | +2.1% | +0.3% | −0.6% | +12.2% |
+| SPY | +38% | | | | | | −0.2% | +13.4% | +9.1% | +11.4% | +1.0% |
+
+Lean-book attribution over 26 months: ↑ catalysts in easing +5.7% (69 trades, +53 bp,
+39% hit, 32 stops), ↓ catalysts in tightening +5.1% (61 trades, +130 bp), Bullish sectors
++0.3% (118 trades, −6 bp), #1-theme shorts −0.9% (44 trades). Three daily-loss halts fired
+(all in the new slice). Signal level by vote over the whole history: #1 theme −173 bp in
+MOMENTUM, Bullish sectors +65 bp, ↑ catalysts +293 bp, ↓ catalysts −276 bp.
+
+**Honest reading, 26 months in.**
+- The lean book is positive in all five periods and the inverted control is negative again,
+  so the regime gate is back to looking informative; the un-gated book is −1.4%. But the
+  pre-2026 slices are each within ±1%: effectively all of the return comes from the one
+  full easing-to-tightening cycle of 2026. 26 months, one cycle.
+- The **catalyst legs are the strategy**: ↑ catalysts in easing and ↓ catalysts in tightening
+  are +10.8% of the +14.4%. The Bullish-sector leg is flat and the #1-theme short is negative
+  over the full history; both are now candidates for removal rather than features.
+- Stops are neutral on the full history (+14.3% without them) but cut the max drawdown from
+  8.3% to 4.9%. Keep them.
+- The 5 / 20 vote windows give the same total as 10, with different period shapes. The
+  regime read is not parameter-sensitive, and it has no yield level in it.
+
+```bash
+python scripts/run_lean.py && python scripts/lean_vs_spy_chart.py
+```
+
 ## 7. What to do with this (summary)
 
 1. The briefing is a clean daily crowding signal available at 13:17 ET; trade it for the next
@@ -696,15 +742,18 @@ python scripts/run_lean.py && python scripts/run_regime.py && python scripts/run
    #1 theme, Bullish sectors and ↑ catalysts. Tightening vote: short the #1 theme and a newly
    promoted #2, go long the author's ↓ catalysts. +18.5%, Sharpe 2.6, max DD 4.3%, beta −0.1,
    both halves positive. Section 12.
-9. **Extended to Apr 2025 (19 months)**: lean book +11.3%, Sharpe 1.2, DD −4.9%, beta 0, flat in
+9. **Extended to Sep 2024 (26 months, one full cycle)**: lean book +14.4%, Sharpe 1.1, DD −4.9%,
+   positive in all five periods, un-gated −1.4%, inverted −4.5%; the catalyst legs are the
+   strategy, sectors and #1 shorts add nothing. Section 16.
+10. **Extended to Apr 2025 (19 months)**: lean book +11.3%, Sharpe 1.2, DD −4.9%, beta 0, flat in
    the new slice; the un-gated versions are negative; the inverted control is now slightly
    positive, so the edge is mainly "don't run tightening legs in easing". Section 15.
-10. **Extended to Aug 2025**: the #1-theme momentum leg died out of sample (−50 bp in easing
+11. **Extended to Aug 2025**: the #1-theme momentum leg died out of sample (−50 bp in easing
    over 15 months); the sector / ↑-catalyst momentum and the tightening fades held. Use the
    lean regime book (no #1 long). Pairs are fragile. Section 14.
-11. **As pairs**: tightening → short #1 vs the persisting #3/#4 or the ↓ catalysts; easing → long #1,
+12. **As pairs**: tightening → short #1 vs the persisting #3/#4 or the ↓ catalysts; easing → long #1,
    Bullish sectors, ↑ catalysts vs the Bearish sectors. +15.5%, beta −0.1, noisier than the
    SPY-hedged version. Section 13.
-12. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
+13. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
    this archive. The weekly trade is the fade (short #1 / long SPY, or long #2), with the same
    small-sample caveat (11 independent weeks).
