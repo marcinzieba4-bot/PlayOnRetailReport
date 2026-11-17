@@ -1,0 +1,80 @@
+{
+ "strategy": "lean_regime_vote",
+ "version": "1.0",
+ "report_date": "2026-11-17",
+ "mode": "FADE",
+ "votes_rate_dir": [
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1
+ ],
+ "macro_subtitle": "\u2191 hiking cycle",
+ "sectors": {
+  "XLK": -1,
+  "XLC": 0,
+  "XLF": 0,
+  "XLE": -1,
+  "XLI": 0,
+  "XLY": -1,
+  "XLP": 0,
+  "XLV": 1,
+  "XLB": -1,
+  "XLRE": -1,
+  "XLU": 0,
+  "SOXX": -1
+ },
+ "catalysts": [
+  [
+   "NVDA",
+   -1
+  ],
+  [
+   "SCHW",
+   -1
+  ],
+  [
+   "IREN",
+   -1
+  ],
+  [
+   "DB",
+   -1
+  ],
+  [
+   "SLS",
+   1
+  ]
+ ],
+ "retail_top": [
+  "Cash & Short-Duration Treasuries / \"Buying the Crash\" Dip Lists",
+  "Small-Caps vs. Big Tech Rotation",
+  "Gold as Crisis Hedge (Dip-Buy After Pullback)",
+  "Bitcoin Capitulation / \"Generational Buy\" Debate"
+ ],
+ "orders": [
+  {
+   "leg": "FADE_CATDOWN",
+   "symbol": "NVDA",
+   "skipped": "ATR 0.07255302611343538"
+  },
+  {
+   "leg": "FADE_CATDOWN",
+   "symbol": "SCHW",
+   "side": "BUY",
+   "qty": 78,
+   "notional": 7253,
+   "ref_close": 91.83000183105469,
+   "atr10": 0.0276,
+   "stop_pct": 0.0551,
+   "exit_after_sessions": 20
+  }
+ ],
+ "spy_hedge_notional": -7253
+}

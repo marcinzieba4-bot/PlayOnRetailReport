@@ -1,4 +1,10 @@
-# Retail Gap Fade — an intraday strategy built on the ZembiHF "What Retail Is Playing" section
+# PlayOnRetailReport — strategies built on the ZembiHF daily briefing
+
+> **Current strategy: Lean Regime Vote (v1.0)** — spec in `docs/LEAN_REGIME_VOTE.md`, code in
+> `retailplay/lean_regime_vote.py`, CLI `python scripts/lean_regime_vote.py backtest|plan|controls`.
+> Sections 1–11 below are the research path that led to it (mostly negative results, kept for
+> the record); sections 12–17 are the strategy and its out-of-sample extensions.
+
 
 A very short-term (intraday, flat by the close) strategy that trades the **next US cash
 session** using only the **previous day's** ZembiHF Market Intelligence Briefing
@@ -149,6 +155,9 @@ retailplay/book.py      multi-leg hedged book (S1 fade, LP persisting long, DR d
 retailplay/context.py   sector stances, macro stance, catalysts, regime (rates / liquidity / 10Y / VIX) from report text
 retailplay/regime_book.py regime-gated narrative momentum book
 retailplay/pair_book.py regime-switched long/short pairs from the same report
+retailplay/lean_regime_vote.py  THE strategy, frozen parameters + backtest() + orders()
+scripts/lean_regime_vote.py     CLI: backtest | plan | controls
+docs/LEAN_REGIME_VOTE.md        strategy specification
 scripts/run_backtest.py all variants -> results/*.json, results/summary.json
 scripts/run_weekly.py   weekly fade variants, all rolling phases -> results/weekly_summary.json
 scripts/run_book.py     book leg combinations -> results/book_summary.json
