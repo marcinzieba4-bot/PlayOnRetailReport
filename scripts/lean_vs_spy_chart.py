@@ -3,6 +3,7 @@ import datetime as dt, json, os, sys, math, statistics as st
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from retailplay import reports, prices, regime_book
 from retailplay.regime_book import RegimeParams
+from retailplay.book import risk_report
 
 def main(out="results/lean_vs_spy.html"):
     secs = reports.load_sections(); S = {dt.date.fromisoformat(s.date): s.plays for s in secs}
@@ -12,6 +13,32 @@ def main(out="results/lean_vs_spy.html"):
     LEAN = dict(mom_theme=False, fade_new2=False, fade_long34=False)
     runs = {"lean k5": RegimeParams(**LEAN, regime_k=5), "lean k10": RegimeParams(**LEAN), "lean k20": RegimeParams(**LEAN, regime_k=20), "k10 unhedged": RegimeParams(**LEAN, hedge=False)}
     res = {k: regime_book.run(S, T, start, end, p) for k, p in runs.items()}
+    for k, r in res.items():
+        json.dump(r, open(f"results/lean_{k.replace(' ', '_')}.json", "w"), indent=1, default=str)
+    RR = {k: risk_report(r, spy) for k, r in res.items()}
+    PER = [("2023-11-01", "2024-09-01", "Nov23–Aug24"), ("2024-09-01", "2025-04-01", "Sep24–Mar25"), ("2025-04-01", "2025-08-01", "Apr–Jul25"), ("2025-08-01", "2025-12-01", "Aug–Nov25"), ("2025-12-01", "2026-06-01", "Dec–May26"), ("2026-06-01", "2026-12-01", "Jun–Nov26")]
+    def per(r, a, b):
+        x = [(d[1] + d[2]) / (d[3] - d[1] - d[2]) for d in r["daily"] if a <= d[0] < b]
+        return math.prod(1 + v for v in x) - 1 if x else float("nan")
+    RISK_ROWS = [("total return", "total_return", "pct"), ("annualised return", "ann_return", "pct"), ("annualised vol", "ann_vol", "pct"), ("Sharpe", "sharpe", "num"), ("Sortino", "sortino", "num"),
+                 ("Calmar", "calmar", "num"), ("max drawdown", "max_drawdown", "pct"), ("longest drawdown (days)", "longest_dd_days", "int"), ("worst day", "worst_day", "pct"), ("best day", "best_day", "pct"),
+                 ("worst week", "worst_week", "pct"), ("best week", "best_week", "pct"), ("weekly hit rate", "weekly_hit", "pct"), ("daily VaR 95", "var95_daily", "pct"), ("daily VaR 99", "var99_daily", "pct"),
+                 ("daily CVaR 95", "cvar95_daily", "pct"), ("skew", "skew", "num"), ("beta to SPY", "beta_spy", "num"), ("correlation to SPY", "corr_spy", "num"), ("avg gross", "avg_gross", "pct"), ("max gross", "max_gross", "pct"),
+                 ("avg net (before hedge)", "avg_net", "pct"), ("avg positions", "avg_positions", "num"), ("days in market", "pct_days_in_market", "pct"), ("trades", "trades", "int"), ("stops", "stops", "int"), ("daily halts", "halts", "int"), ("hedge P&L (% equity)", "hedge_pnl_pct", "pct")]
+    def fv(v, kind):
+        if v is None or (isinstance(v, float) and math.isnan(v)): return "–"
+        return f"{v:+.2%}" if kind == "pct" else f"{v:.2f}" if kind == "num" else f"{v}"
+    rk = ["lean k10", "lean k5", "lean k20", "k10 unhedged"]
+    risk_html = "<table><thead><tr><th>metric</th>" + "".join(f'<th class="num">{k}</th>' for k in rk) + "</tr></thead><tbody>"
+    for lbl, key, kind in RISK_ROWS:
+        risk_html += f"<tr><td>{lbl}</td>" + "".join(f'<td class="num">{fv(RR[k].get(key), kind)}</td>' for k in rk) + "</tr>"
+    for a, b, l in PER:
+        risk_html += f"<tr><td>{l}</td>" + "".join(f'<td class="num {"up" if per(res[k],a,b)>=0 else "dn"}">{per(res[k],a,b):+.1%}</td>' for k in rk) + "</tr>"
+    risk_html += "</tbody></table>"
+    legs_html = "<table><thead><tr><th>leg</th>" + "".join(f'<th class="num">{k}</th>' for k in rk) + "</tr></thead><tbody>"
+    for leg in ("MOM_SECTOR", "MOM_CAT", "FADE_THEME", "FADE_CATDOWN"):
+        legs_html += f"<tr><td>{leg}</td>" + "".join((lambda v: f'<td class="num">{v["n"]} tr / {v["avg_bp"]:+.0f} bp / {v["pnl_pct_of_equity0"]:+.1%}</td>' if v else '<td class="num">–</td>')(RR[k].get(f"leg_{leg}")) for k in rk) + "</tr>"
+    legs_html += "</tbody></table>"
     dates = [d[0] for d in res["lean k10"]["daily"]]
     eq = {k: [d[3] for d in r["daily"]] for k, r in res.items()}
     d0 = dt.date.fromisoformat(dates[0]); td = sorted(spy); prev = td[td.index(d0) - 1]
@@ -105,6 +132,8 @@ table{{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums
 <div class="card"><h2>Drawdown from peak</h2>{svg2}</div>
 <div class="card"><h2>Daily P&amp;L and the hedge leg</h2>{svg3}</div>
 <div class="card"><h2>Summary</h2><table><thead><tr><th>series</th><th class="num">total</th><th class="num">ann. vol</th><th class="num">Sharpe</th><th class="num">max DD</th></tr></thead><tbody>{rows}</tbody></table>
+<h2 style="margin-top:14px">Full risk statistics</h2>{risk_html}
+<h2 style="margin-top:14px">Leg attribution (trades / avg per trade / P&amp;L as % of starting equity)</h2>{legs_html}
 <h2 style="margin-top:14px">SPY drawdown episodes and the book over the same days</h2><table><thead><tr><th>SPY peak → trough</th><th class="num">SPY</th>{"".join(f'<th class="num">{k}</th>' for k in series[:4])}</tr></thead><tbody>{ep_rows}</tbody></table></div>
 </div></body></html>'''
     open(out, "w").write(page); print("wrote", out)
