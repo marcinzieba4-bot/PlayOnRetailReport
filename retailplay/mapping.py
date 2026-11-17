@@ -8,6 +8,7 @@ Rules are ordered: first match wins.
 import re
 # (regex on play name, ticker, direction) direction: +1 long, -1 short (retail is short / bearish)
 RULES=[
+ (r'coca-cola|\bko\b','KO',1),(r'\bford\b|/ f\b','F',1),(r'novo nordisk|\bnvo\b','NVO',1),(r'long-treasury|long treasur','TLT',1),
  (r'platinum|pl=f|pplt','PPLT',1),(r'palladium|pall','PALL',1),
  (r'\bether\b|\beth\b|ethereum','ETHA',1),(r'bloom energy|\bbe\b','BE',1),(r'dogecoin|\bdoge\b','IBIT',1),
  (r'short gold|long dust','GLD',-1),
@@ -55,7 +56,7 @@ EXTRA=[
  (r'nextdoor|nxdr','NXDR',1),(r'ai capacity|data center|infrastructure','SMH',1),(r'burry','QQQ',-1),(r'bitcoin distribution','IBIT',1),
  (r'options|watch lists|index-inclusion|powell|no ticker|\.hk|cogn3|infosys|infy|moore threads|ashr|usd1|pop mart|ev turnaround|dogecoin|raspberry','SKIP',0),
 ]
-TICKER_RX=re.compile(r'(?:^|[\s/,(])\$?([A-Z]{2,5})(?=$|[\s,)/])')
+TICKER_RX=re.compile(r'(?:^|[\s/,(])\$?([A-Z]{2,5})(?=$|[\s,)/—-])')
 _NOT={'AI','US','ETF','ETFS','IPO','CEO','SEC','FED','GDP','CPI','PCE','FOMC','THE','AND','OR','VS','HBM','SMR','EM','UK','EU','GC','XAU','WTI','OPEC','BOJ','ECB','DCF','NAV','TV'}
 def map_play(name):
     n=name.lower()

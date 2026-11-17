@@ -54,7 +54,7 @@ def catalysts(text: str) -> list[tuple[str, int]]:
     # the block for each catalyst starts with '## ' then '$TICKER' (older/newer formats) or '## $TICKER — Name — ↑ watch'
     for part in re.split(r"\n## ?", sec):
         head = part.strip()[:200]
-        t = re.search(r"\$([A-Z]{1,5})(?:\.[A-Z]{1,2})?\b", head)
+        t = re.search(r"\$([A-Z]{1,5})(?:\.[A-Z]{1,2})?\b", head) or re.search(r" / ([A-Z]{1,5})(?:\.[A-Z]{1,2})?\s*(?:—|-|$|\n)", head)
         if not t or t.group(1) in CRYPTO_TICKERS:
             continue
         arrow = re.search(r"[↑↓]", head[:200])

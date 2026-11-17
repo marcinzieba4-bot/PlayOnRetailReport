@@ -52,6 +52,9 @@ def html_to_text(s: str) -> str:
     t = re.sub(r"<script.*?</script>", "", s, flags=re.S)
     t = re.sub(r"<style.*?</style>", "", t, flags=re.S)
     t = re.sub(r"<(h[1-4])[^>]*>", r"\n\n## ", t)
+    # verbatim-token spans wrap single hyphenated words inside sentences and must not break them onto their own lines;
+    # every other inline tag (stance spans, part labels) is a deliberate line break and stays one
+    t = re.sub(r'<span class="verbatim-token"[^>]*>(.*?)</span>', r"\1", t, flags=re.S)
     t = re.sub(r"<[^>]+>", "\n", t)
     t = html_mod.unescape(t)
     t = re.sub(r"[ \t]+", " ", t)
@@ -102,7 +105,7 @@ def parse_retail_section(text: str, date: dt.date) -> RetailSection:
         body = "\n".join(lines[2:])
         p = Play(rank=len(out.plays) + 1, name=name, tagline=tag)
         for k, label in _FIELD.items():
-            mm = re.search(label + r":\n ?(.*?)(?=\n[A-Z][^\n]{3,40}:\n|\Z)", body, flags=re.S)
+            mm = re.search(label + r":\n ?(.*?)(?=\n[A-Z][^\n]{3,40}:\n|\Z)", body, flags=re.S | re.I)
             if mm:
                 setattr(p, k, mm.group(1).strip())
         out.plays.append(p)
