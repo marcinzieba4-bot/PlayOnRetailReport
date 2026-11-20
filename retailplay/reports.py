@@ -30,10 +30,16 @@ def _curl(url: str) -> str:
     return r.stdout
 
 
-def list_archive_dates() -> list[dt.date]:
+def list_archive_dates(cache_dir: str = "data/reports") -> list[dt.date]:
+    """Dates in the archive index, plus any report already cached locally (the index has at times
+    omitted the newest months; a cached file was a valid report when it was fetched)."""
     idx = _curl(f"{BASE}/index.html")
-    dates = re.findall(r'href="archive/(\d{4}-\d{2}-\d{2})\.html"', idx)
-    return sorted({dt.date.fromisoformat(d) for d in dates})
+    dates = {dt.date.fromisoformat(d) for d in re.findall(r'href="archive/(\d{4}-\d{2}-\d{2})\.html"', idx)}
+    if os.path.isdir(cache_dir):
+        for f in os.listdir(cache_dir):
+            if re.fullmatch(r"\d{4}-\d{2}-\d{2}\.html", f):
+                dates.add(dt.date.fromisoformat(f[:10]))
+    return sorted(dates)
 
 
 def fetch_report_html(d: dt.date, cache_dir: str = "data/reports") -> str:
@@ -99,8 +105,9 @@ def parse_retail_section(text: str, date: dt.date) -> RetailSection:
             continue
         lines = part.split("\n")
         name = lines[0].strip()
-        if re.fullmatch(r"\[\d+\]", name) or name.lower().startswith("powered by"):
-            continue  # footnote / footer markers, not plays
+        if (re.fullmatch(r"\[\d+\]", name) or name.lower().startswith("powered by") or re.fullmatch(r"[\$€£]?\s?[\d.,]+%?", name)
+                or name.startswith("(") or re.match(r"^[\$€£]\s?[\d.,]+\s*(million|billion|trillion|bn|m)\b", name, flags=re.I)):
+            continue  # footnote / footer / stray price or citation markers, not plays
         tag = lines[1].strip().strip('"') if len(lines) > 1 else ""
         body = "\n".join(lines[2:])
         p = Play(rank=len(out.plays) + 1, name=name, tagline=tag)

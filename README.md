@@ -2,8 +2,9 @@
 
 > **Current strategy: Lean Regime Vote (v1.0)** — spec in `docs/LEAN_REGIME_VOTE.md`, code in
 > `retailplay/lean_regime_vote.py`, CLI `python scripts/lean_regime_vote.py backtest|plan|controls`.
-> Sections 1–11 below are the research path that led to it (mostly negative results, kept for
-> the record); sections 12–17 are the strategy and its out-of-sample extensions.
+> **Status after the five-year test (section 18): not deployable.** +6.2% over 2022–2026, Sharpe
+> 0.37, max DD −10.6%; all of the gain is 2026. Sections 1–11 are the research path (mostly
+> negative results); 12–17 the strategy and its extensions; 18 the five-year verdict.
 
 
 A very short-term (intraday, flat by the close) strategy that trades the **next US cash
@@ -783,6 +784,57 @@ Lean-book attribution over three years: ↑ catalysts in easing +9.5% (78 trades
 python scripts/run_lean.py && python scripts/lean_vs_spy_chart.py
 ```
 
+## 18. Extended to Jan 2022 → Nov 2026 (1,171 reports, five years) — the verdict
+
+The archive now starts in January 2022. Months without reports (Jul–Oct 2023, May 2024) are
+treated as no new trades (open positions still run to their exits). The archive index page caps
+at 1,045 entries and had dropped Jun–Nov 2026, so `list_archive_dates()` now unions the index
+with the local cache. Two more phantom-header fixes for the 2022–23 format (citation lines,
+dollar-amount lines) and mappings for Volkswagen, Visa, Expedia, Shopify, WTI futures.
+
+| config | total | ann. | vol | Sharpe | max DD | beta | trades | 2022 | 2023 | 2024 | 2025 | 2026 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **LEAN regime vote (frozen v1.0)** | **+6.2%** | +1.3% | 3.5% | 0.37 | −10.6% | −0.02 | 405 | **−6.1%** | −2.5% | +1.4% | −0.4% | +14.8% |
+| without the #1 short | +6.9% | +1.4% | 3.4% | 0.42 | −8.1% | 0.00 | 320 | −2.4% | −3.9% | +2.5% | −2.2% | +13.7% |
+| no regime (all legs always) | −4.1% | | 4.1% | −0.19 | −11.5% | −0.07 | 1061 | −2.1% | −2.0% | −0.1% | −1.8% | +1.9% |
+| momentum legs always | +5.4% | | 4.2% | 0.28 | −9.5% | | 894 | −3.7% | −0.6% | +0.2% | +1.5% | +8.3% |
+| tightening legs always | −3.4% | | 3.5% | −0.19 | −12.4% | | 316 | +5.8% | −6.6% | −2.1% | (drawdown stop) | |
+| regime inverted (control) | −5.1% | | 3.1% | −0.33 | −8.3% | | 382 | −5.8% | +1.2% | −0.3% | −2.2% | +2.0% |
+| vote window 20 | +7.4% | | 3.6% | 0.43 | −8.7% | | 341 | −6.0% | −1.0% | −0.3% | +1.1% | +14.5% |
+| no stops | +2.0% | | 3.4% | 0.14 | −11.2% | | 350 | −6.7% | −2.4% | +2.3% | −2.7% | +12.7% |
+| no hedge | +1.4% | | 4.4% | 0.09 | −10.0% | +0.05 | 405 | −4.7% | −1.7% | +7.0% | −4.9% | +6.4% |
+| SPY | +42% | | | | | | | −19.7% | +23.7% | +24.1% | +15.7% | +0.6% |
+
+Attribution over five years: Bullish sectors +2.5% (136 trades), ↑ catalysts +2.5% (90),
+↓ catalysts +3.2% (84), #1-theme shorts −1.1% (95). 145 stops, no halts. Longest drawdown
+1,086 days (mid-2022 to mid-2025). Regime calendar: 2022 was a genuine tightening year (FADE
+vote May–Jul 2022, the only one before 2026), 2023 almost all NEUTRAL, 2024–25 NEUTRAL with
+easing pockets, 2026 the full easing-to-tightening cycle.
+
+**The verdict.** Over five years the strategy is **one good year**. 2026 contributed +14.8
+points of the +6.2% total; the four earlier years sum to −7.6%. The 2022 tightening regime,
+the first real out-of-sample test of the FADE legs, lost −6.1% (July 2022 alone −3.8k: the
+#1-theme shorts and ↓-catalyst longs were run over by the summer rally). The gate still beats
+the un-gated book and the inverted control, so the vote carries *some* information, but not
+enough to make money outside 2026. Sharpe 0.37, Calmar 0.12.
+
+What that means for the project:
+- **Lean Regime Vote v1.0 is not a deployable strategy on this evidence.** Its 2023–26
+  record (Sharpe 1.2) was a sample that happened to start at the bottom of a three-year
+  drawdown. The honest expectation from five years is roughly +1% a year at 3.5% vol.
+- The FADE legs are the broken part: short #1 is negative in every tightening regime except
+  2026, and the ↓-catalyst long lost in 2022–23. The MOMENTUM legs are weakly positive in
+  every year (+5.4% ungated), which is the only piece with any persistence.
+- Dropping the #1 short (the already-recommended variant) helps every year except 2026 and
+  halves the drawdown, but the total is still +6.9%.
+- The regime vote itself is sound as a *descriptor*: it called 2022's tightening, 2023's
+  limbo and 2026's cycle correctly from text alone. It is the trades hung on it that failed.
+
+```bash
+python scripts/lean_regime_vote.py backtest     # now runs Jan 2022 -> latest; results/lean_regime_vote*.json
+python scripts/lean_vs_spy_chart.py              # yearly periods
+```
+
 ## 7. What to do with this (summary)
 
 1. The briefing is a clean daily crowding signal available at 13:17 ET; trade it for the next
@@ -807,21 +859,23 @@ python scripts/run_lean.py && python scripts/lean_vs_spy_chart.py
    #1 theme, Bullish sectors and ↑ catalysts. Tightening vote: short the #1 theme and a newly
    promoted #2, go long the author's ↓ catalysts. +18.5%, Sharpe 2.6, max DD 4.3%, beta −0.1,
    both halves positive. Section 12.
-9. **Extended to Nov 2023 (three years)**: lean book +20.1%, Sharpe 1.2, DD −4.9%, beta 0; un-gated
+9. **Extended to Jan 2022 (five years): verdict negative.** +6.2% total, Sharpe 0.37, DD −10.6%;
+   2022 −6.1%, 2023 −2.5%, 2024 +1.4%, 2025 −0.4%, 2026 +14.8%. One good year. Section 18.
+10. **Extended to Nov 2023 (three years)**: lean book +20.1%, Sharpe 1.2, DD −4.9%, beta 0; un-gated
    −1.3%, inverted +1.5%; first losing slice (−3.5%) in the 2023–24 melt-up because the vote sat
    NEUTRAL; catalyst legs are +17 of the +20 points; drop the #1 short. Section 17.
-10. **Extended to Sep 2024 (26 months, one full cycle)**: lean book +14.4%, Sharpe 1.1, DD −4.9%,
+11. **Extended to Sep 2024 (26 months, one full cycle)**: lean book +14.4%, Sharpe 1.1, DD −4.9%,
    positive in all five periods, un-gated −1.4%, inverted −4.5%; the catalyst legs are the
    strategy, sectors and #1 shorts add nothing. Section 16.
-11. **Extended to Apr 2025 (19 months)**: lean book +11.3%, Sharpe 1.2, DD −4.9%, beta 0, flat in
+12. **Extended to Apr 2025 (19 months)**: lean book +11.3%, Sharpe 1.2, DD −4.9%, beta 0, flat in
    the new slice; the un-gated versions are negative; the inverted control is now slightly
    positive, so the edge is mainly "don't run tightening legs in easing". Section 15.
-12. **Extended to Aug 2025**: the #1-theme momentum leg died out of sample (−50 bp in easing
+13. **Extended to Aug 2025**: the #1-theme momentum leg died out of sample (−50 bp in easing
    over 15 months); the sector / ↑-catalyst momentum and the tightening fades held. Use the
    lean regime book (no #1 long). Pairs are fragile. Section 14.
-13. **As pairs**: tightening → short #1 vs the persisting #3/#4 or the ↓ catalysts; easing → long #1,
+14. **As pairs**: tightening → short #1 vs the persisting #3/#4 or the ↓ catalysts; easing → long #1,
    Bullish sectors, ↑ catalysts vs the Bearish sectors. +15.5%, beta −0.1, noisier than the
    SPY-hedged version. Section 13.
-14. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
+15. On a weekly horizon do **not** buy the #1 theme: it lags SPY by ~1.4% over the next week in
    this archive. The weekly trade is the fade (short #1 / long SPY, or long #2), with the same
    small-sample caveat (11 independent weeks).

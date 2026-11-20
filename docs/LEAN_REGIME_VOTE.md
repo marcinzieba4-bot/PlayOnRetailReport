@@ -50,6 +50,11 @@ Sortino 1.89, max DD -4.9%, beta 0.00, 329 trades, 115 stops, 3 halts. Un-gated 
 - Briefings: `https://zembihf.xyz/reports/archive/YYYY-MM-DD.html` (published ~13:17 ET), cached in `data/reports/` (git-ignored, re-downloaded on demand)
 - Prices: Yahoo Finance daily bars, cached in `data/prices/` (git-ignored)
 
+## Status
+
+**Not deployable on current evidence (2026-11-20).** Five-year backtest Jan 2022 → Nov 2026: +6.2% total, Sharpe 0.37, max DD −10.6%, beta −0.02; by year 2022 −6.1%, 2023 −2.5%, 2024 +1.4%, 2025 −0.4%, 2026 +14.8%. The 2023–26 record (Sharpe 1.2) was one favourable sample. See README section 18.
+
 ## Change log
 
 - 1.0 (2026-11-17): frozen after the Nov 2023 → Nov 2026 backtest (README sections 12–17).
+- 2026-11-20: archive extended to Jan 2022; the frozen strategy fails out of sample (README section 18). Parameters left unchanged so the record is reproducible.

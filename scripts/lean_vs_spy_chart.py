@@ -16,7 +16,8 @@ def main(out="results/lean_vs_spy.html"):
     for k, r in res.items():
         json.dump(r, open(f"results/lean_{k.replace(' ', '_')}.json", "w"), indent=1, default=str)
     RR = {k: risk_report(r, spy) for k, r in res.items()}
-    PER = [("2023-11-01", "2024-09-01", "Nov23–Aug24"), ("2024-09-01", "2025-04-01", "Sep24–Mar25"), ("2025-04-01", "2025-08-01", "Apr–Jul25"), ("2025-08-01", "2025-12-01", "Aug–Nov25"), ("2025-12-01", "2026-06-01", "Dec–May26"), ("2026-06-01", "2026-12-01", "Jun–Nov26")]
+    _dd = [d[0] for d in res["lean k10"]["daily"]]
+    PER = [(f"{y}-01-01", f"{y+1}-01-01", str(y)) for y in range(dt.date.fromisoformat(_dd[0]).year, dt.date.fromisoformat(_dd[-1]).year + 1)]
     def per(r, a, b):
         x = [(d[1] + d[2]) / (d[3] - d[1] - d[2]) for d in r["daily"] if a <= d[0] < b]
         return math.prod(1 + v for v in x) - 1 if x else float("nan")
@@ -72,7 +73,7 @@ def main(out="results/lean_vs_spy.html"):
         o = []
         for i, d in enumerate(dates):
             dd_ = dt.date.fromisoformat(d)
-            if i == 0 or (dt.date.fromisoformat(dates[i-1]).month != dd_.month and dd_.month in (1, 4, 7, 10)):
+            if i == 0 or (dt.date.fromisoformat(dates[i-1]).month != dd_.month and dd_.month in ((1, 7) if n > 600 else (1, 4, 7, 10))):
                 o.append(f'<text x="{x(i):.1f}" y="{top+h+18}" class="ax" text-anchor="middle">{dd_.strftime("%b %y")}</text>')
         return "".join(o)
     def shade(top, h):

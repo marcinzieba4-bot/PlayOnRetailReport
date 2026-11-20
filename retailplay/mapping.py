@@ -8,6 +8,7 @@ Rules are ordered: first match wins.
 import re
 # (regex on play name, ticker, direction) direction: +1 long, -1 short (retail is short / bearish)
 RULES=[
+ (r'volkswagen|vow3','VWAGY',1),(r'\bvisa\b|/ v\b','V',1),(r'expedia','EXPE',1),(r'shopify','SHOP',1),(r'west texas|cl=f|crude futures','USO',1),(r'ttf=f|dutch gas|dutch natural gas|zw=f|wheat|terrausd|luna','SKIP',0),
  (r'coca-cola|\bko\b','KO',1),(r'\bford\b|/ f\b','F',1),(r'novo nordisk|\bnvo\b','NVO',1),(r'long-treasury|long treasur','TLT',1),
  (r'platinum|pl=f|pplt','PPLT',1),(r'palladium|pall','PALL',1),
  (r'\bether\b|\beth\b|ethereum','ETHA',1),(r'bloom energy|\bbe\b','BE',1),(r'dogecoin|\bdoge\b','IBIT',1),
@@ -63,7 +64,7 @@ def map_play(name):
     if (n.startswith('"') and n.rstrip().endswith('"')) or (n.startswith('\u201c') and n.rstrip().endswith('\u201d')):
         return None,0   # a whole-line quoted tagline parsed as a name: no theme
     for rx,t,d in RULES:
-        if re.search(rx,n): return t,d
+        if re.search(rx,n): return (None,0) if t=='SKIP' else (t,d)
     for rx,t,d in EXTRA:
         if re.search(rx,n): return (None,0) if t=='SKIP' else (t,d)
     # "Company / TICKER" or "$TICKER" in the name
