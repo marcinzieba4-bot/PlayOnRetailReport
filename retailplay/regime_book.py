@@ -31,6 +31,7 @@ from .book import risk_report  # same daily-series statistics
 
 @dataclasses.dataclass(frozen=True)
 class RegimeParams:
+    neutral_as: str = ""          # '' = NEUTRAL trades nothing; 'MOMENTUM' = run the momentum legs in NEUTRAL too
     force_mode: str = ""           # '' = use the regime vote; 'MOMENTUM' | 'FADE' | 'BOTH' | 'INVERT' ignore / flip it (controls)
     regime_method: str = "text"   # 'text' (no yield level: smoothed rate-direction + liquidity words) | 'composite' | 'ytrend' | 'yrank' | 'fixed'
     regime_k: int = 10            # reports in the smoothing window
@@ -116,6 +117,8 @@ def run(sections: dict[dt.date, list], texts: dict[dt.date, str], start: dt.date
         if not plays:
             return [], "NONE", None
         mode = MODE[R]
+        if p.neutral_as and mode == "NEUTRAL":
+            mode = p.neutral_as
         if p.force_mode == "INVERT":
             mode = {"MOMENTUM": "FADE", "FADE": "MOMENTUM"}.get(mode, mode)
         elif p.force_mode:
